@@ -5,7 +5,7 @@ Models cho các bảng dữ liệu trong hệ thống.
 Các lớp này định nghĩa cấu trúc dữ liệu cho SQLAlchemy ORM.
 """
 
-from sqlalchemy import Column, Integer, String, ForeignKey, Float, DateTime, Boolean, Text, Numeric, UniqueConstraint, CheckConstraint
+from sqlalchemy import Column, Integer, String, ForeignKey, Float, DateTime, Boolean, Text, Numeric, UniqueConstraint, CheckConstraint, ForeignKeyConstraint
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from sqlalchemy.dialects.postgresql import JSONB, TSRANGE
@@ -81,15 +81,21 @@ class SensorData(Base):
     """
     __tablename__ = "sensor_data"
     id = Column(Integer, primary_key=True, index=True)
-    device_id = Column(String, ForeignKey("devices.device_id"), index=True)
-    feed_id = Column(String, ForeignKey("feeds.feed_id"), index=True)
+    device_id = Column(String, index=True, nullable=False)
+    feed_id = Column(String, index=True, nullable=False)
     value = Column(Float)
     timestamp = Column(DateTime, default=datetime.datetime.utcnow, index=True)
     # Relationships
     device = relationship("Device", back_populates="sensor_data")
     feed = relationship("Feed", back_populates="sensor_data")
     __table_args__ = (
-        UniqueConstraint('device_id', 'feed_id', name='uix_device_feed'),
+        UniqueConstraint('device_id', 'feed_id', name='uix_device_feed_sensor_data'),
+        ForeignKeyConstraint(
+            ['device_id', 'feed_id'],
+            ['feeds.device_id', 'feeds.feed_id'],
+            ondelete='CASCADE',
+            name='sensor_data_device_feed_fkey'
+        ),
     )
     def __repr__(self):
         return f"<SensorData(id={self.id}, device_id='{self.device_id}', feed_id='{self.feed_id}', value={self.value})>"
@@ -140,17 +146,12 @@ class Feed(Base):
     """
     __tablename__ = "feeds"
     
-    id = Column(Integer, primary_key=True, index=True)
-    feed_id = Column(String, index=True)
-    device_id = Column(String, ForeignKey("devices.device_id"), index=True)
+    feed_id = Column(String, primary_key=True, index=True)
+    device_id = Column(String, ForeignKey("devices.device_id"), primary_key=True, index=True)
     
     # Relationships
     device = relationship("Device", back_populates="feeds")
     sensor_data = relationship("SensorData", back_populates="feed", cascade="all, delete-orphan")
     
-    __table_args__ = (
-        UniqueConstraint('device_id', 'feed_id', name='uix_device_feed'),
-    )
-    
     def __repr__(self):
-        return f"<Feed(id={self.id}, feed_id='{self.feed_id}', device_id='{self.device_id}')>"
+        return f"<Feed(feed_id='{self.feed_id}', device_id='{self.device_id}')>"
