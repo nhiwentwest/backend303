@@ -1,0 +1,1444 @@
+2025-04-11 23:06:04,738 - INFO - Generating data for device_id: newnew
+2025-04-11 23:06:04,738 - INFO - Sử dụng thời gian hiện tại: 2025-04-11 23:05:00
+2025-04-11 23:06:04,738 - INFO - Điều chỉnh thời gian bắt đầu về thứ Hai: 2025-04-07
+2025-04-11 23:06:04,738 - INFO - Bắt đầu tạo dữ liệu từ: 2025-04-07 23:05:00 (Mùa Xuân)
+2025-04-11 23:06:04,738 - INFO - Đang tạo dữ liệu cho: 2025-04-07 23:05:00 (Thứ Hai), device_id: newnew
+2025-04-11 23:06:04,739 - INFO - Đang tạo dữ liệu cho: 2025-04-08 23:05:00 (Thứ Ba), device_id: newnew
+2025-04-11 23:06:04,740 - INFO - Đang tạo dữ liệu cho: 2025-04-09 23:05:00 (Thứ Tư), device_id: newnew
+2025-04-11 23:06:04,741 - INFO - Đang tạo dữ liệu cho: 2025-04-10 23:05:00 (Thứ Năm), device_id: newnew
+2025-04-11 23:06:04,742 - INFO - Đang tạo dữ liệu cho: 2025-04-11 23:05:00 (Thứ Sáu), device_id: newnew
+2025-04-11 23:06:04,743 - INFO - Đang tạo dữ liệu cho: 2025-04-12 23:05:00 (Thứ Bảy), device_id: newnew
+2025-04-11 23:06:04,744 - INFO - Đang tạo dữ liệu cho: 2025-04-13 23:05:00 (Chủ Nhật), device_id: newnew
+2025-04-11 23:06:04,745 - INFO - Đang tạo dữ liệu cho: 2025-04-14 23:05:00 (Thứ Hai), device_id: newnew
+2025-04-11 23:06:04,746 - INFO - Đang tạo dữ liệu cho: 2025-04-15 23:05:00 (Thứ Ba), device_id: newnew
+2025-04-11 23:06:04,748 - INFO - Đang tạo dữ liệu cho: 2025-04-16 23:05:00 (Thứ Tư), device_id: newnew
+2025-04-11 23:06:04,751 - INFO - Đang tạo dữ liệu cho: 2025-04-17 23:05:00 (Thứ Năm), device_id: newnew
+2025-04-11 23:06:04,753 - INFO - Đang tạo dữ liệu cho: 2025-04-18 23:05:00 (Thứ Sáu), device_id: newnew
+2025-04-11 23:06:04,754 - INFO - Đang tạo dữ liệu cho: 2025-04-19 23:05:00 (Thứ Bảy), device_id: newnew
+2025-04-11 23:06:04,756 - INFO - Đang tạo dữ liệu cho: 2025-04-20 23:05:00 (Chủ Nhật), device_id: newnew
+2025-04-11 23:06:04,757 - INFO - Đang tạo dữ liệu cho: 2025-04-21 23:05:00 (Thứ Hai), device_id: newnew
+2025-04-11 23:06:04,758 - INFO - Đang tạo dữ liệu cho: 2025-04-22 23:05:00 (Thứ Ba), device_id: newnew
+2025-04-11 23:06:04,759 - INFO - Đang tạo dữ liệu cho: 2025-04-23 23:05:00 (Thứ Tư), device_id: newnew
+2025-04-11 23:06:04,761 - INFO - Đang tạo dữ liệu cho: 2025-04-24 23:05:00 (Thứ Năm), device_id: newnew
+2025-04-11 23:06:04,762 - INFO - Đang tạo dữ liệu cho: 2025-04-25 23:05:00 (Thứ Sáu), device_id: newnew
+2025-04-11 23:06:04,764 - INFO - Đang tạo dữ liệu cho: 2025-04-26 23:05:00 (Thứ Bảy), device_id: newnew
+2025-04-11 23:06:04,765 - INFO - Đang tạo dữ liệu cho: 2025-04-27 23:05:00 (Chủ Nhật), device_id: newnew
+2025-04-11 23:06:04,766 - INFO - Đang tạo dữ liệu cho: 2025-04-28 23:05:00 (Thứ Hai), device_id: newnew
+2025-04-11 23:06:04,767 - INFO - Đang tạo dữ liệu cho: 2025-04-29 23:05:00 (Thứ Ba), device_id: newnew
+2025-04-11 23:06:04,768 - INFO - Đang tạo dữ liệu cho: 2025-04-30 23:05:00 (Thứ Tư), device_id: newnew
+2025-04-11 23:06:04,769 - INFO - Đang tạo dữ liệu cho: 2025-05-01 23:05:00 (Thứ Năm), device_id: newnew
+2025-04-11 23:06:04,771 - INFO - Đang tạo dữ liệu cho: 2025-05-02 23:05:00 (Thứ Sáu), device_id: newnew
+2025-04-11 23:06:04,772 - INFO - Đang tạo dữ liệu cho: 2025-05-03 23:05:00 (Thứ Bảy), device_id: newnew
+2025-04-11 23:06:04,773 - INFO - Đang tạo dữ liệu cho: 2025-05-04 23:05:00 (Chủ Nhật), device_id: newnew
+2025-04-11 23:06:04,784 - INFO - Đang tạo dữ liệu cho: 2025-05-05 23:05:00 (Thứ Hai), device_id: newnew
+2025-04-11 23:06:04,785 - INFO - Đang tạo dữ liệu cho: 2025-05-06 23:05:00 (Thứ Ba), device_id: newnew
+2025-04-11 23:06:04,787 - INFO - Đã tạo xong 8640 điểm dữ liệu trong 30 ngày cho device_id: newnew
+2025-04-11 23:06:04,787 - INFO - Thống kê chi tiết:
+2025-04-11 23:06:04,787 - INFO - - Mùa: Xuân
+2025-04-11 23:06:04,787 - INFO - - Ngày thường: 6336 điểm, TB: 217.39W, Max: 1400.06W
+2025-04-11 23:06:04,787 - INFO - - Cuối tuần: 2304 điểm, TB: 682.67W, Max: 2624.65W
+2025-04-11 23:06:04,787 - INFO - - Chênh lệch ngày thường/cuối tuần: 214.03%
+2025-04-11 23:06:04,966 - INFO - Đã kết nối thành công đến database: postgresql://postgres:1234@localhost:5444/iot_db
+2025-04-11 23:06:04,978 - INFO - Thiết bị newnew chưa tồn tại. Đang tạo thiết bị mới...
+2025-04-11 23:06:05,002 - INFO - Cột hiện có trong bảng devices: ['id', 'device_id', 'user_id']
+2025-04-11 23:06:05,002 - INFO - Executing SQL: 
+                    INSERT INTO devices (device_id)
+                    VALUES (:device_id)
+                
+2025-04-11 23:06:05,005 - INFO - Đã tạo thiết bị mới với ID: newnew
+2025-04-11 23:06:05,005 - INFO - Saving data to database for device_id: newnew, user_id: None
+2025-04-11 23:06:05,022 - INFO - Cột hiện có trong bảng original_samples: ['id', 'device_id', 'value', 'timestamp']
+2025-04-11 23:06:05,023 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-11 23:06:05,179 - INFO - Đã lưu lô 1/9
+2025-04-11 23:06:05,180 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-11 23:06:05,325 - INFO - Đã lưu lô 2/9
+2025-04-11 23:06:05,325 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-11 23:06:05,490 - INFO - Đã lưu lô 3/9
+2025-04-11 23:06:05,490 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-11 23:06:05,659 - INFO - Đã lưu lô 4/9
+2025-04-11 23:06:05,659 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-11 23:06:05,827 - INFO - Đã lưu lô 5/9
+2025-04-11 23:06:05,827 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-11 23:06:06,035 - INFO - Đã lưu lô 6/9
+2025-04-11 23:06:06,035 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-11 23:06:06,212 - INFO - Đã lưu lô 7/9
+2025-04-11 23:06:06,213 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-11 23:06:06,369 - INFO - Đã lưu lô 8/9
+2025-04-11 23:06:06,369 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-11 23:06:06,468 - INFO - Đã lưu lô 9/9
+2025-04-11 23:06:06,468 - INFO - Thống kê: Đã tạo 8640 điểm dữ liệu, gồm 6336 điểm cho ngày thường và 2304 điểm cho cuối tuần
+2025-04-11 23:06:06,468 - INFO - Mùa: Xuân
+2025-04-11 23:06:06,468 - INFO - Chương trình đã hoàn thành cho device_id: newnew
+2025-04-11 23:06:06,468 - INFO - Dữ liệu nhiều ngày đã được tạo thành công với các mẫu phức tạp theo mùa, ngày, tuần, và giờ!
+2025-04-11 23:06:06,468 - INFO - Bạn có thể phân tích dữ liệu để thấy sự khác biệt giữa các mẫu.
+2025-04-11 23:06:06,468 - INFO - Các mẫu tiêu thụ điện đa dạng đã được tạo bao gồm:
+2025-04-11 23:06:06,468 - INFO - 1. Khác biệt theo ngày trong tuần (Thứ 2 -> Chủ nhật)
+2025-04-11 23:06:06,469 - INFO - 2. Khác biệt theo thời gian trong ngày (Sáng sớm, Buổi sáng, Ban ngày, Buổi tối, Đêm muộn)
+2025-04-11 23:06:06,469 - INFO - 3. Khác biệt theo mùa (Mùa Xuân, Hè, Thu, Đông)
+2025-04-11 23:06:06,469 - INFO - 4. Khác biệt theo tuần trong tháng (Tuần đầu, giữa, cuối)
+2025-04-11 23:06:06,469 - INFO - Các yếu tố ngẫu nhiên và đột biến cũng được thêm vào để tạo dữ liệu chân thực hơn.
+2025-04-12 00:48:54,133 - INFO - Generating data for device_id: newnew
+2025-04-12 00:48:54,133 - INFO - Sử dụng thời gian hiện tại: 2025-04-12 00:45:00
+2025-04-12 00:48:54,133 - INFO - Điều chỉnh thời gian bắt đầu về thứ Hai: 2025-04-07
+2025-04-12 00:48:54,133 - INFO - Bắt đầu tạo dữ liệu từ: 2025-04-07 00:45:00 (Mùa Xuân)
+2025-04-12 00:48:54,133 - INFO - Đang tạo dữ liệu cho: 2025-04-07 00:45:00 (Thứ Hai), device_id: newnew
+2025-04-12 00:48:54,134 - INFO - Đang tạo dữ liệu cho: 2025-04-08 00:45:00 (Thứ Ba), device_id: newnew
+2025-04-12 00:48:54,135 - INFO - Đang tạo dữ liệu cho: 2025-04-09 00:45:00 (Thứ Tư), device_id: newnew
+2025-04-12 00:48:54,136 - INFO - Đang tạo dữ liệu cho: 2025-04-10 00:45:00 (Thứ Năm), device_id: newnew
+2025-04-12 00:48:54,138 - INFO - Đang tạo dữ liệu cho: 2025-04-11 00:45:00 (Thứ Sáu), device_id: newnew
+2025-04-12 00:48:54,139 - INFO - Đang tạo dữ liệu cho: 2025-04-12 00:45:00 (Thứ Bảy), device_id: newnew
+2025-04-12 00:48:54,140 - INFO - Đang tạo dữ liệu cho: 2025-04-13 00:45:00 (Chủ Nhật), device_id: newnew
+2025-04-12 00:48:54,141 - INFO - Đang tạo dữ liệu cho: 2025-04-14 00:45:00 (Thứ Hai), device_id: newnew
+2025-04-12 00:48:54,142 - INFO - Đang tạo dữ liệu cho: 2025-04-15 00:45:00 (Thứ Ba), device_id: newnew
+2025-04-12 00:48:54,143 - INFO - Đang tạo dữ liệu cho: 2025-04-16 00:45:00 (Thứ Tư), device_id: newnew
+2025-04-12 00:48:54,144 - INFO - Đang tạo dữ liệu cho: 2025-04-17 00:45:00 (Thứ Năm), device_id: newnew
+2025-04-12 00:48:54,145 - INFO - Đang tạo dữ liệu cho: 2025-04-18 00:45:00 (Thứ Sáu), device_id: newnew
+2025-04-12 00:48:54,146 - INFO - Đang tạo dữ liệu cho: 2025-04-19 00:45:00 (Thứ Bảy), device_id: newnew
+2025-04-12 00:48:54,147 - INFO - Đang tạo dữ liệu cho: 2025-04-20 00:45:00 (Chủ Nhật), device_id: newnew
+2025-04-12 00:48:54,148 - INFO - Đang tạo dữ liệu cho: 2025-04-21 00:45:00 (Thứ Hai), device_id: newnew
+2025-04-12 00:48:54,149 - INFO - Đang tạo dữ liệu cho: 2025-04-22 00:45:00 (Thứ Ba), device_id: newnew
+2025-04-12 00:48:54,150 - INFO - Đang tạo dữ liệu cho: 2025-04-23 00:45:00 (Thứ Tư), device_id: newnew
+2025-04-12 00:48:54,151 - INFO - Đang tạo dữ liệu cho: 2025-04-24 00:45:00 (Thứ Năm), device_id: newnew
+2025-04-12 00:48:54,152 - INFO - Đang tạo dữ liệu cho: 2025-04-25 00:45:00 (Thứ Sáu), device_id: newnew
+2025-04-12 00:48:54,153 - INFO - Đang tạo dữ liệu cho: 2025-04-26 00:45:00 (Thứ Bảy), device_id: newnew
+2025-04-12 00:48:54,154 - INFO - Đang tạo dữ liệu cho: 2025-04-27 00:45:00 (Chủ Nhật), device_id: newnew
+2025-04-12 00:48:54,155 - INFO - Đang tạo dữ liệu cho: 2025-04-28 00:45:00 (Thứ Hai), device_id: newnew
+2025-04-12 00:48:54,156 - INFO - Đang tạo dữ liệu cho: 2025-04-29 00:45:00 (Thứ Ba), device_id: newnew
+2025-04-12 00:48:54,157 - INFO - Đang tạo dữ liệu cho: 2025-04-30 00:45:00 (Thứ Tư), device_id: newnew
+2025-04-12 00:48:54,157 - INFO - Đang tạo dữ liệu cho: 2025-05-01 00:45:00 (Thứ Năm), device_id: newnew
+2025-04-12 00:48:54,159 - INFO - Đang tạo dữ liệu cho: 2025-05-02 00:45:00 (Thứ Sáu), device_id: newnew
+2025-04-12 00:48:54,160 - INFO - Đang tạo dữ liệu cho: 2025-05-03 00:45:00 (Thứ Bảy), device_id: newnew
+2025-04-12 00:48:54,161 - INFO - Đang tạo dữ liệu cho: 2025-05-04 00:45:00 (Chủ Nhật), device_id: newnew
+2025-04-12 00:48:54,169 - INFO - Đang tạo dữ liệu cho: 2025-05-05 00:45:00 (Thứ Hai), device_id: newnew
+2025-04-12 00:48:54,169 - INFO - Đang tạo dữ liệu cho: 2025-05-06 00:45:00 (Thứ Ba), device_id: newnew
+2025-04-12 00:48:54,172 - INFO - Đã tạo xong 8640 điểm dữ liệu trong 30 ngày cho device_id: newnew
+2025-04-12 00:48:54,172 - INFO - Thống kê chi tiết:
+2025-04-12 00:48:54,172 - INFO - - Mùa: Xuân
+2025-04-12 00:48:54,172 - INFO - - Ngày thường: 6336 điểm, TB: 214.48W, Max: 1259.20W
+2025-04-12 00:48:54,172 - INFO - - Cuối tuần: 2304 điểm, TB: 688.94W, Max: 2745.46W
+2025-04-12 00:48:54,172 - INFO - - Chênh lệch ngày thường/cuối tuần: 221.21%
+2025-04-12 00:48:54,256 - INFO - Đã kết nối thành công đến database: postgresql://postgres:1234@localhost:5444/iot_db
+2025-04-12 00:48:54,266 - INFO - Thiết bị newnew đã tồn tại.
+2025-04-12 00:48:54,266 - INFO - Saving data to database for device_id: newnew, user_id: None
+2025-04-12 00:48:54,289 - INFO - Cột hiện có trong bảng original_samples: ['id', 'device_id', 'value', 'timestamp']
+2025-04-12 00:48:54,289 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-12 00:48:54,465 - INFO - Đã lưu lô 1/9
+2025-04-12 00:48:54,466 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-12 00:48:54,609 - INFO - Đã lưu lô 2/9
+2025-04-12 00:48:54,610 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-12 00:48:54,780 - INFO - Đã lưu lô 3/9
+2025-04-12 00:48:54,780 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-12 00:48:54,938 - INFO - Đã lưu lô 4/9
+2025-04-12 00:48:54,938 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-12 00:48:55,092 - INFO - Đã lưu lô 5/9
+2025-04-12 00:48:55,092 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-12 00:48:55,247 - INFO - Đã lưu lô 6/9
+2025-04-12 00:48:55,247 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-12 00:48:55,400 - INFO - Đã lưu lô 7/9
+2025-04-12 00:48:55,400 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-12 00:48:55,553 - INFO - Đã lưu lô 8/9
+2025-04-12 00:48:55,553 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-12 00:48:55,662 - INFO - Đã lưu lô 9/9
+2025-04-12 00:48:55,662 - INFO - Thống kê: Đã tạo 8640 điểm dữ liệu, gồm 6336 điểm cho ngày thường và 2304 điểm cho cuối tuần
+2025-04-12 00:48:55,663 - INFO - Mùa: Xuân
+2025-04-12 00:48:55,663 - INFO - Chương trình đã hoàn thành cho device_id: newnew
+2025-04-12 00:48:55,663 - INFO - Dữ liệu nhiều ngày đã được tạo thành công với các mẫu phức tạp theo mùa, ngày, tuần, và giờ!
+2025-04-12 00:48:55,663 - INFO - Bạn có thể phân tích dữ liệu để thấy sự khác biệt giữa các mẫu.
+2025-04-12 00:48:55,663 - INFO - Các mẫu tiêu thụ điện đa dạng đã được tạo bao gồm:
+2025-04-12 00:48:55,663 - INFO - 1. Khác biệt theo ngày trong tuần (Thứ 2 -> Chủ nhật)
+2025-04-12 00:48:55,663 - INFO - 2. Khác biệt theo thời gian trong ngày (Sáng sớm, Buổi sáng, Ban ngày, Buổi tối, Đêm muộn)
+2025-04-12 00:48:55,663 - INFO - 3. Khác biệt theo mùa (Mùa Xuân, Hè, Thu, Đông)
+2025-04-12 00:48:55,663 - INFO - 4. Khác biệt theo tuần trong tháng (Tuần đầu, giữa, cuối)
+2025-04-12 00:48:55,663 - INFO - Các yếu tố ngẫu nhiên và đột biến cũng được thêm vào để tạo dữ liệu chân thực hơn.
+2025-04-12 00:56:09,939 - INFO - Generating data for device_id: newnew
+2025-04-12 00:56:09,939 - INFO - Sử dụng thời gian hiện tại: 2025-04-12 00:55:00
+2025-04-12 00:56:09,939 - INFO - Điều chỉnh thời gian bắt đầu về thứ Hai: 2025-04-07
+2025-04-12 00:56:09,939 - INFO - Bắt đầu tạo dữ liệu từ: 2025-04-07 00:55:00 (Mùa Xuân)
+2025-04-12 00:56:09,939 - INFO - Đang tạo dữ liệu cho: 2025-04-07 00:55:00 (Thứ Hai), device_id: newnew
+2025-04-12 00:56:09,940 - INFO - Đang tạo dữ liệu cho: 2025-04-08 00:55:00 (Thứ Ba), device_id: newnew
+2025-04-12 00:56:09,941 - INFO - Đang tạo dữ liệu cho: 2025-04-09 00:55:00 (Thứ Tư), device_id: newnew
+2025-04-12 00:56:09,942 - INFO - Đang tạo dữ liệu cho: 2025-04-10 00:55:00 (Thứ Năm), device_id: newnew
+2025-04-12 00:56:09,943 - INFO - Đang tạo dữ liệu cho: 2025-04-11 00:55:00 (Thứ Sáu), device_id: newnew
+2025-04-12 00:56:09,944 - INFO - Đang tạo dữ liệu cho: 2025-04-12 00:55:00 (Thứ Bảy), device_id: newnew
+2025-04-12 00:56:09,945 - INFO - Đang tạo dữ liệu cho: 2025-04-13 00:55:00 (Chủ Nhật), device_id: newnew
+2025-04-12 00:56:09,946 - INFO - Đang tạo dữ liệu cho: 2025-04-14 00:55:00 (Thứ Hai), device_id: newnew
+2025-04-12 00:56:09,947 - INFO - Đang tạo dữ liệu cho: 2025-04-15 00:55:00 (Thứ Ba), device_id: newnew
+2025-04-12 00:56:09,947 - INFO - Đang tạo dữ liệu cho: 2025-04-16 00:55:00 (Thứ Tư), device_id: newnew
+2025-04-12 00:56:09,948 - INFO - Đang tạo dữ liệu cho: 2025-04-17 00:55:00 (Thứ Năm), device_id: newnew
+2025-04-12 00:56:09,949 - INFO - Đang tạo dữ liệu cho: 2025-04-18 00:55:00 (Thứ Sáu), device_id: newnew
+2025-04-12 00:56:09,950 - INFO - Đang tạo dữ liệu cho: 2025-04-19 00:55:00 (Thứ Bảy), device_id: newnew
+2025-04-12 00:56:09,951 - INFO - Đang tạo dữ liệu cho: 2025-04-20 00:55:00 (Chủ Nhật), device_id: newnew
+2025-04-12 00:56:09,952 - INFO - Đang tạo dữ liệu cho: 2025-04-21 00:55:00 (Thứ Hai), device_id: newnew
+2025-04-12 00:56:09,953 - INFO - Đang tạo dữ liệu cho: 2025-04-22 00:55:00 (Thứ Ba), device_id: newnew
+2025-04-12 00:56:09,954 - INFO - Đang tạo dữ liệu cho: 2025-04-23 00:55:00 (Thứ Tư), device_id: newnew
+2025-04-12 00:56:09,955 - INFO - Đang tạo dữ liệu cho: 2025-04-24 00:55:00 (Thứ Năm), device_id: newnew
+2025-04-12 00:56:09,956 - INFO - Đang tạo dữ liệu cho: 2025-04-25 00:55:00 (Thứ Sáu), device_id: newnew
+2025-04-12 00:56:09,956 - INFO - Đang tạo dữ liệu cho: 2025-04-26 00:55:00 (Thứ Bảy), device_id: newnew
+2025-04-12 00:56:09,957 - INFO - Đang tạo dữ liệu cho: 2025-04-27 00:55:00 (Chủ Nhật), device_id: newnew
+2025-04-12 00:56:09,958 - INFO - Đang tạo dữ liệu cho: 2025-04-28 00:55:00 (Thứ Hai), device_id: newnew
+2025-04-12 00:56:09,959 - INFO - Đang tạo dữ liệu cho: 2025-04-29 00:55:00 (Thứ Ba), device_id: newnew
+2025-04-12 00:56:09,960 - INFO - Đang tạo dữ liệu cho: 2025-04-30 00:55:00 (Thứ Tư), device_id: newnew
+2025-04-12 00:56:09,961 - INFO - Đang tạo dữ liệu cho: 2025-05-01 00:55:00 (Thứ Năm), device_id: newnew
+2025-04-12 00:56:09,962 - INFO - Đang tạo dữ liệu cho: 2025-05-02 00:55:00 (Thứ Sáu), device_id: newnew
+2025-04-12 00:56:09,963 - INFO - Đang tạo dữ liệu cho: 2025-05-03 00:55:00 (Thứ Bảy), device_id: newnew
+2025-04-12 00:56:09,964 - INFO - Đang tạo dữ liệu cho: 2025-05-04 00:55:00 (Chủ Nhật), device_id: newnew
+2025-04-12 00:56:09,971 - INFO - Đang tạo dữ liệu cho: 2025-05-05 00:55:00 (Thứ Hai), device_id: newnew
+2025-04-12 00:56:09,972 - INFO - Đang tạo dữ liệu cho: 2025-05-06 00:55:00 (Thứ Ba), device_id: newnew
+2025-04-12 00:56:09,975 - INFO - Đã tạo xong 8640 điểm dữ liệu trong 30 ngày cho device_id: newnew
+2025-04-12 00:56:09,975 - INFO - Thống kê chi tiết:
+2025-04-12 00:56:09,975 - INFO - - Mùa: Xuân
+2025-04-12 00:56:09,975 - INFO - - Ngày thường: 6336 điểm, TB: 217.14W, Max: 1451.07W
+2025-04-12 00:56:09,975 - INFO - - Cuối tuần: 2304 điểm, TB: 685.91W, Max: 2640.72W
+2025-04-12 00:56:09,975 - INFO - - Chênh lệch ngày thường/cuối tuần: 215.88%
+2025-04-12 00:56:10,050 - INFO - Đã kết nối thành công đến database: postgresql://postgres:1234@localhost:5444/iot_db
+2025-04-12 00:56:10,061 - INFO - Thiết bị newnew đã tồn tại.
+2025-04-12 00:56:10,062 - INFO - Saving data to database for device_id: newnew, user_id: None
+2025-04-12 00:56:10,085 - INFO - Cột hiện có trong bảng original_samples: ['id', 'device_id', 'value', 'timestamp']
+2025-04-12 00:56:10,086 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-12 00:56:10,240 - INFO - Đã lưu lô 1/9
+2025-04-12 00:56:10,241 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-12 00:56:10,394 - INFO - Đã lưu lô 2/9
+2025-04-12 00:56:10,394 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-12 00:56:10,564 - INFO - Đã lưu lô 3/9
+2025-04-12 00:56:10,564 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-12 00:56:10,718 - INFO - Đã lưu lô 4/9
+2025-04-12 00:56:10,718 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-12 00:56:10,871 - INFO - Đã lưu lô 5/9
+2025-04-12 00:56:10,871 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-12 00:56:11,028 - INFO - Đã lưu lô 6/9
+2025-04-12 00:56:11,028 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-12 00:56:11,186 - INFO - Đã lưu lô 7/9
+2025-04-12 00:56:11,186 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-12 00:56:11,340 - INFO - Đã lưu lô 8/9
+2025-04-12 00:56:11,340 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-12 00:56:11,444 - INFO - Đã lưu lô 9/9
+2025-04-12 00:56:11,445 - INFO - Thống kê: Đã tạo 8640 điểm dữ liệu, gồm 6336 điểm cho ngày thường và 2304 điểm cho cuối tuần
+2025-04-12 00:56:11,445 - INFO - Mùa: Xuân
+2025-04-12 00:56:11,445 - INFO - Chương trình đã hoàn thành cho device_id: newnew
+2025-04-12 00:56:11,445 - INFO - Dữ liệu nhiều ngày đã được tạo thành công với các mẫu phức tạp theo mùa, ngày, tuần, và giờ!
+2025-04-12 00:56:11,445 - INFO - Bạn có thể phân tích dữ liệu để thấy sự khác biệt giữa các mẫu.
+2025-04-12 00:56:11,445 - INFO - Các mẫu tiêu thụ điện đa dạng đã được tạo bao gồm:
+2025-04-12 00:56:11,445 - INFO - 1. Khác biệt theo ngày trong tuần (Thứ 2 -> Chủ nhật)
+2025-04-12 00:56:11,445 - INFO - 2. Khác biệt theo thời gian trong ngày (Sáng sớm, Buổi sáng, Ban ngày, Buổi tối, Đêm muộn)
+2025-04-12 00:56:11,445 - INFO - 3. Khác biệt theo mùa (Mùa Xuân, Hè, Thu, Đông)
+2025-04-12 00:56:11,445 - INFO - 4. Khác biệt theo tuần trong tháng (Tuần đầu, giữa, cuối)
+2025-04-12 00:56:11,445 - INFO - Các yếu tố ngẫu nhiên và đột biến cũng được thêm vào để tạo dữ liệu chân thực hơn.
+2025-04-12 01:07:49,062 - INFO - Generating data for device_id: newnew
+2025-04-12 01:07:49,063 - INFO - Sử dụng thời gian hiện tại: 2025-04-12 01:05:00
+2025-04-12 01:07:49,063 - INFO - Điều chỉnh thời gian bắt đầu về thứ Hai: 2025-04-07
+2025-04-12 01:07:49,063 - INFO - Bắt đầu tạo dữ liệu từ: 2025-04-07 01:05:00 (Mùa Xuân)
+2025-04-12 01:07:49,063 - INFO - Đang tạo dữ liệu cho: 2025-04-07 01:05:00 (Thứ Hai), device_id: newnew
+2025-04-12 01:07:49,064 - INFO - Đang tạo dữ liệu cho: 2025-04-08 01:05:00 (Thứ Ba), device_id: newnew
+2025-04-12 01:07:49,064 - INFO - Đang tạo dữ liệu cho: 2025-04-09 01:05:00 (Thứ Tư), device_id: newnew
+2025-04-12 01:07:49,065 - INFO - Đang tạo dữ liệu cho: 2025-04-10 01:05:00 (Thứ Năm), device_id: newnew
+2025-04-12 01:07:49,066 - INFO - Đang tạo dữ liệu cho: 2025-04-11 01:05:00 (Thứ Sáu), device_id: newnew
+2025-04-12 01:07:49,067 - INFO - Đang tạo dữ liệu cho: 2025-04-12 01:05:00 (Thứ Bảy), device_id: newnew
+2025-04-12 01:07:49,068 - INFO - Đang tạo dữ liệu cho: 2025-04-13 01:05:00 (Chủ Nhật), device_id: newnew
+2025-04-12 01:07:49,069 - INFO - Đang tạo dữ liệu cho: 2025-04-14 01:05:00 (Thứ Hai), device_id: newnew
+2025-04-12 01:07:49,070 - INFO - Đang tạo dữ liệu cho: 2025-04-15 01:05:00 (Thứ Ba), device_id: newnew
+2025-04-12 01:07:49,071 - INFO - Đang tạo dữ liệu cho: 2025-04-16 01:05:00 (Thứ Tư), device_id: newnew
+2025-04-12 01:07:49,072 - INFO - Đang tạo dữ liệu cho: 2025-04-17 01:05:00 (Thứ Năm), device_id: newnew
+2025-04-12 01:07:49,072 - INFO - Đang tạo dữ liệu cho: 2025-04-18 01:05:00 (Thứ Sáu), device_id: newnew
+2025-04-12 01:07:49,073 - INFO - Đang tạo dữ liệu cho: 2025-04-19 01:05:00 (Thứ Bảy), device_id: newnew
+2025-04-12 01:07:49,074 - INFO - Đang tạo dữ liệu cho: 2025-04-20 01:05:00 (Chủ Nhật), device_id: newnew
+2025-04-12 01:07:49,075 - INFO - Đang tạo dữ liệu cho: 2025-04-21 01:05:00 (Thứ Hai), device_id: newnew
+2025-04-12 01:07:49,076 - INFO - Đang tạo dữ liệu cho: 2025-04-22 01:05:00 (Thứ Ba), device_id: newnew
+2025-04-12 01:07:49,077 - INFO - Đang tạo dữ liệu cho: 2025-04-23 01:05:00 (Thứ Tư), device_id: newnew
+2025-04-12 01:07:49,078 - INFO - Đang tạo dữ liệu cho: 2025-04-24 01:05:00 (Thứ Năm), device_id: newnew
+2025-04-12 01:07:49,079 - INFO - Đang tạo dữ liệu cho: 2025-04-25 01:05:00 (Thứ Sáu), device_id: newnew
+2025-04-12 01:07:49,080 - INFO - Đang tạo dữ liệu cho: 2025-04-26 01:05:00 (Thứ Bảy), device_id: newnew
+2025-04-12 01:07:49,080 - INFO - Đang tạo dữ liệu cho: 2025-04-27 01:05:00 (Chủ Nhật), device_id: newnew
+2025-04-12 01:07:49,081 - INFO - Đang tạo dữ liệu cho: 2025-04-28 01:05:00 (Thứ Hai), device_id: newnew
+2025-04-12 01:07:49,082 - INFO - Đang tạo dữ liệu cho: 2025-04-29 01:05:00 (Thứ Ba), device_id: newnew
+2025-04-12 01:07:49,083 - INFO - Đang tạo dữ liệu cho: 2025-04-30 01:05:00 (Thứ Tư), device_id: newnew
+2025-04-12 01:07:49,084 - INFO - Đang tạo dữ liệu cho: 2025-05-01 01:05:00 (Thứ Năm), device_id: newnew
+2025-04-12 01:07:49,085 - INFO - Đang tạo dữ liệu cho: 2025-05-02 01:05:00 (Thứ Sáu), device_id: newnew
+2025-04-12 01:07:49,086 - INFO - Đang tạo dữ liệu cho: 2025-05-03 01:05:00 (Thứ Bảy), device_id: newnew
+2025-04-12 01:07:49,087 - INFO - Đang tạo dữ liệu cho: 2025-05-04 01:05:00 (Chủ Nhật), device_id: newnew
+2025-04-12 01:07:49,096 - INFO - Đang tạo dữ liệu cho: 2025-05-05 01:05:00 (Thứ Hai), device_id: newnew
+2025-04-12 01:07:49,097 - INFO - Đang tạo dữ liệu cho: 2025-05-06 01:05:00 (Thứ Ba), device_id: newnew
+2025-04-12 01:07:49,099 - INFO - Đã tạo xong 8640 điểm dữ liệu trong 30 ngày cho device_id: newnew
+2025-04-12 01:07:49,099 - INFO - Thống kê chi tiết:
+2025-04-12 01:07:49,099 - INFO - - Mùa: Xuân
+2025-04-12 01:07:49,099 - INFO - - Ngày thường: 6336 điểm, TB: 214.79W, Max: 1405.34W
+2025-04-12 01:07:49,100 - INFO - - Cuối tuần: 2304 điểm, TB: 690.73W, Max: 2499.71W
+2025-04-12 01:07:49,100 - INFO - - Chênh lệch ngày thường/cuối tuần: 221.58%
+2025-04-12 01:07:49,187 - INFO - Đã kết nối thành công đến database: postgresql://postgres:1234@localhost:5444/iot_db
+2025-04-12 01:07:49,198 - INFO - Thiết bị newnew đã tồn tại.
+2025-04-12 01:07:49,198 - INFO - Saving data to database for device_id: newnew, user_id: None
+2025-04-12 01:07:49,222 - INFO - Cột hiện có trong bảng original_samples: ['id', 'device_id', 'value', 'timestamp']
+2025-04-12 01:07:49,222 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-12 01:07:49,396 - INFO - Đã lưu lô 1/9
+2025-04-12 01:07:49,396 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-12 01:07:49,551 - INFO - Đã lưu lô 2/9
+2025-04-12 01:07:49,552 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-12 01:07:49,706 - INFO - Đã lưu lô 3/9
+2025-04-12 01:07:49,706 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-12 01:07:49,859 - INFO - Đã lưu lô 4/9
+2025-04-12 01:07:49,859 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-12 01:07:50,012 - INFO - Đã lưu lô 5/9
+2025-04-12 01:07:50,012 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-12 01:07:50,164 - INFO - Đã lưu lô 6/9
+2025-04-12 01:07:50,164 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-12 01:07:50,330 - INFO - Đã lưu lô 7/9
+2025-04-12 01:07:50,330 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-12 01:07:50,482 - INFO - Đã lưu lô 8/9
+2025-04-12 01:07:50,482 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-12 01:07:50,581 - INFO - Đã lưu lô 9/9
+2025-04-12 01:07:50,581 - INFO - Thống kê: Đã tạo 8640 điểm dữ liệu, gồm 6336 điểm cho ngày thường và 2304 điểm cho cuối tuần
+2025-04-12 01:07:50,581 - INFO - Mùa: Xuân
+2025-04-12 01:07:50,581 - INFO - Chương trình đã hoàn thành cho device_id: newnew
+2025-04-12 01:07:50,581 - INFO - Dữ liệu nhiều ngày đã được tạo thành công với các mẫu phức tạp theo mùa, ngày, tuần, và giờ!
+2025-04-12 01:07:50,581 - INFO - Bạn có thể phân tích dữ liệu để thấy sự khác biệt giữa các mẫu.
+2025-04-12 01:07:50,581 - INFO - Các mẫu tiêu thụ điện đa dạng đã được tạo bao gồm:
+2025-04-12 01:07:50,581 - INFO - 1. Khác biệt theo ngày trong tuần (Thứ 2 -> Chủ nhật)
+2025-04-12 01:07:50,581 - INFO - 2. Khác biệt theo thời gian trong ngày (Sáng sớm, Buổi sáng, Ban ngày, Buổi tối, Đêm muộn)
+2025-04-12 01:07:50,581 - INFO - 3. Khác biệt theo mùa (Mùa Xuân, Hè, Thu, Đông)
+2025-04-12 01:07:50,582 - INFO - 4. Khác biệt theo tuần trong tháng (Tuần đầu, giữa, cuối)
+2025-04-12 01:07:50,582 - INFO - Các yếu tố ngẫu nhiên và đột biến cũng được thêm vào để tạo dữ liệu chân thực hơn.
+2025-04-12 01:09:11,403 - INFO - Generating data for device_id: newnew
+2025-04-12 01:09:11,403 - INFO - Sử dụng thời gian hiện tại: 2025-04-12 01:05:00
+2025-04-12 01:09:11,403 - INFO - Điều chỉnh thời gian bắt đầu về thứ Hai: 2025-04-07
+2025-04-12 01:09:11,403 - INFO - Bắt đầu tạo dữ liệu từ: 2025-04-07 01:05:00 (Mùa Xuân)
+2025-04-12 01:09:11,403 - INFO - Đang tạo dữ liệu cho: 2025-04-07 01:05:00 (Thứ Hai), device_id: newnew
+2025-04-12 01:09:11,404 - INFO - Đang tạo dữ liệu cho: 2025-04-08 01:05:00 (Thứ Ba), device_id: newnew
+2025-04-12 01:09:11,405 - INFO - Đang tạo dữ liệu cho: 2025-04-09 01:05:00 (Thứ Tư), device_id: newnew
+2025-04-12 01:09:11,406 - INFO - Đang tạo dữ liệu cho: 2025-04-10 01:05:00 (Thứ Năm), device_id: newnew
+2025-04-12 01:09:11,407 - INFO - Đang tạo dữ liệu cho: 2025-04-11 01:05:00 (Thứ Sáu), device_id: newnew
+2025-04-12 01:09:11,408 - INFO - Đang tạo dữ liệu cho: 2025-04-12 01:05:00 (Thứ Bảy), device_id: newnew
+2025-04-12 01:09:11,409 - INFO - Đang tạo dữ liệu cho: 2025-04-13 01:05:00 (Chủ Nhật), device_id: newnew
+2025-04-12 01:09:11,410 - INFO - Đang tạo dữ liệu cho: 2025-04-14 01:05:00 (Thứ Hai), device_id: newnew
+2025-04-12 01:09:11,411 - INFO - Đang tạo dữ liệu cho: 2025-04-15 01:05:00 (Thứ Ba), device_id: newnew
+2025-04-12 01:09:11,412 - INFO - Đang tạo dữ liệu cho: 2025-04-16 01:05:00 (Thứ Tư), device_id: newnew
+2025-04-12 01:09:11,413 - INFO - Đang tạo dữ liệu cho: 2025-04-17 01:05:00 (Thứ Năm), device_id: newnew
+2025-04-12 01:09:11,414 - INFO - Đang tạo dữ liệu cho: 2025-04-18 01:05:00 (Thứ Sáu), device_id: newnew
+2025-04-12 01:09:11,415 - INFO - Đang tạo dữ liệu cho: 2025-04-19 01:05:00 (Thứ Bảy), device_id: newnew
+2025-04-12 01:09:11,416 - INFO - Đang tạo dữ liệu cho: 2025-04-20 01:05:00 (Chủ Nhật), device_id: newnew
+2025-04-12 01:09:11,417 - INFO - Đang tạo dữ liệu cho: 2025-04-21 01:05:00 (Thứ Hai), device_id: newnew
+2025-04-12 01:09:11,417 - INFO - Đang tạo dữ liệu cho: 2025-04-22 01:05:00 (Thứ Ba), device_id: newnew
+2025-04-12 01:09:11,418 - INFO - Đang tạo dữ liệu cho: 2025-04-23 01:05:00 (Thứ Tư), device_id: newnew
+2025-04-12 01:09:11,419 - INFO - Đang tạo dữ liệu cho: 2025-04-24 01:05:00 (Thứ Năm), device_id: newnew
+2025-04-12 01:09:11,420 - INFO - Đang tạo dữ liệu cho: 2025-04-25 01:05:00 (Thứ Sáu), device_id: newnew
+2025-04-12 01:09:11,421 - INFO - Đang tạo dữ liệu cho: 2025-04-26 01:05:00 (Thứ Bảy), device_id: newnew
+2025-04-12 01:09:11,422 - INFO - Đang tạo dữ liệu cho: 2025-04-27 01:05:00 (Chủ Nhật), device_id: newnew
+2025-04-12 01:09:11,423 - INFO - Đang tạo dữ liệu cho: 2025-04-28 01:05:00 (Thứ Hai), device_id: newnew
+2025-04-12 01:09:11,424 - INFO - Đang tạo dữ liệu cho: 2025-04-29 01:05:00 (Thứ Ba), device_id: newnew
+2025-04-12 01:09:11,424 - INFO - Đang tạo dữ liệu cho: 2025-04-30 01:05:00 (Thứ Tư), device_id: newnew
+2025-04-12 01:09:11,425 - INFO - Đang tạo dữ liệu cho: 2025-05-01 01:05:00 (Thứ Năm), device_id: newnew
+2025-04-12 01:09:11,426 - INFO - Đang tạo dữ liệu cho: 2025-05-02 01:05:00 (Thứ Sáu), device_id: newnew
+2025-04-12 01:09:11,427 - INFO - Đang tạo dữ liệu cho: 2025-05-03 01:05:00 (Thứ Bảy), device_id: newnew
+2025-04-12 01:09:11,428 - INFO - Đang tạo dữ liệu cho: 2025-05-04 01:05:00 (Chủ Nhật), device_id: newnew
+2025-04-12 01:09:11,436 - INFO - Đang tạo dữ liệu cho: 2025-05-05 01:05:00 (Thứ Hai), device_id: newnew
+2025-04-12 01:09:11,437 - INFO - Đang tạo dữ liệu cho: 2025-05-06 01:05:00 (Thứ Ba), device_id: newnew
+2025-04-12 01:09:11,440 - INFO - Đã tạo xong 8640 điểm dữ liệu trong 30 ngày cho device_id: newnew
+2025-04-12 01:09:11,440 - INFO - Thống kê chi tiết:
+2025-04-12 01:09:11,440 - INFO - - Mùa: Xuân
+2025-04-12 01:09:11,440 - INFO - - Ngày thường: 6336 điểm, TB: 215.12W, Max: 1562.56W
+2025-04-12 01:09:11,440 - INFO - - Cuối tuần: 2304 điểm, TB: 686.03W, Max: 2744.35W
+2025-04-12 01:09:11,440 - INFO - - Chênh lệch ngày thường/cuối tuần: 218.91%
+2025-04-12 01:09:11,515 - INFO - Đã kết nối thành công đến database: postgresql://postgres:1234@localhost:5444/iot_db
+2025-04-12 01:09:11,528 - INFO - Thiết bị newnew đã tồn tại.
+2025-04-12 01:09:11,528 - INFO - Saving data to database for device_id: newnew, user_id: None
+2025-04-12 01:09:11,552 - INFO - Cột hiện có trong bảng original_samples: ['id', 'device_id', 'value', 'timestamp']
+2025-04-12 01:09:11,553 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-12 01:09:11,721 - INFO - Đã lưu lô 1/9
+2025-04-12 01:09:11,721 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-12 01:09:11,878 - INFO - Đã lưu lô 2/9
+2025-04-12 01:09:11,879 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-12 01:09:12,041 - INFO - Đã lưu lô 3/9
+2025-04-12 01:09:12,041 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-12 01:09:12,192 - INFO - Đã lưu lô 4/9
+2025-04-12 01:09:12,193 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-12 01:09:12,350 - INFO - Đã lưu lô 5/9
+2025-04-12 01:09:12,350 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-12 01:09:12,504 - INFO - Đã lưu lô 6/9
+2025-04-12 01:09:12,504 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-12 01:09:12,659 - INFO - Đã lưu lô 7/9
+2025-04-12 01:09:12,659 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-12 01:09:12,800 - INFO - Đã lưu lô 8/9
+2025-04-12 01:09:12,800 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-12 01:09:12,892 - INFO - Đã lưu lô 9/9
+2025-04-12 01:09:12,893 - INFO - Thống kê: Đã tạo 8640 điểm dữ liệu, gồm 6336 điểm cho ngày thường và 2304 điểm cho cuối tuần
+2025-04-12 01:09:12,893 - INFO - Mùa: Xuân
+2025-04-12 01:09:12,893 - INFO - Chương trình đã hoàn thành cho device_id: newnew
+2025-04-12 01:09:12,893 - INFO - Dữ liệu nhiều ngày đã được tạo thành công với các mẫu phức tạp theo mùa, ngày, tuần, và giờ!
+2025-04-12 01:09:12,893 - INFO - Bạn có thể phân tích dữ liệu để thấy sự khác biệt giữa các mẫu.
+2025-04-12 01:09:12,893 - INFO - Các mẫu tiêu thụ điện đa dạng đã được tạo bao gồm:
+2025-04-12 01:09:12,893 - INFO - 1. Khác biệt theo ngày trong tuần (Thứ 2 -> Chủ nhật)
+2025-04-12 01:09:12,893 - INFO - 2. Khác biệt theo thời gian trong ngày (Sáng sớm, Buổi sáng, Ban ngày, Buổi tối, Đêm muộn)
+2025-04-12 01:09:12,893 - INFO - 3. Khác biệt theo mùa (Mùa Xuân, Hè, Thu, Đông)
+2025-04-12 01:09:12,893 - INFO - 4. Khác biệt theo tuần trong tháng (Tuần đầu, giữa, cuối)
+2025-04-12 01:09:12,893 - INFO - Các yếu tố ngẫu nhiên và đột biến cũng được thêm vào để tạo dữ liệu chân thực hơn.
+2025-04-25 19:07:00,483 - INFO - Generating data for device_id: newnew
+2025-04-25 19:07:00,486 - INFO - Sử dụng thời gian hiện tại: 2025-04-25 19:05:00
+2025-04-25 19:07:00,486 - INFO - Điều chỉnh thời gian bắt đầu về thứ Hai: 2025-04-21
+2025-04-25 19:07:00,486 - INFO - Bắt đầu tạo dữ liệu từ: 2025-04-21 19:05:00 (Mùa Xuân)
+2025-04-25 19:07:00,486 - INFO - Đang tạo dữ liệu cho: 2025-04-21 19:05:00 (Thứ Hai), device_id: newnew
+2025-04-25 19:07:00,487 - INFO - Đang tạo dữ liệu cho: 2025-04-22 19:05:00 (Thứ Ba), device_id: newnew
+2025-04-25 19:07:00,488 - INFO - Đang tạo dữ liệu cho: 2025-04-23 19:05:00 (Thứ Tư), device_id: newnew
+2025-04-25 19:07:00,489 - INFO - Đang tạo dữ liệu cho: 2025-04-24 19:05:00 (Thứ Năm), device_id: newnew
+2025-04-25 19:07:00,492 - INFO - Đang tạo dữ liệu cho: 2025-04-25 19:05:00 (Thứ Sáu), device_id: newnew
+2025-04-25 19:07:00,494 - INFO - Đang tạo dữ liệu cho: 2025-04-26 19:05:00 (Thứ Bảy), device_id: newnew
+2025-04-25 19:07:00,495 - INFO - Đang tạo dữ liệu cho: 2025-04-27 19:05:00 (Chủ Nhật), device_id: newnew
+2025-04-25 19:07:00,496 - INFO - Đang tạo dữ liệu cho: 2025-04-28 19:05:00 (Thứ Hai), device_id: newnew
+2025-04-25 19:07:00,498 - INFO - Đang tạo dữ liệu cho: 2025-04-29 19:05:00 (Thứ Ba), device_id: newnew
+2025-04-25 19:07:00,498 - INFO - Đang tạo dữ liệu cho: 2025-04-30 19:05:00 (Thứ Tư), device_id: newnew
+2025-04-25 19:07:00,499 - INFO - Đang tạo dữ liệu cho: 2025-05-01 19:05:00 (Thứ Năm), device_id: newnew
+2025-04-25 19:07:00,500 - INFO - Đang tạo dữ liệu cho: 2025-05-02 19:05:00 (Thứ Sáu), device_id: newnew
+2025-04-25 19:07:00,501 - INFO - Đang tạo dữ liệu cho: 2025-05-03 19:05:00 (Thứ Bảy), device_id: newnew
+2025-04-25 19:07:00,502 - INFO - Đang tạo dữ liệu cho: 2025-05-04 19:05:00 (Chủ Nhật), device_id: newnew
+2025-04-25 19:07:00,503 - INFO - Đang tạo dữ liệu cho: 2025-05-05 19:05:00 (Thứ Hai), device_id: newnew
+2025-04-25 19:07:00,504 - INFO - Đang tạo dữ liệu cho: 2025-05-06 19:05:00 (Thứ Ba), device_id: newnew
+2025-04-25 19:07:00,505 - INFO - Đang tạo dữ liệu cho: 2025-05-07 19:05:00 (Thứ Tư), device_id: newnew
+2025-04-25 19:07:00,506 - INFO - Đang tạo dữ liệu cho: 2025-05-08 19:05:00 (Thứ Năm), device_id: newnew
+2025-04-25 19:07:00,507 - INFO - Đang tạo dữ liệu cho: 2025-05-09 19:05:00 (Thứ Sáu), device_id: newnew
+2025-04-25 19:07:00,508 - INFO - Đang tạo dữ liệu cho: 2025-05-10 19:05:00 (Thứ Bảy), device_id: newnew
+2025-04-25 19:07:00,509 - INFO - Đang tạo dữ liệu cho: 2025-05-11 19:05:00 (Chủ Nhật), device_id: newnew
+2025-04-25 19:07:00,509 - INFO - Đang tạo dữ liệu cho: 2025-05-12 19:05:00 (Thứ Hai), device_id: newnew
+2025-04-25 19:07:00,510 - INFO - Đang tạo dữ liệu cho: 2025-05-13 19:05:00 (Thứ Ba), device_id: newnew
+2025-04-25 19:07:00,513 - INFO - Đang tạo dữ liệu cho: 2025-05-14 19:05:00 (Thứ Tư), device_id: newnew
+2025-04-25 19:07:00,515 - INFO - Đang tạo dữ liệu cho: 2025-05-15 19:05:00 (Thứ Năm), device_id: newnew
+2025-04-25 19:07:00,517 - INFO - Đang tạo dữ liệu cho: 2025-05-16 19:05:00 (Thứ Sáu), device_id: newnew
+2025-04-25 19:07:00,518 - INFO - Đang tạo dữ liệu cho: 2025-05-17 19:05:00 (Thứ Bảy), device_id: newnew
+2025-04-25 19:07:00,519 - INFO - Đang tạo dữ liệu cho: 2025-05-18 19:05:00 (Chủ Nhật), device_id: newnew
+2025-04-25 19:07:00,527 - INFO - Đang tạo dữ liệu cho: 2025-05-19 19:05:00 (Thứ Hai), device_id: newnew
+2025-04-25 19:07:00,529 - INFO - Đang tạo dữ liệu cho: 2025-05-20 19:05:00 (Thứ Ba), device_id: newnew
+2025-04-25 19:07:00,533 - INFO - Đã tạo xong 8640 điểm dữ liệu trong 30 ngày cho device_id: newnew
+2025-04-25 19:07:00,533 - INFO - Thống kê chi tiết:
+2025-04-25 19:07:00,533 - INFO - - Mùa: Xuân
+2025-04-25 19:07:00,533 - INFO - - Ngày thường: 6336 điểm, TB: 260.84W, Max: 1732.16W
+2025-04-25 19:07:00,533 - INFO - - Cuối tuần: 2304 điểm, TB: 864.79W, Max: 3680.55W
+2025-04-25 19:07:00,533 - INFO - - Chênh lệch ngày thường/cuối tuần: 231.55%
+2025-04-25 19:07:00,612 - INFO - Đã kết nối thành công đến database: postgresql://postgres:1234@localhost:5444/iot_db
+2025-04-25 19:07:00,622 - INFO - Thiết bị newnew đã tồn tại.
+2025-04-25 19:07:00,622 - INFO - Saving data to database for device_id: newnew, user_id: None
+2025-04-25 19:07:00,707 - INFO - Cột hiện có trong bảng original_samples: ['id', 'device_id', 'value', 'timestamp']
+2025-04-25 19:07:00,707 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-25 19:07:00,879 - INFO - Đã lưu lô 1/9
+2025-04-25 19:07:00,879 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-25 19:07:01,039 - INFO - Đã lưu lô 2/9
+2025-04-25 19:07:01,039 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-25 19:07:01,195 - INFO - Đã lưu lô 3/9
+2025-04-25 19:07:01,196 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-25 19:07:01,350 - INFO - Đã lưu lô 4/9
+2025-04-25 19:07:01,350 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-25 19:07:01,524 - INFO - Đã lưu lô 5/9
+2025-04-25 19:07:01,524 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-25 19:07:01,680 - INFO - Đã lưu lô 6/9
+2025-04-25 19:07:01,680 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-25 19:07:01,832 - INFO - Đã lưu lô 7/9
+2025-04-25 19:07:01,833 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-25 19:07:02,058 - INFO - Đã lưu lô 8/9
+2025-04-25 19:07:02,058 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-25 19:07:02,165 - INFO - Đã lưu lô 9/9
+2025-04-25 19:07:02,165 - INFO - Thống kê: Đã tạo 8640 điểm dữ liệu, gồm 6336 điểm cho ngày thường và 2304 điểm cho cuối tuần
+2025-04-25 19:07:02,165 - INFO - Mùa: Xuân
+2025-04-25 19:07:02,166 - INFO - Chương trình đã hoàn thành cho device_id: newnew
+2025-04-25 19:07:02,166 - INFO - Dữ liệu nhiều ngày đã được tạo thành công với các mẫu phức tạp theo mùa, ngày, tuần, và giờ!
+2025-04-25 19:07:02,166 - INFO - Bạn có thể phân tích dữ liệu để thấy sự khác biệt giữa các mẫu.
+2025-04-25 19:07:02,166 - INFO - Các mẫu tiêu thụ điện đa dạng đã được tạo bao gồm:
+2025-04-25 19:07:02,166 - INFO - 1. Khác biệt theo ngày trong tuần (Thứ 2 -> Chủ nhật)
+2025-04-25 19:07:02,166 - INFO - 2. Khác biệt theo thời gian trong ngày (Sáng sớm, Buổi sáng, Ban ngày, Buổi tối, Đêm muộn)
+2025-04-25 19:07:02,166 - INFO - 3. Khác biệt theo mùa (Mùa Xuân, Hè, Thu, Đông)
+2025-04-25 19:07:02,166 - INFO - 4. Khác biệt theo tuần trong tháng (Tuần đầu, giữa, cuối)
+2025-04-25 19:07:02,166 - INFO - Các yếu tố ngẫu nhiên và đột biến cũng được thêm vào để tạo dữ liệu chân thực hơn.
+2025-04-25 19:26:59,949 - INFO - Sử dụng ngày bắt đầu: 2025-04-21 00:00:00
+2025-04-25 19:26:59,949 - INFO - Generating data for device_id: newnew
+2025-04-25 19:26:59,949 - INFO - Sử dụng thời gian được chỉ định: 2025-04-21 00:00:00
+2025-04-25 19:26:59,949 - INFO - Bắt đầu tạo dữ liệu từ: 2025-04-21 00:00:00 (Mùa Xuân)
+2025-04-25 19:26:59,949 - INFO - Đang tạo dữ liệu cho: 2025-04-21 00:00:00 (Thứ Hai), device_id: newnew
+2025-04-25 19:26:59,950 - INFO - Đang tạo dữ liệu cho: 2025-04-22 00:00:00 (Thứ Ba), device_id: newnew
+2025-04-25 19:26:59,951 - INFO - Đang tạo dữ liệu cho: 2025-04-23 00:00:00 (Thứ Tư), device_id: newnew
+2025-04-25 19:26:59,952 - INFO - Đang tạo dữ liệu cho: 2025-04-24 00:00:00 (Thứ Năm), device_id: newnew
+2025-04-25 19:26:59,953 - INFO - Đang tạo dữ liệu cho: 2025-04-25 00:00:00 (Thứ Sáu), device_id: newnew
+2025-04-25 19:26:59,954 - INFO - Đang tạo dữ liệu cho: 2025-04-26 00:00:00 (Thứ Bảy), device_id: newnew
+2025-04-25 19:26:59,955 - INFO - Đang tạo dữ liệu cho: 2025-04-27 00:00:00 (Chủ Nhật), device_id: newnew
+2025-04-25 19:26:59,956 - INFO - Đang tạo dữ liệu cho: 2025-04-28 00:00:00 (Thứ Hai), device_id: newnew
+2025-04-25 19:26:59,957 - INFO - Đang tạo dữ liệu cho: 2025-04-29 00:00:00 (Thứ Ba), device_id: newnew
+2025-04-25 19:26:59,958 - INFO - Đang tạo dữ liệu cho: 2025-04-30 00:00:00 (Thứ Tư), device_id: newnew
+2025-04-25 19:26:59,958 - INFO - Đang tạo dữ liệu cho: 2025-05-01 00:00:00 (Thứ Năm), device_id: newnew
+2025-04-25 19:26:59,959 - INFO - Đang tạo dữ liệu cho: 2025-05-02 00:00:00 (Thứ Sáu), device_id: newnew
+2025-04-25 19:26:59,960 - INFO - Đang tạo dữ liệu cho: 2025-05-03 00:00:00 (Thứ Bảy), device_id: newnew
+2025-04-25 19:26:59,962 - INFO - Đang tạo dữ liệu cho: 2025-05-04 00:00:00 (Chủ Nhật), device_id: newnew
+2025-04-25 19:26:59,963 - INFO - Đang tạo dữ liệu cho: 2025-05-05 00:00:00 (Thứ Hai), device_id: newnew
+2025-04-25 19:26:59,964 - INFO - Đang tạo dữ liệu cho: 2025-05-06 00:00:00 (Thứ Ba), device_id: newnew
+2025-04-25 19:26:59,965 - INFO - Đang tạo dữ liệu cho: 2025-05-07 00:00:00 (Thứ Tư), device_id: newnew
+2025-04-25 19:26:59,966 - INFO - Đang tạo dữ liệu cho: 2025-05-08 00:00:00 (Thứ Năm), device_id: newnew
+2025-04-25 19:26:59,967 - INFO - Đang tạo dữ liệu cho: 2025-05-09 00:00:00 (Thứ Sáu), device_id: newnew
+2025-04-25 19:26:59,968 - INFO - Đang tạo dữ liệu cho: 2025-05-10 00:00:00 (Thứ Bảy), device_id: newnew
+2025-04-25 19:26:59,969 - INFO - Đang tạo dữ liệu cho: 2025-05-11 00:00:00 (Chủ Nhật), device_id: newnew
+2025-04-25 19:26:59,971 - INFO - Đang tạo dữ liệu cho: 2025-05-12 00:00:00 (Thứ Hai), device_id: newnew
+2025-04-25 19:26:59,971 - INFO - Đang tạo dữ liệu cho: 2025-05-13 00:00:00 (Thứ Ba), device_id: newnew
+2025-04-25 19:26:59,972 - INFO - Đang tạo dữ liệu cho: 2025-05-14 00:00:00 (Thứ Tư), device_id: newnew
+2025-04-25 19:26:59,973 - INFO - Đang tạo dữ liệu cho: 2025-05-15 00:00:00 (Thứ Năm), device_id: newnew
+2025-04-25 19:26:59,974 - INFO - Đang tạo dữ liệu cho: 2025-05-16 00:00:00 (Thứ Sáu), device_id: newnew
+2025-04-25 19:26:59,983 - INFO - Đang tạo dữ liệu cho: 2025-05-17 00:00:00 (Thứ Bảy), device_id: newnew
+2025-04-25 19:26:59,985 - INFO - Đang tạo dữ liệu cho: 2025-05-18 00:00:00 (Chủ Nhật), device_id: newnew
+2025-04-25 19:26:59,986 - INFO - Đang tạo dữ liệu cho: 2025-05-19 00:00:00 (Thứ Hai), device_id: newnew
+2025-04-25 19:26:59,987 - INFO - Đang tạo dữ liệu cho: 2025-05-20 00:00:00 (Thứ Ba), device_id: newnew
+2025-04-25 19:26:59,989 - INFO - Đã tạo xong 8640 điểm dữ liệu trong 30 ngày cho device_id: newnew
+2025-04-25 19:26:59,989 - INFO - Thống kê chi tiết:
+2025-04-25 19:26:59,989 - INFO - - Mùa: Xuân
+2025-04-25 19:26:59,989 - INFO - - Ngày thường: 6336 điểm, TB: 258.51W, Max: 1599.83W
+2025-04-25 19:26:59,989 - INFO - - Cuối tuần: 2304 điểm, TB: 864.58W, Max: 3490.97W
+2025-04-25 19:26:59,989 - INFO - - Chênh lệch ngày thường/cuối tuần: 234.45%
+2025-04-25 19:27:00,065 - INFO - Đã kết nối thành công đến database: postgresql://postgres:1234@localhost:5444/iot_db
+2025-04-25 19:27:00,077 - INFO - Thiết bị newnew đã tồn tại.
+2025-04-25 19:27:00,078 - INFO - Saving data to database for device_id: newnew, user_id: None
+2025-04-25 19:27:00,099 - INFO - Cột hiện có trong bảng original_samples: ['id', 'device_id', 'value', 'timestamp']
+2025-04-25 19:27:00,100 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-25 19:27:00,303 - INFO - Đã lưu lô 1/9
+2025-04-25 19:27:00,304 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-25 19:27:00,695 - INFO - Đã lưu lô 2/9
+2025-04-25 19:27:00,695 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-25 19:27:01,178 - INFO - Đã lưu lô 3/9
+2025-04-25 19:27:01,180 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-25 19:27:01,343 - INFO - Đã lưu lô 4/9
+2025-04-25 19:27:01,343 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-25 19:27:01,503 - INFO - Đã lưu lô 5/9
+2025-04-25 19:27:01,503 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-25 19:27:01,669 - INFO - Đã lưu lô 6/9
+2025-04-25 19:27:01,670 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-25 19:27:01,818 - INFO - Đã lưu lô 7/9
+2025-04-25 19:27:01,819 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-25 19:27:02,070 - INFO - Đã lưu lô 8/9
+2025-04-25 19:27:02,070 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-25 19:27:02,180 - INFO - Đã lưu lô 9/9
+2025-04-25 19:27:02,181 - INFO - Thống kê: Đã tạo 8640 điểm dữ liệu, gồm 6336 điểm cho ngày thường và 2304 điểm cho cuối tuần
+2025-04-25 19:27:02,181 - INFO - Mùa: Xuân
+2025-04-25 19:27:02,181 - INFO - Chương trình đã hoàn thành cho device_id: newnew
+2025-04-25 19:27:02,181 - INFO - Dữ liệu nhiều ngày đã được tạo thành công với các mẫu phức tạp theo mùa, ngày, tuần, và giờ!
+2025-04-25 19:27:02,181 - INFO - Bạn có thể phân tích dữ liệu để thấy sự khác biệt giữa các mẫu.
+2025-04-25 19:27:02,181 - INFO - Các mẫu tiêu thụ điện đa dạng đã được tạo bao gồm:
+2025-04-25 19:27:02,181 - INFO - 1. Khác biệt theo ngày trong tuần (Thứ 2 -> Chủ nhật)
+2025-04-25 19:27:02,181 - INFO - 2. Khác biệt theo thời gian trong ngày (Sáng sớm, Buổi sáng, Ban ngày, Buổi tối, Đêm muộn)
+2025-04-25 19:27:02,181 - INFO - 3. Khác biệt theo mùa (Mùa Xuân, Hè, Thu, Đông)
+2025-04-25 19:27:02,181 - INFO - 4. Khác biệt theo tuần trong tháng (Tuần đầu, giữa, cuối)
+2025-04-25 19:27:02,181 - INFO - Các yếu tố ngẫu nhiên và đột biến cũng được thêm vào để tạo dữ liệu chân thực hơn.
+2025-04-26 16:55:29,604 - INFO - Generating data for device_id: bay
+2025-04-26 16:55:29,604 - INFO - Sử dụng thời gian hiện tại: 2025-04-26 16:55:00
+2025-04-26 16:55:29,604 - INFO - Điều chỉnh thời gian bắt đầu về thứ Hai: 2025-04-21
+2025-04-26 16:55:29,604 - INFO - Bắt đầu tạo dữ liệu từ: 2025-04-21 16:55:00 (Mùa Xuân)
+2025-04-26 16:55:29,604 - INFO - Đang tạo dữ liệu cho: 2025-04-21 16:55:00 (Thứ Hai), device_id: bay
+2025-04-26 16:55:29,605 - INFO - Đang tạo dữ liệu cho: 2025-04-22 16:55:00 (Thứ Ba), device_id: bay
+2025-04-26 16:55:29,606 - INFO - Đang tạo dữ liệu cho: 2025-04-23 16:55:00 (Thứ Tư), device_id: bay
+2025-04-26 16:55:29,607 - INFO - Đang tạo dữ liệu cho: 2025-04-24 16:55:00 (Thứ Năm), device_id: bay
+2025-04-26 16:55:29,608 - INFO - Đang tạo dữ liệu cho: 2025-04-25 16:55:00 (Thứ Sáu), device_id: bay
+2025-04-26 16:55:29,609 - INFO - Đang tạo dữ liệu cho: 2025-04-26 16:55:00 (Thứ Bảy), device_id: bay
+2025-04-26 16:55:29,610 - INFO - Đang tạo dữ liệu cho: 2025-04-27 16:55:00 (Chủ Nhật), device_id: bay
+2025-04-26 16:55:29,611 - INFO - Đã tạo xong 2016 điểm dữ liệu trong 7 ngày cho device_id: bay
+2025-04-26 16:55:29,611 - INFO - Thống kê chi tiết:
+2025-04-26 16:55:29,612 - INFO - - Mùa: Xuân
+2025-04-26 16:55:29,612 - INFO - - Ngày thường: 1440 điểm, TB: 230.97W, Max: 1284.42W
+2025-04-26 16:55:29,612 - INFO - - Cuối tuần: 576 điểm, TB: 712.32W, Max: 2479.93W
+2025-04-26 16:55:29,612 - INFO - - Chênh lệch ngày thường/cuối tuần: 208.41%
+2025-04-26 16:55:29,696 - INFO - Đã kết nối thành công đến database: postgresql://postgres:1234@localhost:5444/iot_db
+2025-04-26 16:55:29,708 - INFO - Thiết bị bay chưa tồn tại. Đang tạo thiết bị mới...
+2025-04-26 16:55:29,738 - INFO - Cột hiện có trong bảng devices: ['id', 'device_id', 'user_id']
+2025-04-26 16:55:29,738 - INFO - Executing SQL: 
+                    INSERT INTO devices (device_id)
+                    VALUES (:device_id)
+                
+2025-04-26 16:55:29,739 - INFO - Đã tạo thiết bị mới với ID: bay
+2025-04-26 16:55:29,740 - INFO - Saving data to database for device_id: bay, user_id: None
+2025-04-26 16:55:29,759 - INFO - Cột hiện có trong bảng original_samples: ['id', 'device_id', 'value', 'timestamp']
+2025-04-26 16:55:29,759 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-26 16:55:29,930 - INFO - Đã lưu lô 1/3
+2025-04-26 16:55:29,930 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-26 16:55:30,090 - INFO - Đã lưu lô 2/3
+2025-04-26 16:55:30,090 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-26 16:55:30,094 - INFO - Đã lưu lô 3/3
+2025-04-26 16:55:30,094 - INFO - Thống kê: Đã tạo 2016 điểm dữ liệu, gồm 1440 điểm cho ngày thường và 576 điểm cho cuối tuần
+2025-04-26 16:55:30,094 - INFO - Mùa: Xuân
+2025-04-26 16:55:30,094 - INFO - Chương trình đã hoàn thành cho device_id: bay
+2025-04-26 16:55:30,094 - INFO - Các mẫu tiêu thụ điện đa dạng đã được tạo bao gồm:
+2025-04-26 16:55:30,094 - INFO - 1. Khác biệt theo ngày trong tuần (Thứ 2 -> Chủ nhật)
+2025-04-26 16:55:30,094 - INFO - 2. Khác biệt theo thời gian trong ngày (Sáng sớm, Buổi sáng, Ban ngày, Buổi tối, Đêm muộn)
+2025-04-26 16:55:30,094 - INFO - 3. Khác biệt theo mùa (Mùa Xuân, Hè, Thu, Đông)
+2025-04-26 16:55:30,094 - INFO - 4. Khác biệt theo tuần trong tháng (Tuần đầu, giữa, cuối)
+2025-04-26 16:55:30,094 - INFO - Các yếu tố ngẫu nhiên và đột biến cũng được thêm vào để tạo dữ liệu chân thực hơn.
+2025-04-26 17:33:42,549 - INFO - Generating data for device_id: ba
+2025-04-26 17:33:42,549 - INFO - Sử dụng thời gian hiện tại: 2025-04-26 17:30:00
+2025-04-26 17:33:42,549 - INFO - Điều chỉnh thời gian bắt đầu về thứ Hai: 2025-04-21
+2025-04-26 17:33:42,549 - INFO - Bắt đầu tạo dữ liệu từ: 2025-04-21 17:30:00 (Mùa Xuân)
+2025-04-26 17:33:42,549 - INFO - Đang tạo dữ liệu cho: 2025-04-21 17:30:00 (Thứ Hai), device_id: ba
+2025-04-26 17:33:42,550 - INFO - Đang tạo dữ liệu cho: 2025-04-22 17:30:00 (Thứ Ba), device_id: ba
+2025-04-26 17:33:42,552 - INFO - Đã tạo xong 576 điểm dữ liệu trong 2 ngày cho device_id: ba
+2025-04-26 17:33:42,552 - INFO - Thống kê chi tiết:
+2025-04-26 17:33:42,552 - INFO - - Mùa: Xuân
+2025-04-26 17:33:42,552 - INFO - - Ngày thường: 576 điểm, TB: 191.64W, Max: 928.99W
+2025-04-26 17:33:42,552 - INFO - - Cuối tuần: 0 điểm, TB: 0.00W, Max: 0.00W
+2025-04-26 17:33:42,552 - INFO - - Chênh lệch ngày thường/cuối tuần: -100.00%
+2025-04-26 17:33:42,641 - INFO - Đã kết nối thành công đến database: postgresql://postgres:1234@localhost:5444/iot_db
+2025-04-26 17:33:42,656 - INFO - Thiết bị ba chưa tồn tại. Đang tạo thiết bị mới...
+2025-04-26 17:33:42,678 - INFO - Cột hiện có trong bảng devices: ['id', 'device_id', 'user_id']
+2025-04-26 17:33:42,678 - INFO - Executing SQL: 
+                    INSERT INTO devices (device_id)
+                    VALUES (:device_id)
+                
+2025-04-26 17:33:42,682 - INFO - Đã tạo thiết bị mới với ID: ba
+2025-04-26 17:33:42,682 - INFO - Saving data to database for device_id: ba, user_id: None
+2025-04-26 17:33:42,707 - INFO - Cột hiện có trong bảng original_samples: ['id', 'device_id', 'value', 'timestamp']
+2025-04-26 17:33:42,709 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-26 17:33:42,823 - INFO - Đã lưu lô 1/1
+2025-04-26 17:33:42,823 - INFO - Thống kê: Đã tạo 576 điểm dữ liệu, gồm 576 điểm cho ngày thường và 0 điểm cho cuối tuần
+2025-04-26 17:33:42,823 - INFO - Mùa: Xuân
+2025-04-26 17:33:42,823 - INFO - Chương trình đã hoàn thành cho device_id: ba
+2025-04-26 17:33:42,823 - INFO - Các mẫu tiêu thụ điện đa dạng đã được tạo bao gồm:
+2025-04-26 17:33:42,823 - INFO - 1. Khác biệt theo ngày trong tuần (Thứ 2 -> Chủ nhật)
+2025-04-26 17:33:42,823 - INFO - 2. Khác biệt theo thời gian trong ngày (Sáng sớm, Buổi sáng, Ban ngày, Buổi tối, Đêm muộn)
+2025-04-26 17:33:42,823 - INFO - 3. Khác biệt theo mùa (Mùa Xuân, Hè, Thu, Đông)
+2025-04-26 17:33:42,823 - INFO - 4. Khác biệt theo tuần trong tháng (Tuần đầu, giữa, cuối)
+2025-04-26 17:33:42,823 - INFO - Các yếu tố ngẫu nhiên và đột biến cũng được thêm vào để tạo dữ liệu chân thực hơn.
+2025-04-28 14:40:41,556 - INFO - Generating data for device_id: tem
+2025-04-28 14:40:41,557 - INFO - Sử dụng thời gian hiện tại: 2025-04-28 14:40:00
+2025-04-28 14:40:41,557 - INFO - Bắt đầu tạo dữ liệu từ: 2025-04-28 14:40:00 (Mùa Xuân)
+2025-04-28 14:40:41,557 - INFO - Đang tạo dữ liệu cho: 2025-04-28 14:40:00 (Thứ Hai), device_id: tem
+2025-04-28 14:40:41,558 - INFO - Đang tạo dữ liệu cho: 2025-04-29 14:40:00 (Thứ Ba), device_id: tem
+2025-04-28 14:40:41,559 - INFO - Đang tạo dữ liệu cho: 2025-04-30 14:40:00 (Thứ Tư), device_id: tem
+2025-04-28 14:40:41,560 - INFO - Đã tạo xong 864 điểm dữ liệu trong 3 ngày cho device_id: tem
+2025-04-28 14:40:41,560 - INFO - Thống kê chi tiết:
+2025-04-28 14:40:41,560 - INFO - - Mùa: Xuân
+2025-04-28 14:40:41,560 - INFO - - Ngày thường: 864 điểm, TB: 204.92W, Max: 959.69W
+2025-04-28 14:40:41,560 - INFO - - Cuối tuần: 0 điểm, TB: 0.00W, Max: 0.00W
+2025-04-28 14:40:41,561 - INFO - - Chênh lệch ngày thường/cuối tuần: -100.00%
+2025-04-28 14:40:41,654 - INFO - Đã kết nối thành công đến database: postgresql://postgres:1234@localhost:5444/iot_db
+2025-04-28 14:40:41,664 - INFO - Thiết bị tem chưa tồn tại. Đang tạo thiết bị mới...
+2025-04-28 14:40:41,689 - INFO - Cột hiện có trong bảng devices: ['id', 'device_id', 'user_id']
+2025-04-28 14:40:41,689 - INFO - Executing SQL: 
+                    INSERT INTO devices (device_id)
+                    VALUES (:device_id)
+                
+2025-04-28 14:40:41,690 - INFO - Đã tạo thiết bị mới với ID: tem
+2025-04-28 14:40:41,690 - INFO - Saving data to database for device_id: tem, user_id: None
+2025-04-28 14:40:41,705 - INFO - Cột hiện có trong bảng original_samples: ['id', 'device_id', 'value', 'timestamp']
+2025-04-28 14:40:41,706 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-04-28 14:40:41,841 - INFO - Đã lưu lô 1/1
+2025-04-28 14:40:41,841 - INFO - Thống kê: Đã tạo 864 điểm dữ liệu, gồm 864 điểm cho ngày thường và 0 điểm cho cuối tuần
+2025-04-28 14:40:41,841 - INFO - Mùa: Xuân
+2025-04-28 14:40:41,841 - INFO - Chương trình đã hoàn thành cho device_id: tem
+2025-04-28 14:40:41,841 - INFO - Các mẫu tiêu thụ điện đa dạng đã được tạo bao gồm:
+2025-04-28 14:40:41,841 - INFO - 1. Khác biệt theo ngày trong tuần (Thứ 2 -> Chủ nhật)
+2025-04-28 14:40:41,841 - INFO - 2. Khác biệt theo thời gian trong ngày (Sáng sớm, Buổi sáng, Ban ngày, Buổi tối, Đêm muộn)
+2025-04-28 14:40:41,841 - INFO - 3. Khác biệt theo mùa (Mùa Xuân, Hè, Thu, Đông)
+2025-04-28 14:40:41,841 - INFO - 4. Khác biệt theo tuần trong tháng (Tuần đầu, giữa, cuối)
+2025-04-28 14:40:41,841 - INFO - Các yếu tố ngẫu nhiên và đột biến cũng được thêm vào để tạo dữ liệu chân thực hơn.
+2025-05-17 21:57:50,821 - INFO - Generating data for device_id: ba
+2025-05-17 21:57:50,822 - INFO - Sử dụng thời gian hiện tại: 2025-05-17 21:55:00
+2025-05-17 21:57:50,822 - INFO - Điều chỉnh thời gian bắt đầu về thứ Hai: 2025-05-12
+2025-05-17 21:57:50,822 - INFO - Bắt đầu tạo dữ liệu từ: 2025-05-12 21:55:00 (Mùa Hè)
+2025-05-17 21:57:50,822 - INFO - Đang tạo dữ liệu cho: 2025-05-12 21:55:00 (Thứ Hai), device_id: ba
+2025-05-17 21:57:50,823 - INFO - Đang tạo dữ liệu cho: 2025-05-13 21:55:00 (Thứ Ba), device_id: ba
+2025-05-17 21:57:50,824 - INFO - Đang tạo dữ liệu cho: 2025-05-14 21:55:00 (Thứ Tư), device_id: ba
+2025-05-17 21:57:50,825 - INFO - Đã tạo xong 864 điểm dữ liệu trong 3 ngày cho device_id: ba
+2025-05-17 21:57:50,825 - INFO - Thống kê chi tiết:
+2025-05-17 21:57:50,825 - INFO - - Mùa: Hè
+2025-05-17 21:57:50,825 - INFO - - Ngày thường: 864 điểm, TB: 257.28W, Max: 1193.16W
+2025-05-17 21:57:50,825 - INFO - - Cuối tuần: 0 điểm, TB: 0.00W, Max: 0.00W
+2025-05-17 21:57:50,825 - INFO - - Chênh lệch ngày thường/cuối tuần: -100.00%
+2025-05-17 21:57:50,908 - INFO - Đã kết nối thành công đến database: postgresql://postgres:1234@localhost:5444/iot_db
+2025-05-17 21:57:50,919 - INFO - Thiết bị ba chưa tồn tại. Đang tạo thiết bị mới...
+2025-05-17 21:57:50,948 - INFO - Cột hiện có trong bảng devices: ['id', 'device_id', 'user_id']
+2025-05-17 21:57:50,948 - INFO - Executing SQL: 
+                    INSERT INTO devices (device_id)
+                    VALUES (:device_id)
+                
+2025-05-17 21:57:50,950 - INFO - Đã tạo thiết bị mới với ID: ba
+2025-05-17 21:57:50,950 - INFO - Saving data to database for device_id: ba, user_id: None
+2025-05-17 21:57:50,966 - INFO - Cột hiện có trong bảng original_samples: ['id', 'device_id', 'value', 'timestamp']
+2025-05-17 21:57:50,967 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-05-17 21:57:51,114 - INFO - Đã lưu lô 1/1
+2025-05-17 21:57:51,115 - INFO - Thống kê: Đã tạo 864 điểm dữ liệu, gồm 864 điểm cho ngày thường và 0 điểm cho cuối tuần
+2025-05-17 21:57:51,115 - INFO - Mùa: Hè
+2025-05-17 21:57:51,115 - INFO - Chương trình đã hoàn thành cho device_id: ba
+2025-05-17 21:57:51,115 - INFO - Các mẫu tiêu thụ điện đa dạng đã được tạo bao gồm:
+2025-05-17 21:57:51,115 - INFO - 1. Khác biệt theo ngày trong tuần (Thứ 2 -> Chủ nhật)
+2025-05-17 21:57:51,115 - INFO - 2. Khác biệt theo thời gian trong ngày (Sáng sớm, Buổi sáng, Ban ngày, Buổi tối, Đêm muộn)
+2025-05-17 21:57:51,115 - INFO - 3. Khác biệt theo mùa (Mùa Xuân, Hè, Thu, Đông)
+2025-05-17 21:57:51,115 - INFO - 4. Khác biệt theo tuần trong tháng (Tuần đầu, giữa, cuối)
+2025-05-17 21:57:51,115 - INFO - Các yếu tố ngẫu nhiên và đột biến cũng được thêm vào để tạo dữ liệu chân thực hơn.
+2025-05-17 23:41:04,326 - INFO - Generating data for device_id: ba
+2025-05-17 23:41:04,326 - INFO - Sử dụng thời gian hiện tại: 2025-05-17 23:40:00
+2025-05-17 23:41:04,326 - INFO - Điều chỉnh thời gian bắt đầu về thứ Hai: 2025-05-12
+2025-05-17 23:41:04,326 - INFO - Bắt đầu tạo dữ liệu từ: 2025-05-12 23:40:00 (Mùa Hè)
+2025-05-17 23:41:04,327 - INFO - Đang tạo dữ liệu cho: 2025-05-12 23:40:00 (Thứ Hai), device_id: ba
+2025-05-17 23:41:04,327 - INFO - Đang tạo dữ liệu cho: 2025-05-13 23:40:00 (Thứ Ba), device_id: ba
+2025-05-17 23:41:04,328 - INFO - Đang tạo dữ liệu cho: 2025-05-14 23:40:00 (Thứ Tư), device_id: ba
+2025-05-17 23:41:04,329 - INFO - Đã tạo xong 864 điểm dữ liệu trong 3 ngày cho device_id: ba
+2025-05-17 23:41:04,329 - INFO - Thống kê chi tiết:
+2025-05-17 23:41:04,329 - INFO - - Mùa: Hè
+2025-05-17 23:41:04,329 - INFO - - Ngày thường: 864 điểm, TB: 260.41W, Max: 1330.42W
+2025-05-17 23:41:04,329 - INFO - - Cuối tuần: 0 điểm, TB: 0.00W, Max: 0.00W
+2025-05-17 23:41:04,330 - INFO - - Chênh lệch ngày thường/cuối tuần: -100.00%
+2025-05-17 23:41:04,417 - INFO - Đã kết nối thành công đến database: postgresql://postgres:1234@localhost:5444/iot_db
+2025-05-17 23:41:04,430 - INFO - Thiết bị ba đã tồn tại.
+2025-05-17 23:41:04,431 - INFO - Saving data to database for device_id: ba, user_id: None
+2025-05-17 23:41:04,454 - INFO - Cột hiện có trong bảng original_samples: ['id', 'device_id', 'value', 'timestamp']
+2025-05-17 23:41:04,455 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-05-17 23:41:04,612 - INFO - Đã lưu lô 1/1
+2025-05-17 23:41:04,613 - INFO - Thống kê: Đã tạo 864 điểm dữ liệu, gồm 864 điểm cho ngày thường và 0 điểm cho cuối tuần
+2025-05-17 23:41:04,613 - INFO - Mùa: Hè
+2025-05-17 23:41:04,613 - INFO - Chương trình đã hoàn thành cho device_id: ba
+2025-05-17 23:41:04,613 - INFO - Các mẫu tiêu thụ điện đa dạng đã được tạo bao gồm:
+2025-05-17 23:41:04,613 - INFO - 1. Khác biệt theo ngày trong tuần (Thứ 2 -> Chủ nhật)
+2025-05-17 23:41:04,613 - INFO - 2. Khác biệt theo thời gian trong ngày (Sáng sớm, Buổi sáng, Ban ngày, Buổi tối, Đêm muộn)
+2025-05-17 23:41:04,613 - INFO - 3. Khác biệt theo mùa (Mùa Xuân, Hè, Thu, Đông)
+2025-05-17 23:41:04,613 - INFO - 4. Khác biệt theo tuần trong tháng (Tuần đầu, giữa, cuối)
+2025-05-17 23:41:04,613 - INFO - Các yếu tố ngẫu nhiên và đột biến cũng được thêm vào để tạo dữ liệu chân thực hơn.
+2025-05-17 23:42:24,282 - INFO - Generating data for device_id: ba
+2025-05-17 23:42:24,283 - INFO - Sử dụng thời gian hiện tại: 2025-05-17 23:40:00
+2025-05-17 23:42:24,283 - INFO - Điều chỉnh thời gian bắt đầu về thứ Hai: 2025-05-12
+2025-05-17 23:42:24,283 - INFO - Bắt đầu tạo dữ liệu từ: 2025-05-12 23:40:00 (Mùa Hè)
+2025-05-17 23:42:24,283 - INFO - Đang tạo dữ liệu cho: 2025-05-12 23:40:00 (Thứ Hai), device_id: ba
+2025-05-17 23:42:24,284 - INFO - Đang tạo dữ liệu cho: 2025-05-13 23:40:00 (Thứ Ba), device_id: ba
+2025-05-17 23:42:24,285 - INFO - Đang tạo dữ liệu cho: 2025-05-14 23:40:00 (Thứ Tư), device_id: ba
+2025-05-17 23:42:24,286 - INFO - Đã tạo xong 864 điểm dữ liệu trong 3 ngày cho device_id: ba
+2025-05-17 23:42:24,286 - INFO - Thống kê chi tiết:
+2025-05-17 23:42:24,286 - INFO - - Mùa: Hè
+2025-05-17 23:42:24,286 - INFO - - Ngày thường: 864 điểm, TB: 255.61W, Max: 1291.21W
+2025-05-17 23:42:24,286 - INFO - - Cuối tuần: 0 điểm, TB: 0.00W, Max: 0.00W
+2025-05-17 23:42:24,286 - INFO - - Chênh lệch ngày thường/cuối tuần: -100.00%
+2025-05-17 23:42:24,348 - INFO - Đã kết nối thành công đến database: postgresql://postgres:1234@localhost:5444/iot_db
+2025-05-17 23:42:24,362 - INFO - Thiết bị ba đã tồn tại.
+2025-05-17 23:42:24,362 - INFO - Saving data to database for device_id: ba, user_id: None
+2025-05-17 23:42:24,385 - INFO - Cột hiện có trong bảng original_samples: ['id', 'device_id', 'value', 'timestamp']
+2025-05-17 23:42:24,385 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-05-17 23:42:24,562 - INFO - Đã lưu lô 1/1
+2025-05-17 23:42:24,562 - INFO - Thống kê: Đã tạo 864 điểm dữ liệu, gồm 864 điểm cho ngày thường và 0 điểm cho cuối tuần
+2025-05-17 23:42:24,562 - INFO - Mùa: Hè
+2025-05-17 23:42:24,562 - INFO - Chương trình đã hoàn thành cho device_id: ba
+2025-05-17 23:42:24,562 - INFO - Các mẫu tiêu thụ điện đa dạng đã được tạo bao gồm:
+2025-05-17 23:42:24,562 - INFO - 1. Khác biệt theo ngày trong tuần (Thứ 2 -> Chủ nhật)
+2025-05-17 23:42:24,562 - INFO - 2. Khác biệt theo thời gian trong ngày (Sáng sớm, Buổi sáng, Ban ngày, Buổi tối, Đêm muộn)
+2025-05-17 23:42:24,562 - INFO - 3. Khác biệt theo mùa (Mùa Xuân, Hè, Thu, Đông)
+2025-05-17 23:42:24,562 - INFO - 4. Khác biệt theo tuần trong tháng (Tuần đầu, giữa, cuối)
+2025-05-17 23:42:24,562 - INFO - Các yếu tố ngẫu nhiên và đột biến cũng được thêm vào để tạo dữ liệu chân thực hơn.
+2025-05-18 14:27:41,216 - INFO - Generating data for device_id: lan
+2025-05-18 14:27:41,217 - INFO - Sử dụng thời gian hiện tại: 2025-05-18 14:25:00
+2025-05-18 14:27:41,217 - INFO - Điều chỉnh thời gian bắt đầu về thứ Hai: 2025-05-12
+2025-05-18 14:27:41,217 - INFO - Bắt đầu tạo dữ liệu từ: 2025-05-12 14:25:00 (Mùa Hè)
+2025-05-18 14:27:41,217 - INFO - Đang tạo dữ liệu cho: 2025-05-12 14:25:00 (Thứ Hai), device_id: lan
+2025-05-18 14:27:41,217 - INFO - Đã tạo xong 12 điểm dữ liệu trong 1 ngày cho device_id: lan
+2025-05-18 14:27:41,217 - INFO - Thống kê chi tiết:
+2025-05-18 14:27:41,217 - INFO - - Mùa: Hè
+2025-05-18 14:27:41,217 - INFO - - Ngày thường: 12 điểm, TB: 122.24W, Max: 274.57W
+2025-05-18 14:27:41,217 - INFO - - Cuối tuần: 0 điểm, TB: 0.00W, Max: 0.00W
+2025-05-18 14:27:41,217 - INFO - - Chênh lệch ngày thường/cuối tuần: -100.00%
+2025-05-18 14:27:41,380 - INFO - Đã kết nối thành công đến database: postgresql://postgres:1234@localhost:5444/iot_db
+2025-05-18 14:27:41,389 - INFO - Thiết bị lan chưa tồn tại. Đang tạo thiết bị mới...
+2025-05-18 14:27:41,413 - INFO - Cột hiện có trong bảng devices: ['id', 'device_id', 'user_id']
+2025-05-18 14:27:41,414 - INFO - Executing SQL: 
+                    INSERT INTO devices (device_id)
+                    VALUES (:device_id)
+                
+2025-05-18 14:27:41,416 - INFO - Đã tạo thiết bị mới với ID: lan
+2025-05-18 14:27:41,416 - INFO - Saving data to database for device_id: lan, user_id: None
+2025-05-18 14:27:41,434 - INFO - Cột hiện có trong bảng original_samples: ['id', 'device_id', 'value', 'timestamp']
+2025-05-18 14:27:41,435 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-05-18 14:27:41,442 - INFO - Đã lưu lô 1/1
+2025-05-18 14:27:41,442 - INFO - Thống kê: Đã tạo 12 điểm dữ liệu, gồm 12 điểm cho ngày thường và 0 điểm cho cuối tuần
+2025-05-18 14:27:41,442 - INFO - Mùa: Hè
+2025-05-18 14:27:41,442 - INFO - Chương trình đã hoàn thành cho device_id: lan
+2025-05-18 14:29:20,933 - INFO - Generating data for device_id: lan
+2025-05-18 14:29:20,934 - INFO - Sử dụng thời gian hiện tại: 2025-05-18 14:25:00
+2025-05-18 14:29:20,934 - INFO - Điều chỉnh thời gian bắt đầu về thứ Hai: 2025-05-12
+2025-05-18 14:29:20,934 - INFO - Bắt đầu tạo dữ liệu từ: 2025-05-12 14:25:00 (Mùa Hè)
+2025-05-18 14:29:20,934 - INFO - Đang tạo dữ liệu cho: 2025-05-12 14:25:00 (Thứ Hai), device_id: lan
+2025-05-18 14:29:20,934 - INFO - Đã tạo xong 12 điểm dữ liệu trong 1 ngày cho device_id: lan
+2025-05-18 14:29:20,934 - INFO - Thống kê chi tiết:
+2025-05-18 14:29:20,934 - INFO - - Mùa: Hè
+2025-05-18 14:29:20,934 - INFO - - Ngày thường: 12 điểm, TB: 118.37W, Max: 274.24W
+2025-05-18 14:29:20,934 - INFO - - Cuối tuần: 0 điểm, TB: 0.00W, Max: 0.00W
+2025-05-18 14:29:20,934 - INFO - - Chênh lệch ngày thường/cuối tuần: -100.00%
+2025-05-18 14:29:21,019 - INFO - Đã kết nối thành công đến database: postgresql://postgres:1234@localhost:5444/iot_db
+2025-05-18 14:29:21,034 - INFO - Thiết bị lan đã tồn tại.
+2025-05-18 14:29:21,034 - INFO - Saving data to database for device_id: lan, user_id: None
+2025-05-18 14:29:21,060 - INFO - Cột hiện có trong bảng original_samples: ['id', 'device_id', 'value', 'timestamp']
+2025-05-18 14:29:21,061 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-05-18 14:29:21,067 - INFO - Đã lưu lô 1/1
+2025-05-18 14:29:21,067 - INFO - Thống kê: Đã tạo 12 điểm dữ liệu, gồm 12 điểm cho ngày thường và 0 điểm cho cuối tuần
+2025-05-18 14:29:21,067 - INFO - Mùa: Hè
+2025-05-18 14:29:21,067 - INFO - Chương trình đã hoàn thành cho device_id: lan
+2025-05-18 15:39:49,183 - INFO - Generating data for device_id: test
+2025-05-18 15:39:49,184 - INFO - Sử dụng thời gian hiện tại: 2025-05-18 15:35:00
+2025-05-18 15:39:49,184 - INFO - Điều chỉnh thời gian bắt đầu về thứ Hai: 2025-05-12
+2025-05-18 15:39:49,184 - INFO - Bắt đầu tạo dữ liệu từ: 2025-05-12 15:35:00 (Mùa Hè)
+2025-05-18 15:39:49,184 - INFO - Đang tạo dữ liệu cho: 2025-05-12 15:35:00 (Thứ Hai), device_id: test
+2025-05-18 15:39:49,184 - INFO - Đã tạo xong 12 điểm dữ liệu trong 1 ngày cho device_id: test
+2025-05-18 15:39:49,184 - INFO - Thống kê chi tiết:
+2025-05-18 15:39:49,184 - INFO - - Mùa: Hè
+2025-05-18 15:39:49,184 - INFO - - Ngày thường: 12 điểm, TB: 154.52W, Max: 264.99W
+2025-05-18 15:39:49,184 - INFO - - Cuối tuần: 0 điểm, TB: 0.00W, Max: 0.00W
+2025-05-18 15:39:49,184 - INFO - - Chênh lệch ngày thường/cuối tuần: -100.00%
+2025-05-18 15:39:49,367 - INFO - Đã kết nối thành công đến database: postgresql://postgres:1234@localhost:5444/iot_db
+2025-05-18 15:39:49,377 - INFO - Thiết bị test chưa tồn tại. Đang tạo thiết bị mới...
+2025-05-18 15:39:49,402 - INFO - Cột hiện có trong bảng devices: ['id', 'device_id', 'user_id']
+2025-05-18 15:39:49,403 - INFO - Executing SQL: 
+                    INSERT INTO devices (device_id)
+                    VALUES (:device_id)
+                
+2025-05-18 15:39:49,405 - INFO - Đã tạo thiết bị mới với ID: test
+2025-05-18 15:39:49,405 - INFO - Saving data to database for device_id: test, user_id: None
+2025-05-18 15:39:49,424 - INFO - Cột hiện có trong bảng original_samples: ['id', 'device_id', 'value', 'timestamp']
+2025-05-18 15:39:49,424 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-05-18 15:39:49,429 - INFO - Đã lưu lô 1/1
+2025-05-18 15:39:49,429 - INFO - Thống kê: Đã tạo 12 điểm dữ liệu, gồm 12 điểm cho ngày thường và 0 điểm cho cuối tuần
+2025-05-18 15:39:49,429 - INFO - Mùa: Hè
+2025-05-18 15:39:49,429 - INFO - Chương trình đã hoàn thành cho device_id: test
+2025-05-18 16:04:16,619 - INFO - Generating data for device_id: real
+2025-05-18 16:04:16,620 - INFO - Sử dụng thời gian hiện tại: 2025-05-18 16:00:00
+2025-05-18 16:04:16,620 - INFO - Điều chỉnh thời gian bắt đầu về thứ Hai: 2025-05-12
+2025-05-18 16:04:16,620 - INFO - Bắt đầu tạo dữ liệu từ: 2025-05-12 16:00:00 (Mùa Hè)
+2025-05-18 16:04:16,620 - INFO - Đang tạo dữ liệu cho: 2025-05-12 16:00:00 (Thứ Hai), device_id: real
+2025-05-18 16:04:16,621 - INFO - Đang tạo dữ liệu cho: 2025-05-13 16:00:00 (Thứ Ba), device_id: real
+2025-05-18 16:04:16,622 - INFO - Đang tạo dữ liệu cho: 2025-05-14 16:00:00 (Thứ Tư), device_id: real
+2025-05-18 16:04:16,623 - INFO - Đang tạo dữ liệu cho: 2025-05-15 16:00:00 (Thứ Năm), device_id: real
+2025-05-18 16:04:16,624 - INFO - Đang tạo dữ liệu cho: 2025-05-16 16:00:00 (Thứ Sáu), device_id: real
+2025-05-18 16:04:16,625 - INFO - Đang tạo dữ liệu cho: 2025-05-17 16:00:00 (Thứ Bảy), device_id: real
+2025-05-18 16:04:16,626 - INFO - Đang tạo dữ liệu cho: 2025-05-18 16:00:00 (Chủ Nhật), device_id: real
+2025-05-18 16:04:16,629 - INFO - Đã tạo xong 2016 điểm dữ liệu trong 7 ngày cho device_id: real
+2025-05-18 16:04:16,629 - INFO - Thống kê chi tiết:
+2025-05-18 16:04:16,629 - INFO - - Mùa: Hè
+2025-05-18 16:04:16,629 - INFO - - Ngày thường: 1440 điểm, TB: 293.70W, Max: 1693.52W
+2025-05-18 16:04:16,629 - INFO - - Cuối tuần: 576 điểm, TB: 1053.31W, Max: 3485.77W
+2025-05-18 16:04:16,629 - INFO - - Chênh lệch ngày thường/cuối tuần: 258.63%
+2025-05-18 16:04:16,870 - INFO - Đã kết nối thành công đến database: postgresql://postgres:1234@localhost:5444/iot_db
+2025-05-18 16:04:16,881 - INFO - Thiết bị real chưa tồn tại. Đang tạo thiết bị mới...
+2025-05-18 16:04:16,904 - INFO - Cột hiện có trong bảng devices: ['id', 'device_id', 'user_id']
+2025-05-18 16:04:16,904 - INFO - Executing SQL: 
+                    INSERT INTO devices (device_id)
+                    VALUES (:device_id)
+                
+2025-05-18 16:04:16,907 - INFO - Đã tạo thiết bị mới với ID: real
+2025-05-18 16:04:16,907 - INFO - Saving data to database for device_id: real, user_id: None
+2025-05-18 16:04:16,926 - INFO - Cột hiện có trong bảng original_samples: ['id', 'device_id', 'value', 'timestamp']
+2025-05-18 16:04:16,926 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-05-18 16:04:17,118 - INFO - Đã lưu lô 1/3
+2025-05-18 16:04:17,118 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-05-18 16:04:17,270 - INFO - Đã lưu lô 2/3
+2025-05-18 16:04:17,270 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-05-18 16:04:17,273 - INFO - Đã lưu lô 3/3
+2025-05-18 16:04:17,273 - INFO - Thống kê: Đã tạo 2016 điểm dữ liệu, gồm 1440 điểm cho ngày thường và 576 điểm cho cuối tuần
+2025-05-18 16:04:17,273 - INFO - Mùa: Hè
+2025-05-18 16:04:17,273 - INFO - Chương trình đã hoàn thành cho device_id: real
+2025-05-18 17:13:08,160 - INFO - Generating data for device_id: test
+2025-05-18 17:13:08,161 - INFO - Sử dụng thời gian hiện tại: 2025-05-18 17:10:00
+2025-05-18 17:13:08,161 - INFO - Điều chỉnh thời gian bắt đầu về thứ Hai: 2025-05-12
+2025-05-18 17:13:08,161 - INFO - Bắt đầu tạo dữ liệu từ: 2025-05-12 17:10:00 (Mùa Hè)
+2025-05-18 17:13:08,161 - INFO - Đang tạo dữ liệu cho: 2025-05-12 17:10:00 (Thứ Hai), device_id: test
+2025-05-18 17:13:08,164 - INFO - Đang tạo dữ liệu cho: 2025-05-13 17:10:00 (Thứ Ba), device_id: test
+2025-05-18 17:13:08,170 - INFO - Đang tạo dữ liệu cho: 2025-05-14 17:10:00 (Thứ Tư), device_id: test
+2025-05-18 17:13:08,171 - INFO - Đang tạo dữ liệu cho: 2025-05-15 17:10:00 (Thứ Năm), device_id: test
+2025-05-18 17:13:08,175 - INFO - Đang tạo dữ liệu cho: 2025-05-16 17:10:00 (Thứ Sáu), device_id: test
+2025-05-18 17:13:08,178 - INFO - Đang tạo dữ liệu cho: 2025-05-17 17:10:00 (Thứ Bảy), device_id: test
+2025-05-18 17:13:08,180 - INFO - Đang tạo dữ liệu cho: 2025-05-18 17:10:00 (Chủ Nhật), device_id: test
+2025-05-18 17:13:08,183 - INFO - Đã tạo xong 2016 điểm dữ liệu trong 7 ngày cho device_id: test
+2025-05-18 17:13:08,183 - INFO - Thống kê chi tiết:
+2025-05-18 17:13:08,183 - INFO - - Mùa: Hè
+2025-05-18 17:13:08,184 - INFO - - Ngày thường: 1440 điểm, TB: 293.38W, Max: 1605.09W
+2025-05-18 17:13:08,184 - INFO - - Cuối tuần: 576 điểm, TB: 1069.10W, Max: 3638.86W
+2025-05-18 17:13:08,184 - INFO - - Chênh lệch ngày thường/cuối tuần: 264.41%
+2025-05-18 17:13:08,280 - INFO - Đã kết nối thành công đến database: postgresql://postgres:1234@localhost:5444/iot_db
+2025-05-18 17:13:08,296 - INFO - Thiết bị test đã tồn tại.
+2025-05-18 17:13:08,297 - INFO - Saving data to database for device_id: test, user_id: None
+2025-05-18 17:13:08,328 - INFO - Cột hiện có trong bảng original_samples: ['id', 'device_id', 'value', 'timestamp']
+2025-05-18 17:13:08,329 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-05-18 17:13:08,526 - INFO - Đã lưu lô 1/3
+2025-05-18 17:13:08,526 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-05-18 17:13:08,680 - INFO - Đã lưu lô 2/3
+2025-05-18 17:13:08,680 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-05-18 17:13:08,683 - INFO - Đã lưu lô 3/3
+2025-05-18 17:13:08,683 - INFO - Thống kê: Đã tạo 2016 điểm dữ liệu, gồm 1440 điểm cho ngày thường và 576 điểm cho cuối tuần
+2025-05-18 17:13:08,683 - INFO - Mùa: Hè
+2025-05-18 17:13:08,683 - INFO - Chương trình đã hoàn thành cho device_id: test
+2025-05-18 19:06:11,307 - INFO - Generating data for device_id: nem
+2025-05-18 19:06:11,309 - INFO - Sử dụng thời gian hiện tại: 2025-05-18 19:05:00
+2025-05-18 19:06:11,309 - INFO - Điều chỉnh thời gian bắt đầu về thứ Hai: 2025-05-12
+2025-05-18 19:06:11,310 - INFO - Bắt đầu tạo dữ liệu từ: 2025-05-12 19:05:00 (Mùa Hè)
+2025-05-18 19:06:11,310 - INFO - Đang tạo dữ liệu cho: 2025-05-12 19:05:00 (Thứ Hai), device_id: nem
+2025-05-18 19:06:11,311 - INFO - Đang tạo dữ liệu cho: 2025-05-13 19:05:00 (Thứ Ba), device_id: nem
+2025-05-18 19:06:11,311 - INFO - Đang tạo dữ liệu cho: 2025-05-14 19:05:00 (Thứ Tư), device_id: nem
+2025-05-18 19:06:11,312 - INFO - Đang tạo dữ liệu cho: 2025-05-15 19:05:00 (Thứ Năm), device_id: nem
+2025-05-18 19:06:11,313 - INFO - Đang tạo dữ liệu cho: 2025-05-16 19:05:00 (Thứ Sáu), device_id: nem
+2025-05-18 19:06:11,314 - INFO - Đang tạo dữ liệu cho: 2025-05-17 19:05:00 (Thứ Bảy), device_id: nem
+2025-05-18 19:06:11,316 - INFO - Đang tạo dữ liệu cho: 2025-05-18 19:05:00 (Chủ Nhật), device_id: nem
+2025-05-18 19:06:11,318 - INFO - Đã tạo xong 2016 điểm dữ liệu trong 7 ngày cho device_id: nem
+2025-05-18 19:06:11,319 - INFO - Thống kê chi tiết:
+2025-05-18 19:06:11,319 - INFO - - Mùa: Hè
+2025-05-18 19:06:11,319 - INFO - - Ngày thường: 1440 điểm, TB: 294.09W, Max: 1785.69W
+2025-05-18 19:06:11,319 - INFO - - Cuối tuần: 576 điểm, TB: 1072.56W, Max: 3604.50W
+2025-05-18 19:06:11,319 - INFO - - Chênh lệch ngày thường/cuối tuần: 264.71%
+2025-05-18 19:06:11,399 - INFO - Đã kết nối thành công đến database: postgresql://postgres:1234@localhost:5444/iot_db
+2025-05-18 19:06:11,414 - INFO - Thiết bị nem chưa tồn tại. Đang tạo thiết bị mới...
+2025-05-18 19:06:11,448 - INFO - Cột hiện có trong bảng devices: ['id', 'device_id', 'user_id', 'device_type']
+2025-05-18 19:06:11,448 - INFO - Executing SQL: 
+                    INSERT INTO devices (device_id)
+                    VALUES (:device_id)
+                
+2025-05-18 19:06:11,449 - INFO - Đã tạo thiết bị mới với ID: nem
+2025-05-18 19:06:11,450 - INFO - Saving data to database for device_id: nem, user_id: None
+2025-05-18 19:06:11,470 - INFO - Cột hiện có trong bảng original_samples: ['id', 'device_id', 'value', 'timestamp']
+2025-05-18 19:06:11,470 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-05-18 19:06:11,621 - INFO - Đã lưu lô 1/3
+2025-05-18 19:06:11,621 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-05-18 19:06:11,775 - INFO - Đã lưu lô 2/3
+2025-05-18 19:06:11,775 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-05-18 19:06:11,778 - INFO - Đã lưu lô 3/3
+2025-05-18 19:06:11,778 - INFO - Thống kê: Đã tạo 2016 điểm dữ liệu, gồm 1440 điểm cho ngày thường và 576 điểm cho cuối tuần
+2025-05-18 19:06:11,778 - INFO - Mùa: Hè
+2025-05-18 19:06:11,778 - INFO - Chương trình đã hoàn thành cho device_id: nem
+2025-05-18 21:46:31,163 - INFO - Generating data for device_id: fan1
+2025-05-18 21:46:31,163 - INFO - Sử dụng thời gian hiện tại: 2025-05-18 21:45:00
+2025-05-18 21:46:31,163 - INFO - Điều chỉnh thời gian bắt đầu về thứ Hai: 2025-05-12
+2025-05-18 21:46:31,163 - INFO - Bắt đầu tạo dữ liệu từ: 2025-05-12 21:45:00 (Mùa Hè)
+2025-05-18 21:46:31,164 - INFO - Đang tạo dữ liệu cho: 2025-05-12 21:45:00 (Thứ Hai), device_id: fan1
+2025-05-18 21:46:31,164 - INFO - Đang tạo dữ liệu cho: 2025-05-13 21:45:00 (Thứ Ba), device_id: fan1
+2025-05-18 21:46:31,165 - INFO - Đang tạo dữ liệu cho: 2025-05-14 21:45:00 (Thứ Tư), device_id: fan1
+2025-05-18 21:46:31,166 - INFO - Đang tạo dữ liệu cho: 2025-05-15 21:45:00 (Thứ Năm), device_id: fan1
+2025-05-18 21:46:31,167 - INFO - Đang tạo dữ liệu cho: 2025-05-16 21:45:00 (Thứ Sáu), device_id: fan1
+2025-05-18 21:46:31,168 - INFO - Đang tạo dữ liệu cho: 2025-05-17 21:45:00 (Thứ Bảy), device_id: fan1
+2025-05-18 21:46:31,169 - INFO - Đang tạo dữ liệu cho: 2025-05-18 21:45:00 (Chủ Nhật), device_id: fan1
+2025-05-18 21:46:31,170 - INFO - Đã tạo xong 2016 điểm dữ liệu trong 7 ngày cho device_id: fan1
+2025-05-18 21:46:31,170 - INFO - Thống kê chi tiết:
+2025-05-18 21:46:31,170 - INFO - - Mùa: Hè
+2025-05-18 21:46:31,170 - INFO - - Ngày thường: 1440 điểm, TB: 298.95W, Max: 1759.04W
+2025-05-18 21:46:31,170 - INFO - - Cuối tuần: 576 điểm, TB: 1075.70W, Max: 3468.16W
+2025-05-18 21:46:31,171 - INFO - - Chênh lệch ngày thường/cuối tuần: 259.82%
+2025-05-18 21:46:31,267 - INFO - Đã kết nối thành công đến database: postgresql://postgres:1234@localhost:5444/iot_db
+2025-05-18 21:46:31,281 - INFO - Thiết bị fan1 chưa tồn tại. Đang tạo thiết bị mới...
+2025-05-18 21:46:31,312 - INFO - Cột hiện có trong bảng devices: ['id', 'device_id', 'user_id', 'device_type']
+2025-05-18 21:46:31,312 - INFO - Executing SQL: 
+                    INSERT INTO devices (device_id)
+                    VALUES (:device_id)
+                
+2025-05-18 21:46:31,315 - INFO - Đã tạo thiết bị mới với ID: fan1
+2025-05-18 21:46:31,315 - INFO - Saving data to database for device_id: fan1, user_id: None
+2025-05-18 21:46:31,336 - INFO - Cột hiện có trong bảng original_samples: ['id', 'device_id', 'value', 'timestamp']
+2025-05-18 21:46:31,336 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-05-18 21:46:31,498 - INFO - Đã lưu lô 1/3
+2025-05-18 21:46:31,498 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-05-18 21:46:31,630 - INFO - Đã lưu lô 2/3
+2025-05-18 21:46:31,630 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-05-18 21:46:31,633 - INFO - Đã lưu lô 3/3
+2025-05-18 21:46:31,633 - INFO - Thống kê: Đã tạo 2016 điểm dữ liệu, gồm 1440 điểm cho ngày thường và 576 điểm cho cuối tuần
+2025-05-18 21:46:31,633 - INFO - Mùa: Hè
+2025-05-18 21:46:31,633 - INFO - Chương trình đã hoàn thành cho device_id: fan1
+2025-05-18 21:46:45,370 - INFO - Generating data for device_id: light
+2025-05-18 21:46:45,370 - INFO - Sử dụng thời gian hiện tại: 2025-05-18 21:45:00
+2025-05-18 21:46:45,370 - INFO - Điều chỉnh thời gian bắt đầu về thứ Hai: 2025-05-12
+2025-05-18 21:46:45,370 - INFO - Bắt đầu tạo dữ liệu từ: 2025-05-12 21:45:00 (Mùa Hè)
+2025-05-18 21:46:45,370 - INFO - Đang tạo dữ liệu cho: 2025-05-12 21:45:00 (Thứ Hai), device_id: light
+2025-05-18 21:46:45,371 - INFO - Đang tạo dữ liệu cho: 2025-05-13 21:45:00 (Thứ Ba), device_id: light
+2025-05-18 21:46:45,372 - INFO - Đang tạo dữ liệu cho: 2025-05-14 21:45:00 (Thứ Tư), device_id: light
+2025-05-18 21:46:45,373 - INFO - Đang tạo dữ liệu cho: 2025-05-15 21:45:00 (Thứ Năm), device_id: light
+2025-05-18 21:46:45,374 - INFO - Đang tạo dữ liệu cho: 2025-05-16 21:45:00 (Thứ Sáu), device_id: light
+2025-05-18 21:46:45,375 - INFO - Đang tạo dữ liệu cho: 2025-05-17 21:45:00 (Thứ Bảy), device_id: light
+2025-05-18 21:46:45,376 - INFO - Đang tạo dữ liệu cho: 2025-05-18 21:45:00 (Chủ Nhật), device_id: light
+2025-05-18 21:46:45,377 - INFO - Đã tạo xong 2016 điểm dữ liệu trong 7 ngày cho device_id: light
+2025-05-18 21:46:45,377 - INFO - Thống kê chi tiết:
+2025-05-18 21:46:45,377 - INFO - - Mùa: Hè
+2025-05-18 21:46:45,377 - INFO - - Ngày thường: 1440 điểm, TB: 296.41W, Max: 1622.74W
+2025-05-18 21:46:45,377 - INFO - - Cuối tuần: 576 điểm, TB: 1054.73W, Max: 3540.08W
+2025-05-18 21:46:45,377 - INFO - - Chênh lệch ngày thường/cuối tuần: 255.83%
+2025-05-18 21:46:45,443 - INFO - Đã kết nối thành công đến database: postgresql://postgres:1234@localhost:5444/iot_db
+2025-05-18 21:46:45,462 - INFO - Thiết bị light chưa tồn tại. Đang tạo thiết bị mới...
+2025-05-18 21:46:45,488 - INFO - Cột hiện có trong bảng devices: ['id', 'device_id', 'user_id', 'device_type']
+2025-05-18 21:46:45,488 - INFO - Executing SQL: 
+                    INSERT INTO devices (device_id)
+                    VALUES (:device_id)
+                
+2025-05-18 21:46:45,490 - INFO - Đã tạo thiết bị mới với ID: light
+2025-05-18 21:46:45,490 - INFO - Saving data to database for device_id: light, user_id: None
+2025-05-18 21:46:45,510 - INFO - Cột hiện có trong bảng original_samples: ['id', 'device_id', 'value', 'timestamp']
+2025-05-18 21:46:45,511 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-05-18 21:46:45,696 - INFO - Đã lưu lô 1/3
+2025-05-18 21:46:45,696 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-05-18 21:46:45,852 - INFO - Đã lưu lô 2/3
+2025-05-18 21:46:45,853 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-05-18 21:46:45,856 - INFO - Đã lưu lô 3/3
+2025-05-18 21:46:45,857 - INFO - Thống kê: Đã tạo 2016 điểm dữ liệu, gồm 1440 điểm cho ngày thường và 576 điểm cho cuối tuần
+2025-05-18 21:46:45,857 - INFO - Mùa: Hè
+2025-05-18 21:46:45,857 - INFO - Chương trình đã hoàn thành cho device_id: light
+2025-05-18 21:46:54,969 - INFO - Generating data for device_id: light1
+2025-05-18 21:46:54,969 - INFO - Sử dụng thời gian hiện tại: 2025-05-18 21:45:00
+2025-05-18 21:46:54,969 - INFO - Điều chỉnh thời gian bắt đầu về thứ Hai: 2025-05-12
+2025-05-18 21:46:54,969 - INFO - Bắt đầu tạo dữ liệu từ: 2025-05-12 21:45:00 (Mùa Hè)
+2025-05-18 21:46:54,969 - INFO - Đang tạo dữ liệu cho: 2025-05-12 21:45:00 (Thứ Hai), device_id: light1
+2025-05-18 21:46:54,970 - INFO - Đang tạo dữ liệu cho: 2025-05-13 21:45:00 (Thứ Ba), device_id: light1
+2025-05-18 21:46:54,971 - INFO - Đang tạo dữ liệu cho: 2025-05-14 21:45:00 (Thứ Tư), device_id: light1
+2025-05-18 21:46:54,972 - INFO - Đang tạo dữ liệu cho: 2025-05-15 21:45:00 (Thứ Năm), device_id: light1
+2025-05-18 21:46:54,973 - INFO - Đang tạo dữ liệu cho: 2025-05-16 21:45:00 (Thứ Sáu), device_id: light1
+2025-05-18 21:46:54,974 - INFO - Đang tạo dữ liệu cho: 2025-05-17 21:45:00 (Thứ Bảy), device_id: light1
+2025-05-18 21:46:54,975 - INFO - Đang tạo dữ liệu cho: 2025-05-18 21:45:00 (Chủ Nhật), device_id: light1
+2025-05-18 21:46:54,976 - INFO - Đã tạo xong 2016 điểm dữ liệu trong 7 ngày cho device_id: light1
+2025-05-18 21:46:54,976 - INFO - Thống kê chi tiết:
+2025-05-18 21:46:54,976 - INFO - - Mùa: Hè
+2025-05-18 21:46:54,976 - INFO - - Ngày thường: 1440 điểm, TB: 297.19W, Max: 1649.31W
+2025-05-18 21:46:54,976 - INFO - - Cuối tuần: 576 điểm, TB: 1080.81W, Max: 3628.67W
+2025-05-18 21:46:54,976 - INFO - - Chênh lệch ngày thường/cuối tuần: 263.68%
+2025-05-18 21:46:55,081 - INFO - Đã kết nối thành công đến database: postgresql://postgres:1234@localhost:5444/iot_db
+2025-05-18 21:46:55,094 - INFO - Thiết bị light1 chưa tồn tại. Đang tạo thiết bị mới...
+2025-05-18 21:46:55,113 - INFO - Cột hiện có trong bảng devices: ['id', 'device_id', 'user_id', 'device_type']
+2025-05-18 21:46:55,113 - INFO - Executing SQL: 
+                    INSERT INTO devices (device_id)
+                    VALUES (:device_id)
+                
+2025-05-18 21:46:55,115 - INFO - Đã tạo thiết bị mới với ID: light1
+2025-05-18 21:46:55,115 - INFO - Saving data to database for device_id: light1, user_id: None
+2025-05-18 21:46:55,134 - INFO - Cột hiện có trong bảng original_samples: ['id', 'device_id', 'value', 'timestamp']
+2025-05-18 21:46:55,134 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-05-18 21:46:55,330 - INFO - Đã lưu lô 1/3
+2025-05-18 21:46:55,330 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-05-18 21:46:55,472 - INFO - Đã lưu lô 2/3
+2025-05-18 21:46:55,472 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-05-18 21:46:55,475 - INFO - Đã lưu lô 3/3
+2025-05-18 21:46:55,475 - INFO - Thống kê: Đã tạo 2016 điểm dữ liệu, gồm 1440 điểm cho ngày thường và 576 điểm cho cuối tuần
+2025-05-18 21:46:55,475 - INFO - Mùa: Hè
+2025-05-18 21:46:55,475 - INFO - Chương trình đã hoàn thành cho device_id: light1
+2025-05-18 23:00:16,913 - INFO - Generating data for device_id: ba
+2025-05-18 23:00:16,915 - INFO - Sử dụng thời gian hiện tại: 2025-05-18 23:00:00
+2025-05-18 23:00:16,915 - INFO - Điều chỉnh thời gian bắt đầu về thứ Hai: 2025-05-12
+2025-05-18 23:00:16,915 - INFO - Bắt đầu tạo dữ liệu từ: 2025-05-12 23:00:00 (Mùa Hè)
+2025-05-18 23:00:16,915 - INFO - Đang tạo dữ liệu cho: 2025-05-12 23:00:00 (Thứ Hai), device_id: ba
+2025-05-18 23:00:16,916 - INFO - Đang tạo dữ liệu cho: 2025-05-13 23:00:00 (Thứ Ba), device_id: ba
+2025-05-18 23:00:16,917 - INFO - Đang tạo dữ liệu cho: 2025-05-14 23:00:00 (Thứ Tư), device_id: ba
+2025-05-18 23:00:16,918 - INFO - Đã tạo xong 864 điểm dữ liệu trong 3 ngày cho device_id: ba
+2025-05-18 23:00:16,918 - INFO - Thống kê chi tiết:
+2025-05-18 23:00:16,918 - INFO - - Mùa: Hè
+2025-05-18 23:00:16,918 - INFO - - Ngày thường: 864 điểm, TB: 252.80W, Max: 1364.33W
+2025-05-18 23:00:16,918 - INFO - - Cuối tuần: 0 điểm, TB: 0.00W, Max: 0.00W
+2025-05-18 23:00:16,918 - INFO - - Chênh lệch ngày thường/cuối tuần: -100.00%
+2025-05-18 23:00:17,049 - INFO - Đã kết nối thành công đến database: postgresql://postgres:1234@localhost:5444/iot_db
+2025-05-18 23:00:17,064 - INFO - Thiết bị ba đã tồn tại.
+2025-05-18 23:00:17,065 - INFO - Saving data to database for device_id: ba, user_id: None
+2025-05-18 23:00:17,092 - INFO - Cột hiện có trong bảng original_samples: ['id', 'device_id', 'value', 'timestamp']
+2025-05-18 23:00:17,093 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-05-18 23:00:17,415 - INFO - Đã lưu lô 1/1
+2025-05-18 23:00:17,415 - INFO - Thống kê: Đã tạo 864 điểm dữ liệu, gồm 864 điểm cho ngày thường và 0 điểm cho cuối tuần
+2025-05-18 23:00:17,415 - INFO - Mùa: Hè
+2025-05-18 23:00:17,415 - INFO - Chương trình đã hoàn thành cho device_id: ba
+2025-05-18 23:14:16,266 - INFO - Generating data for device_id: den
+2025-05-18 23:14:16,266 - INFO - Sử dụng thời gian hiện tại: 2025-05-18 23:10:00
+2025-05-18 23:14:16,266 - INFO - Điều chỉnh thời gian bắt đầu về thứ Hai: 2025-05-12
+2025-05-18 23:14:16,266 - INFO - Bắt đầu tạo dữ liệu từ: 2025-05-12 23:10:00 (Mùa Hè)
+2025-05-18 23:14:16,266 - INFO - Đang tạo dữ liệu cho: 2025-05-12 23:10:00 (Thứ Hai), device_id: den
+2025-05-18 23:14:16,267 - INFO - Đang tạo dữ liệu cho: 2025-05-13 23:10:00 (Thứ Ba), device_id: den
+2025-05-18 23:14:16,268 - INFO - Đang tạo dữ liệu cho: 2025-05-14 23:10:00 (Thứ Tư), device_id: den
+2025-05-18 23:14:16,269 - INFO - Đang tạo dữ liệu cho: 2025-05-15 23:10:00 (Thứ Năm), device_id: den
+2025-05-18 23:14:16,270 - INFO - Đang tạo dữ liệu cho: 2025-05-16 23:10:00 (Thứ Sáu), device_id: den
+2025-05-18 23:14:16,271 - INFO - Đang tạo dữ liệu cho: 2025-05-17 23:10:00 (Thứ Bảy), device_id: den
+2025-05-18 23:14:16,272 - INFO - Đang tạo dữ liệu cho: 2025-05-18 23:10:00 (Chủ Nhật), device_id: den
+2025-05-18 23:14:16,273 - INFO - Đã tạo xong 2016 điểm dữ liệu trong 7 ngày cho device_id: den
+2025-05-18 23:14:16,273 - INFO - Thống kê chi tiết:
+2025-05-18 23:14:16,273 - INFO - - Mùa: Hè
+2025-05-18 23:14:16,273 - INFO - - Ngày thường: 1440 điểm, TB: 296.57W, Max: 1525.25W
+2025-05-18 23:14:16,273 - INFO - - Cuối tuần: 576 điểm, TB: 1068.47W, Max: 3572.67W
+2025-05-18 23:14:16,273 - INFO - - Chênh lệch ngày thường/cuối tuần: 260.28%
+2025-05-18 23:14:16,337 - INFO - Đã kết nối thành công đến database: postgresql://postgres:1234@localhost:5444/iot_db
+2025-05-18 23:14:16,349 - INFO - Thiết bị den đã tồn tại.
+2025-05-18 23:14:16,349 - INFO - Saving data to database for device_id: den, user_id: None
+2025-05-18 23:14:16,382 - INFO - Cột hiện có trong bảng original_samples: ['id', 'device_id', 'value', 'timestamp']
+2025-05-18 23:14:16,383 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-05-18 23:14:16,582 - INFO - Đã lưu lô 1/3
+2025-05-18 23:14:16,582 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-05-18 23:14:16,748 - INFO - Đã lưu lô 2/3
+2025-05-18 23:14:16,748 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-05-18 23:14:16,751 - INFO - Đã lưu lô 3/3
+2025-05-18 23:14:16,752 - INFO - Thống kê: Đã tạo 2016 điểm dữ liệu, gồm 1440 điểm cho ngày thường và 576 điểm cho cuối tuần
+2025-05-18 23:14:16,752 - INFO - Mùa: Hè
+2025-05-18 23:14:16,752 - INFO - Chương trình đã hoàn thành cho device_id: den
+2025-05-18 23:29:04,191 - INFO - Generating data for device_id: den
+2025-05-18 23:29:04,192 - INFO - Sử dụng thời gian hiện tại: 2025-05-18 23:25:00
+2025-05-18 23:29:04,192 - INFO - Điều chỉnh thời gian bắt đầu về thứ Hai: 2025-05-12
+2025-05-18 23:29:04,192 - INFO - Bắt đầu tạo dữ liệu từ: 2025-05-12 23:25:00 (Mùa Hè)
+2025-05-18 23:29:04,192 - INFO - Đang tạo dữ liệu cho: 2025-05-12 23:25:00 (Thứ Hai), device_id: den
+2025-05-18 23:29:04,193 - INFO - Đang tạo dữ liệu cho: 2025-05-13 23:25:00 (Thứ Ba), device_id: den
+2025-05-18 23:29:04,194 - INFO - Đang tạo dữ liệu cho: 2025-05-14 23:25:00 (Thứ Tư), device_id: den
+2025-05-18 23:29:04,196 - INFO - Đang tạo dữ liệu cho: 2025-05-15 23:25:00 (Thứ Năm), device_id: den
+2025-05-18 23:29:04,199 - INFO - Đang tạo dữ liệu cho: 2025-05-16 23:25:00 (Thứ Sáu), device_id: den
+2025-05-18 23:29:04,200 - INFO - Đang tạo dữ liệu cho: 2025-05-17 23:25:00 (Thứ Bảy), device_id: den
+2025-05-18 23:29:04,202 - INFO - Đang tạo dữ liệu cho: 2025-05-18 23:25:00 (Chủ Nhật), device_id: den
+2025-05-18 23:29:04,204 - INFO - Đã tạo xong 2016 điểm dữ liệu trong 7 ngày cho device_id: den
+2025-05-18 23:29:04,204 - INFO - Thống kê chi tiết:
+2025-05-18 23:29:04,204 - INFO - - Mùa: Hè
+2025-05-18 23:29:04,204 - INFO - - Ngày thường: 1440 điểm, TB: 293.66W, Max: 1745.63W
+2025-05-18 23:29:04,204 - INFO - - Cuối tuần: 576 điểm, TB: 1069.69W, Max: 3528.95W
+2025-05-18 23:29:04,204 - INFO - - Chênh lệch ngày thường/cuối tuần: 264.27%
+2025-05-18 23:29:04,317 - INFO - Đã kết nối thành công đến database: postgresql://postgres:1234@localhost:5444/iot_db
+2025-05-18 23:29:04,329 - INFO - Thiết bị den chưa tồn tại. Đang tạo thiết bị mới...
+2025-05-18 23:29:04,349 - INFO - Cột hiện có trong bảng devices: ['id', 'device_id', 'user_id', 'device_type']
+2025-05-18 23:29:04,349 - INFO - Executing SQL: 
+                    INSERT INTO devices (device_id)
+                    VALUES (:device_id)
+                
+2025-05-18 23:29:04,351 - INFO - Đã tạo thiết bị mới với ID: den
+2025-05-18 23:29:04,351 - INFO - Saving data to database for device_id: den, user_id: None
+2025-05-18 23:29:04,387 - INFO - Cột hiện có trong bảng original_samples: ['id', 'device_id', 'value', 'timestamp']
+2025-05-18 23:29:04,388 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-05-18 23:29:04,607 - INFO - Đã lưu lô 1/3
+2025-05-18 23:29:04,607 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-05-18 23:29:04,786 - INFO - Đã lưu lô 2/3
+2025-05-18 23:29:04,786 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-05-18 23:29:04,791 - INFO - Đã lưu lô 3/3
+2025-05-18 23:29:04,791 - INFO - Thống kê: Đã tạo 2016 điểm dữ liệu, gồm 1440 điểm cho ngày thường và 576 điểm cho cuối tuần
+2025-05-18 23:29:04,791 - INFO - Mùa: Hè
+2025-05-18 23:29:04,791 - INFO - Chương trình đã hoàn thành cho device_id: den
+2025-05-18 23:29:17,193 - INFO - Generating data for device_id: den
+2025-05-18 23:29:17,193 - INFO - Sử dụng thời gian hiện tại: 2025-05-18 23:25:00
+2025-05-18 23:29:17,193 - INFO - Điều chỉnh thời gian bắt đầu về thứ Hai: 2025-05-12
+2025-05-18 23:29:17,193 - INFO - Bắt đầu tạo dữ liệu từ: 2025-05-12 23:25:00 (Mùa Hè)
+2025-05-18 23:29:17,193 - INFO - Đang tạo dữ liệu cho: 2025-05-12 23:25:00 (Thứ Hai), device_id: den
+2025-05-18 23:29:17,194 - INFO - Đang tạo dữ liệu cho: 2025-05-13 23:25:00 (Thứ Ba), device_id: den
+2025-05-18 23:29:17,195 - INFO - Đang tạo dữ liệu cho: 2025-05-14 23:25:00 (Thứ Tư), device_id: den
+2025-05-18 23:29:17,196 - INFO - Đang tạo dữ liệu cho: 2025-05-15 23:25:00 (Thứ Năm), device_id: den
+2025-05-18 23:29:17,197 - INFO - Đang tạo dữ liệu cho: 2025-05-16 23:25:00 (Thứ Sáu), device_id: den
+2025-05-18 23:29:17,198 - INFO - Đang tạo dữ liệu cho: 2025-05-17 23:25:00 (Thứ Bảy), device_id: den
+2025-05-18 23:29:17,199 - INFO - Đang tạo dữ liệu cho: 2025-05-18 23:25:00 (Chủ Nhật), device_id: den
+2025-05-18 23:29:17,200 - INFO - Đã tạo xong 2016 điểm dữ liệu trong 7 ngày cho device_id: den
+2025-05-18 23:29:17,200 - INFO - Thống kê chi tiết:
+2025-05-18 23:29:17,200 - INFO - - Mùa: Hè
+2025-05-18 23:29:17,200 - INFO - - Ngày thường: 1440 điểm, TB: 296.17W, Max: 1781.60W
+2025-05-18 23:29:17,200 - INFO - - Cuối tuần: 576 điểm, TB: 1087.28W, Max: 3634.32W
+2025-05-18 23:29:17,200 - INFO - - Chênh lệch ngày thường/cuối tuần: 267.12%
+2025-05-18 23:29:17,309 - INFO - Đã kết nối thành công đến database: postgresql://postgres:1234@localhost:5444/iot_db
+2025-05-18 23:29:17,323 - INFO - Thiết bị den đã tồn tại.
+2025-05-18 23:29:17,324 - INFO - Saving data to database for device_id: den, user_id: None
+2025-05-18 23:29:17,363 - INFO - Cột hiện có trong bảng original_samples: ['id', 'device_id', 'value', 'timestamp']
+2025-05-18 23:29:17,365 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-05-18 23:29:17,725 - INFO - Đã lưu lô 1/3
+2025-05-18 23:29:17,725 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-05-18 23:29:18,161 - INFO - Đã lưu lô 2/3
+2025-05-18 23:29:18,162 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-05-18 23:29:18,166 - INFO - Đã lưu lô 3/3
+2025-05-18 23:29:18,166 - INFO - Thống kê: Đã tạo 2016 điểm dữ liệu, gồm 1440 điểm cho ngày thường và 576 điểm cho cuối tuần
+2025-05-18 23:29:18,166 - INFO - Mùa: Hè
+2025-05-18 23:29:18,167 - INFO - Chương trình đã hoàn thành cho device_id: den
+2025-05-18 23:36:29,249 - INFO - Generating data for device_id: nem
+2025-05-18 23:36:29,250 - INFO - Sử dụng thời gian hiện tại: 2025-05-18 23:35:00
+2025-05-18 23:36:29,250 - INFO - Điều chỉnh thời gian bắt đầu về thứ Hai: 2025-05-12
+2025-05-18 23:36:29,250 - INFO - Bắt đầu tạo dữ liệu từ: 2025-05-12 23:35:00 (Mùa Hè)
+2025-05-18 23:36:29,250 - INFO - Đang tạo dữ liệu cho: 2025-05-12 23:35:00 (Thứ Hai), device_id: nem
+2025-05-18 23:36:29,250 - INFO - Đã tạo xong 12 điểm dữ liệu trong 1 ngày cho device_id: nem
+2025-05-18 23:36:29,250 - INFO - Thống kê chi tiết:
+2025-05-18 23:36:29,250 - INFO - - Mùa: Hè
+2025-05-18 23:36:29,250 - INFO - - Ngày thường: 12 điểm, TB: 67.26W, Max: 105.32W
+2025-05-18 23:36:29,250 - INFO - - Cuối tuần: 0 điểm, TB: 0.00W, Max: 0.00W
+2025-05-18 23:36:29,250 - INFO - - Chênh lệch ngày thường/cuối tuần: -100.00%
+2025-05-18 23:36:29,392 - INFO - Đã kết nối thành công đến database: postgresql://postgres:1234@localhost:5444/iot_db
+2025-05-18 23:36:29,409 - INFO - Thiết bị nem đã tồn tại.
+2025-05-18 23:36:29,409 - INFO - Saving data to database for device_id: nem, user_id: None
+2025-05-18 23:36:29,442 - INFO - Cột hiện có trong bảng original_samples: ['id', 'device_id', 'value', 'timestamp']
+2025-05-18 23:36:29,442 - INFO - Executing SQL: 
+                        INSERT INTO original_samples (device_id, value, timestamp)
+                        VALUES (:device_id, :value, :timestamp)
+                    
+2025-05-18 23:36:29,452 - INFO - Đã lưu lô 1/1
+2025-05-18 23:36:29,453 - INFO - Thống kê: Đã tạo 12 điểm dữ liệu, gồm 12 điểm cho ngày thường và 0 điểm cho cuối tuần
+2025-05-18 23:36:29,453 - INFO - Mùa: Hè
+2025-05-18 23:36:29,453 - INFO - Chương trình đã hoàn thành cho device_id: nem

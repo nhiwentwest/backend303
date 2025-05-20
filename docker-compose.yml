@@ -36,6 +36,8 @@ services:
         condition: service_healthy
     networks:
       - iot-network
+    mem_limit: 512m
+    cpus: 1.0
 
 networks:
   iot-network:
