@@ -288,111 +288,114 @@ def run_migrations(migrations_dir=None):
 
 def setup_database(database_url):
     """
-    Thiết lập cơ sở dữ liệu và tạo các bảng cần thiết.
-    
-    Args:
-        database_url: URL kết nối đến cơ sở dữ liệu
+    Thiết lập cơ sở dữ liệu và cập nhật cấu trúc bảng một cách an toàn.
+    Giữ lại dữ liệu cũ và cập nhật các mối quan hệ mới.
     """
     try:
         engine = create_engine(database_url)
+
+        # 1. Tạo/cập nhật cấu trúc bảng từ models
+        from models import Base
+        Base.metadata.create_all(bind=engine)
+        logger.info("Đã tạo/cập nhật cấu trúc bảng từ models")
         
-        # Kiểm tra và xóa bảng device_config nếu tồn tại
-        inspector = inspect(engine)
-        if 'device_config' in inspector.get_table_names():
-            logger.info("Đang xóa bảng device_config cũ...")
-            with engine.connect() as conn:
-                conn.execute(text("DROP TABLE IF EXISTS device_config;"))
-                conn.commit()
-            logger.info("Đã xóa bảng device_config thành công")
-        
-        # Danh sách các bảng cần thiết
-        required_tables = ['users', 'devices', 'sensor_data', 'original_samples', 'compressed_data_optimized', 'feeds']
-        
-        # Kiểm tra các bảng hiện có
-        inspector = inspect(engine)
-        existing_tables = inspector.get_table_names()
-        
-        # Kiểm tra xem có bảng nào không cần thiết không
-        tables_to_drop = [table for table in existing_tables if table not in required_tables]
-        if tables_to_drop:
-            logger.warning(f"Phát hiện các bảng không cần thiết: {tables_to_drop}")
-            logger.warning("Các bảng này sẽ bị xóa để đảm bảo tính nhất quán của database")
-            
-            # Xóa các bảng không cần thiết
-            with engine.connect() as conn:
-                for table in tables_to_drop:
-                    try:
-                        conn.execute(text(f"DROP TABLE IF EXISTS {table} CASCADE;"))
-                        logger.info(f"Đã xóa bảng {table}")
-                    except Exception as e:
-                        logger.error(f"Lỗi khi xóa bảng {table}: {str(e)}")
-                conn.commit()
-        
-        # Kiểm tra xem có bảng nào cần thiết bị thiếu không
-        missing_tables = [table for table in required_tables if table not in existing_tables]
-        if missing_tables:
-            logger.warning(f"Thiếu các bảng cần thiết: {missing_tables}")
-            logger.warning("Các bảng này sẽ được tạo mới")
-            
-            # Tạo các bảng còn thiếu
-            from models import Base
-            Base.metadata.create_all(bind=engine)
-            logger.info("Đã tạo các bảng còn thiếu thành công")
-        
-        # Kiểm tra lại sau khi thiết lập
-        inspector = inspect(engine)
-        final_tables = inspector.get_table_names()
-        logger.info(f"Các bảng hiện có trong database: {final_tables}")
-        
-        # Kiểm tra xem tất cả các bảng cần thiết đã có chưa
-        if all(table in final_tables for table in required_tables):
-            logger.info("Tất cả các bảng cần thiết đã được thiết lập thành công!")
-        else:
-            logger.error("Vẫn còn thiếu một số bảng cần thiết!")
-            missing = [table for table in required_tables if table not in final_tables]
-            logger.error(f"Các bảng còn thiếu: {missing}")
-            raise Exception("Thiết lập database không hoàn tất!")
-            
-        # Tạo/cập nhật bảng sensor_data và feeds
+        # 2. Kiểm tra và lưu dữ liệu hiện có
         with engine.connect() as conn:
-            # Tạo bảng feeds
-            conn.execute(text("""
-                DROP TABLE IF EXISTS feeds CASCADE;
-                CREATE TABLE feeds (
-                    id SERIAL PRIMARY KEY,
-                    feed_id VARCHAR(255) NOT NULL,
-                    device_id VARCHAR(255) NOT NULL,
-                    CONSTRAINT uix_device_feed UNIQUE (device_id, feed_id),
-                    CONSTRAINT feeds_device_id_fkey FOREIGN KEY (device_id) 
-                    REFERENCES devices(device_id) ON DELETE CASCADE
-                );
-                CREATE INDEX idx_feeds_device_id ON feeds(device_id);
-                CREATE INDEX idx_feeds_feed_id ON feeds(feed_id);
-            """))
-            logger.info("Đã tạo bảng feeds")
+            # Kiểm tra sự tồn tại của các bảng
+            inspector = inspect(engine)
+            existing_tables = inspector.get_table_names()
             
-            # Tạo bảng sensor_data
-            conn.execute(text("""
-                DROP TABLE IF EXISTS sensor_data CASCADE;
-                CREATE TABLE sensor_data (
-                    id SERIAL PRIMARY KEY,
-                    device_id VARCHAR(255) NOT NULL,
-                    feed_id VARCHAR(255) NOT NULL,
-                    value FLOAT,
-                    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                    CONSTRAINT sensor_data_device_id_fkey FOREIGN KEY (device_id) 
-                        REFERENCES devices(device_id) ON DELETE CASCADE,
-                    CONSTRAINT sensor_data_device_feed_fkey FOREIGN KEY (device_id, feed_id)
-                        REFERENCES feeds(device_id, feed_id) ON DELETE CASCADE
-                );
-                CREATE INDEX idx_sensor_data_device_feed ON sensor_data(device_id, feed_id);
-                CREATE INDEX idx_sensor_data_timestamp ON sensor_data(timestamp);
-            """))
-            logger.info("Đã tạo bảng sensor_data")
+            # Lưu dữ liệu từ các bảng chính
+            existing_data = {}
+            tables_to_backup = ['users', 'devices', 'feeds', 'sensor_data']
             
-            # Commit các thay đổi
-            conn.commit()
-        
+            for table in tables_to_backup:
+                if table in existing_tables:
+                    try:
+                        with conn.begin():
+                            result = conn.execute(text(f"SELECT * FROM {table}"))
+                            existing_data[table] = [dict(row) for row in result]
+                            logger.info(f"Đã sao lưu {len(existing_data[table])} bản ghi từ bảng {table}")
+                    except Exception as e:
+                        logger.warning(f"Không thể sao lưu bảng {table}: {str(e)}")
+                        existing_data[table] = []
+                else:
+                    logger.info(f"Bảng {table} chưa tồn tại, bỏ qua bước sao lưu")
+                    existing_data[table] = []
+            
+            # 3. Xóa các constraint cũ một cách an toàn
+            try:
+                with conn.begin():
+                    conn.execute(text("""
+                        DO $$ 
+                        BEGIN
+                            -- Xóa các foreign key cũ
+                            IF EXISTS (SELECT 1 FROM pg_constraint WHERE conname = 'sensor_data_device_id_fkey') THEN
+                                ALTER TABLE sensor_data DROP CONSTRAINT IF EXISTS sensor_data_device_id_fkey;
+                            END IF;
+                            
+                            IF EXISTS (SELECT 1 FROM pg_constraint WHERE conname = 'sensor_data_device_feed_fkey') THEN
+                                ALTER TABLE sensor_data DROP CONSTRAINT IF EXISTS sensor_data_device_feed_fkey;
+                            END IF;
+                            
+                            IF EXISTS (SELECT 1 FROM pg_constraint WHERE conname = 'feeds_device_id_fkey') THEN
+                                ALTER TABLE feeds DROP CONSTRAINT IF EXISTS feeds_device_id_fkey;
+                            END IF;
+                        END $$;
+                    """))
+                logger.info("Đã xóa các constraint cũ thành công")
+            except Exception as e:
+                logger.warning(f"Không thể xóa một số constraint: {str(e)}")
+            
+            # 4. Khôi phục dữ liệu đã sao lưu
+            for table, data in existing_data.items():
+                if data and table in existing_tables:
+                    try:
+                        with conn.begin():
+                            # Xóa dữ liệu cũ
+                            conn.execute(text(f"DELETE FROM {table}"))
+                            
+                            # Khôi phục dữ liệu
+                            for row in data:
+                                columns = ', '.join(row.keys())
+                                values = ', '.join([f"'{str(v)}'" if v is not None else 'NULL' for v in row.values()])
+                                conn.execute(text(f"INSERT INTO {table} ({columns}) VALUES ({values})"))
+                                
+                            logger.info(f"Đã khôi phục {len(data)} bản ghi vào bảng {table}")
+                    except Exception as e:
+                        logger.error(f"Lỗi khi khôi phục dữ liệu cho bảng {table}: {str(e)}")
+            
+            # 5. Tạo các index cần thiết
+            try:
+                with conn.begin():
+                    conn.execute(text("""
+                        -- Index cho bảng feeds
+                        CREATE INDEX IF NOT EXISTS idx_feeds_device_id ON feeds(device_id);
+                        CREATE INDEX IF NOT EXISTS idx_feeds_feed_id ON feeds(feed_id);
+                        
+                        -- Index cho bảng sensor_data
+                        CREATE INDEX IF NOT EXISTS idx_sensor_data_device_feed ON sensor_data(device_id, feed_id);
+                        CREATE INDEX IF NOT EXISTS idx_sensor_data_timestamp ON sensor_data(timestamp);
+                    """))
+                logger.info("Đã tạo các index thành công")
+            except Exception as e:
+                logger.warning(f"Không thể tạo một số index: {str(e)}")
+            
+            # 6. Kiểm tra kết quả
+            inspector = inspect(engine)
+            final_tables = inspector.get_table_names()
+            logger.info(f"Các bảng hiện có trong database: {final_tables}")
+            
+            # Kiểm tra các bảng quan trọng
+            required_tables = ['users', 'devices', 'sensor_data', 'original_samples', 'compressed_data_optimized', 'feeds']
+            missing_tables = [table for table in required_tables if table not in final_tables]
+            
+            if missing_tables:
+                logger.error(f"Vẫn còn thiếu các bảng: {missing_tables}")
+                raise Exception("Thiết lập database không hoàn tất!")
+            
+            logger.info("Đã cập nhật cấu trúc database thành công!")
+            
     except Exception as e:
         logger.error(f"Lỗi khi thiết lập cơ sở dữ liệu: {str(e)}")
         raise
