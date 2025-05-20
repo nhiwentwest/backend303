@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  # Database (PostgreSQL)
+  db:
+    image: postgres:15
+    ports:
+      - "5444:5432"
+    env_file:
+      - .env
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASS}
+      - POSTGRES_DB=${DB_NAME}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - iot-network
+
+  # Ứng dụng chính (FastAPI)
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      - DATABASE_URL=postgresql://${DB_USER}:${DB_PASS}@db:5432/${DB_NAME}
+      - API_HOST=${API_HOST}
+      - API_PORT=${API_PORT}
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - iot-network
+
+networks:
+  iot-network:
+    driver: bridge
+
+volumes:
+  postgres_data: 
