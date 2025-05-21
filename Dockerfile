@@ -1,33 +1,22 @@
-# Stage 1: Build dependencies
-FROM python:3.9.19-alpine AS builder
+FROM python:3.9-slim
 
 WORKDIR /app
 
-# Cài đặt các dependencies build (nếu có C/C++ hoặc requirements cần build)
-RUN apk add --no-cache build-base
+# Cài đặt các dependencies cần thiết
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libpq-dev \
+    gcc \
+    && rm -rf /var/lib/apt/lists/*
 
-# Copy requirements và cài vào thư mục tạm
+# Copy requirements và cài đặt dependencies
 COPY requirements.txt .
-RUN pip install --upgrade pip setuptools wheel --no-cache-dir
-RUN pip install --prefix=/install --no-cache-dir -r requirements.txt
-
-# Stage 2: Runtime image
-FROM python:3.9.19-alpine
-
-WORKDIR /app
-
-# Copy dependencies đã build từ stage 1
-COPY --from=builder /install /usr/local
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy mã nguồn
 COPY . .
 
-# Thêm script entrypoint
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+# Expose port
+EXPOSE 8000
 
-# Chạy entrypoint khi container start
-ENTRYPOINT ["/entrypoint.sh"]
-
-HEALTHCHECK --interval=30s --timeout=10s --start-period=10s --retries=3 \
-  CMD wget --spider -q http://localhost:8000/docs || exit 1 
+# Chạy ứng dụng
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"] 
