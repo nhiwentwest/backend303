@@ -798,25 +798,23 @@ EOF
 cd $BACKEND_DIR
 if [ -f "$BACKEND_DIR/docker_env/bin/activate" ]; then
     source docker_env/bin/activate
+    # Đảm bảo PS1 được thiết lập đúng
+    PS1="(docker_env) [\u@\h \W]\\$ "
     echo "[OK] Moi truong docker_env da duoc kich hoat!"
+    echo "[INFO] Thu muc hien tai: $BACKEND_DIR"
     echo "[INFO] Cac container dang chay:"
     docker ps || echo "[WARN] Khong the hien thi container, ban co the can dang xuat va dang nhap lai."
 else
     echo "[ERROR] Khong tim thay file activate. Dang tao shell thong thuong..."
-    export PS1="(docker_env) [\u@\h \W]\\$ "
+    PS1="(docker_env) [\u@\h \W]\\$ "
 fi
-exec bash
 EOF
         chmod +x $TEMP_SCRIPT
         chown $SUDO_USER:$SUDO_USER $TEMP_SCRIPT
         
-        # Hiển thị thông tin hữu ích
-        echo ""
-        echo "[INFO] Neu ban gap loi permission denied voi Docker, hay dang xuat va dang nhap lai."
-        echo "[INFO] Dang kich hoat moi truong docker_env..."
-        
         # Tự động kích hoạt môi trường ngay lập tức
-        exec su - $SUDO_USER -c "$TEMP_SCRIPT"
+        echo "[INFO] Dang kich hoat moi truong docker_env..."
+        exec su - $SUDO_USER -c "cd $BACKEND_DIR && bash --init-file $TEMP_SCRIPT"
     else
         # Kích hoạt môi trường ngay lập tức
         echo "[INFO] Dang kich hoat moi truong docker_env..."
@@ -824,16 +822,20 @@ EOF
         
         if [ -f "$BACKEND_DIR/docker_env/bin/activate" ]; then
             source docker_env/bin/activate
+            # Đảm bảo PS1 được thiết lập đúng
+            export PS1="(docker_env) [\u@\h \W]\\$ "
             echo "[OK] Moi truong docker_env da duoc kich hoat!"
+            echo "[INFO] Thu muc hien tai: $BACKEND_DIR"
         else
             echo "[ERROR] Khong tim thay file activate. Dang tao shell thong thuong..."
             export PS1="(docker_env) [\u@\h \W]\\$ "
         fi
         
         echo "[INFO] Cac container dang chay:"
-        docker ps || echo "[WARN] Khong the hien thi container, ban co the can dang xuat va dang nhap lai."
+        docker ps || echo "[WARN] Khong the hien thi container."
         
-        exec bash
+        # Khởi động shell mới với thiết lập PS1
+        BASH_ENV=<(echo 'PS1="(docker_env) [\u@\h \W]\\$ "') exec bash
     fi
 }
 
@@ -853,4 +855,5 @@ if [ "${1:-}" = "--help" ] || [ "${1:-}" = "-h" ]; then
     exit 0
 fi
 
+# Chạy chương trình chính
 main
