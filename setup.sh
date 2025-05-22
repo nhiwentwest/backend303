@@ -727,53 +727,36 @@ EOF
     if [ -n "${SUDO_USER:-}" ]; then
         echo "[INFO] Chuyen quyen so huu cho nguoi dung $SUDO_USER..."
         chown -R $SUDO_USER:$SUDO_USER $BACKEND_DIR
-        
-        # Kiểm tra và thêm người dùng vào nhóm docker nếu cần
         if ! id -nG $SUDO_USER | grep -qw docker; then
-            echo "[INFO] Them nguoi dung $SUDO_USER vao nhom docker..."
             usermod -aG docker $SUDO_USER
-            # Cấp quyền tạm thời cho socket docker để tránh lỗi permission denied
             chmod 666 /var/run/docker.sock || true
         fi
-        
-        # Thêm vào bashrc của người dùng
-        USER_HOME=$(eval echo ~$SUDO_USER)
-        BASHRC_FILE="$USER_HOME/.bashrc"
-        MARKER="# AUTO-DOCKER-ENV-ACTIVATION"
-        
-        echo "[INFO] Cai dat tu dong kich hoat moi truong docker_env..."
-        if ! grep -Fq "$MARKER" "$BASHRC_FILE"; then
-            cat << EOF >> "$BASHRC_FILE"
-$MARKER
-# Tự động kích hoạt môi trường docker_env
-cd $BACKEND_DIR
-source $DOCKER_ENV_DIR/bin/activate
+        DOCKER_RC="$BACKEND_DIR/.bashrc_docker"
+        cat > "$DOCKER_RC" << 'EOF'
+#!/bin/bash
+export PS1="(docker_env) \[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
+if [[ ":$PATH:" != *":$(pwd)/docker_env/bin:"* ]]; then
+    export PATH="$(pwd)/docker_env/bin:$PATH"
+fi
+docker ps >/dev/null 2>&1
 EOF
-        fi
-        
-        # Thực hiện kích hoạt ngay lập tức
-        echo "[INFO] Dang kich hoat moi truong docker_env..."
-        exec su - $SUDO_USER -c "cd $BACKEND_DIR && source $DOCKER_ENV_DIR/bin/activate && exec bash"
-        
+        chmod +x "$DOCKER_RC"
+        chown $SUDO_USER:$SUDO_USER "$DOCKER_RC"
+        exec su - $SUDO_USER -c "cd $BACKEND_DIR && bash --rcfile $DOCKER_RC"
     else
-        # Thêm vào bashrc
-        MARKER="# AUTO-DOCKER-ENV-ACTIVATION"
-        
-        echo "[INFO] Cai dat tu dong kich hoat moi truong docker_env..."
-        if ! grep -Fq "$MARKER" "$HOME/.bashrc"; then
-            cat << EOF >> "$HOME/.bashrc"
-$MARKER
-# Tự động kích hoạt môi trường docker_env
-cd $BACKEND_DIR
-source $DOCKER_ENV_DIR/bin/activate
+        DOCKER_RC="$BACKEND_DIR/.bashrc_docker"
+        cat > "$DOCKER_RC" << 'EOF'
+#!/bin/bash
+export PS1="(docker_env) \[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
+if [[ ":$PATH:" != *":$(pwd)/docker_env/bin:"* ]]; then
+    export PATH="$(pwd)/docker_env/bin:$PATH"
+fi
+docker ps >/dev/null 2>&1
 EOF
-        fi
-        
-        # Thực hiện kích hoạt ngay lập tức
-        echo "[INFO] Dang kich hoat moi truong docker_env..."
+        chmod +x "$DOCKER_RC"
         cd $BACKEND_DIR
-        source $DOCKER_ENV_DIR/bin/activate
-        exec bash
+        source docker_env/bin/activate
+        exec bash --rcfile $DOCKER_RC
     fi
 }
 
