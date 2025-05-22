@@ -246,21 +246,18 @@ install_docker() {
     echo "[INFO] Cai dat docker-ce (goi trong) bang phuong phap giai nen..."
     unpack_large_package "docker-ce"
     
-    # Kiểm tra kernel hỗ trợ overlay2 trước khi khởi động lại Docker
+    # Kiểm tra kernel hỗ trợ overlay2 trước khi khởi động lại Docker (chỉ làm 1 lần duy nhất ở đây)
     if ! modprobe overlay 2>/dev/null; then
         echo "[WARN] Kernel không hỗ trợ overlay2. Sẽ chuyển sang storage-driver vfs."
         DOCKER_DAEMON_JSON="/etc/docker/daemon.json"
         if [ -f "$DOCKER_DAEMON_JSON" ]; then
-            # Nếu có jq thì dùng jq để sửa file JSON
             if command -v jq &> /dev/null; then
                 jq 'del(."storage-driver")' "$DOCKER_DAEMON_JSON" > /tmp/daemon.json.tmp || cp "$DOCKER_DAEMON_JSON" /tmp/daemon.json.tmp
                 mv /tmp/daemon.json.tmp "$DOCKER_DAEMON_JSON"
                 jq '. + {"storage-driver":"vfs"}' "$DOCKER_DAEMON_JSON" > /tmp/daemon.json.tmp || echo '{"storage-driver":"vfs"}' > /tmp/daemon.json.tmp
                 mv /tmp/daemon.json.tmp "$DOCKER_DAEMON_JSON"
             else
-                # Nếu không có jq, dùng sed để xóa dòng storage-driver cũ (nếu có)
                 sed -i '/"storage-driver"/d' "$DOCKER_DAEMON_JSON"
-                # Thêm dòng storage-driver vfs vào trước dấu đóng }
                 sed -i '$s/}/,\n  "storage-driver": "vfs"\n}/' "$DOCKER_DAEMON_JSON" || echo '{"storage-driver":"vfs"}' > "$DOCKER_DAEMON_JSON"
             fi
         else
@@ -302,20 +299,17 @@ install_docker() {
     # Kiểm tra kết quả cài đặt
     if command -v docker &> /dev/null; then
         echo "[OK] Docker da duoc cai dat thanh cong."
-        
         # Thêm người dùng hiện tại vào nhóm docker nếu không phải root
         if [ -n "${SUDO_USER:-}" ]; then
             echo "[INFO] Them nguoi dung $SUDO_USER vao nhom docker..."
             usermod -aG docker $SUDO_USER
             echo "[INFO] Da them $SUDO_USER vao nhom docker. Can dang xuat va dang nhap lai de ap dung."
         fi
-        
-        # Cấu hình Docker để tối ưu tài nguyên
+        # Cấu hình Docker để tối ưu tài nguyên (KHÔNG ghi đè storage-driver nữa)
         echo "[INFO] Cau hinh Docker toi uu cho may yeu..."
         mkdir -p /etc/docker
         cat << EOF > /etc/docker/daemon.json
 {
-  "storage-driver": "overlay2",
   "log-driver": "json-file",
   "log-opts": {
     "max-size": "10m",
@@ -325,36 +319,7 @@ install_docker() {
   "max-concurrent-uploads": 1
 }
 EOF
-        # Khởi động lại Docker để áp dụng cấu hình
-        echo "[INFO] Khoi dong lai Docker daemon de ap dung cau hinh moi..."
-        if command -v systemctl &> /dev/null; then
-            # Đảm bảo các service phụ thuộc đã chạy
-            systemctl start containerd || true
-            systemctl start docker.socket || true
-            sleep 3
-            # Thử start docker, chỉ retry tối đa 3 lần
-            MAX_RETRY=3
-            RETRY=0
-            while [ $RETRY -lt $MAX_RETRY ]; do
-                systemctl start docker
-                sleep 2
-                if systemctl is-active --quiet docker; then
-                    echo "[OK] Docker service đã khởi động thành công."
-                    break
-                else
-                    echo "[WARN] Docker chưa khởi động được, thử lại lần $((RETRY+1))/$MAX_RETRY..."
-                    RETRY=$((RETRY+1))
-                    sleep 2
-                fi
-            done
-            if ! systemctl is-active --quiet docker; then
-                echo "[ERROR] Docker vẫn không thể khởi động sau $MAX_RETRY lần thử."
-                journalctl -u docker.service --no-pager | tail -40
-            fi
-        elif command -v service &> /dev/null; then
-            service docker restart
-        fi
-        
+        # Không restart docker nữa ở đây!
         return 0
     fi
     
