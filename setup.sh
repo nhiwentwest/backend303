@@ -641,109 +641,48 @@ main() {
     echo "[OK] CAI DAT HOAN TAT"
     echo "=========================================================="
     
-    # Tạo môi trường docker_env
-    echo "[INFO] Tao moi truong docker_env..."
+    # Tạo môi trường docker_env đơn giản
+    echo "[INFO] Tao moi truong docker_env don gian..."
     DOCKER_ENV_DIR="$BACKEND_DIR/docker_env"
     
-    # Kiểm tra Python3
-    echo "[INFO] Kiem tra Python va venv..."
-    
-    # Ưu tiên Python 3.10 nếu có
-    if command -v python3.10 &> /dev/null; then
-        echo "[INFO] Su dung Python 3.10..."
-        PYTHON_CMD="python3.10"
-        ensure_command_exists python3.10
-        
-        # Cài đặt python3.10-venv một cách an toàn, tránh lỗi packagekit
-        if ! dpkg -l | grep -q "^ii.*python3.10-venv"; then
-            echo "[INFO] Cai dat python3.10-venv..."
-            # Tạm thời tắt packagekit nếu đang chạy
-            if systemctl is-active --quiet packagekit; then
-                systemctl stop packagekit || true
-            fi
-            
-            # Cài đặt trực tiếp với apt-get, bỏ qua packagekit
-            apt-get update -qq
-            apt-get install -qq -y python3.10-venv --no-install-recommends
-        fi
-    else
-        # Sử dụng Python mặc định
-        echo "[INFO] Python 3.10 khong tim thay, su dung Python mac dinh..."
-        PYTHON_CMD="python3"
-        ensure_command_exists python3
-        
-        # Cài đặt python3-venv một cách an toàn, tránh lỗi packagekit
-        if ! dpkg -l | grep -q "^ii.*python3-venv"; then
-            echo "[INFO] Cai dat python3-venv..."
-            # Tạm thời tắt packagekit nếu đang chạy
-            if systemctl is-active --quiet packagekit; then
-                systemctl stop packagekit || true
-            fi
-            
-            # Cài đặt trực tiếp với apt-get, bỏ qua packagekit
-            apt-get update -qq
-            apt-get install -qq -y python3-venv --no-install-recommends
-        fi
-    fi
-    
-    # Tạo môi trường ảo Python
-    echo "[INFO] Tao moi truong ao Python..."
-    cd $BACKEND_DIR
-    
-    # Xóa môi trường cũ nếu có lỗi
-    if [ -d "$DOCKER_ENV_DIR" ] && [ ! -f "$DOCKER_ENV_DIR/bin/activate" ]; then
-        echo "[WARN] Phat hien moi truong cu bi loi, dang xoa..."
+    # Xóa thư mục cũ nếu tồn tại
+    if [ -d "$DOCKER_ENV_DIR" ]; then
+        echo "[INFO] Xoa moi truong cu..."
         rm -rf "$DOCKER_ENV_DIR"
     fi
     
-    # Tạo môi trường mới nếu chưa tồn tại
-    if [ ! -d "$DOCKER_ENV_DIR" ]; then
-        echo "[INFO] Tao moi truong ao voi $PYTHON_CMD..."
-        $PYTHON_CMD -m venv docker_env
-        
-        # Kiểm tra xem môi trường đã được tạo thành công chưa
-        if [ ! -f "$DOCKER_ENV_DIR/bin/activate" ]; then
-            echo "[ERROR] Khong the tao moi truong ao Python. Thu cach khac..."
-            # Thử cách khác nếu cách thông thường thất bại
-            $PYTHON_CMD -m venv --without-pip docker_env
-            
-            if [ ! -f "$DOCKER_ENV_DIR/bin/activate" ]; then
-                echo "[ERROR] Khong the tao moi truong ao Python. Dang tao moi truong gia lap..."
-                # Tạo cấu trúc thư mục giả lập
-                mkdir -p "$DOCKER_ENV_DIR/bin"
-                
-                # Tạo script activate giả
-                cat > "$DOCKER_ENV_DIR/bin/activate" << 'EOF'
-#!/bin/bash
-# Môi trường giả lập
-export VIRTUAL_ENV="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-export PATH="$VIRTUAL_ENV/bin:$PATH"
-export PS1="(docker_env) $PS1"
-EOF
-                chmod +x "$DOCKER_ENV_DIR/bin/activate"
-            fi
-        fi
-    fi
+    # Tạo thư mục bin
+    mkdir -p "$DOCKER_ENV_DIR/bin"
     
-    # Tùy chỉnh script activate
-    echo "[INFO] Tuy chinh script activate..."
-    cat >> "$DOCKER_ENV_DIR/bin/activate" << 'EOF'
+    # Tạo script activate
+    echo "[INFO] Tao script activate..."
+    cat > "$DOCKER_ENV_DIR/bin/activate" << 'EOF'
+#!/bin/bash
+# Môi trường Docker đơn giản
+export PS1="(docker_env) [\u@\h \W]\\$ "
 
-# Docker environment additions
-# Thêm thư mục bin vào PATH
-export PATH="$VIRTUAL_ENV/bin:$PATH"
+# Thêm bin vào PATH nếu chưa có
+if [[ ":$PATH:" != *":$(pwd)/docker_env/bin:"* ]]; then
+    export PATH="$(pwd)/docker_env/bin:$PATH"
+    echo "[INFO] Đã thêm $(pwd)/docker_env/bin vào PATH"
+fi
 
-# Tạo alias cho các lệnh docker thông dụng
+# Alias hữu ích cho Docker
 alias dc='docker-compose'
 alias dps='docker ps'
 alias dlog='docker logs'
 alias dexec='docker exec -it'
 
-# Hiển thị thông báo
+# Backend shortcuts
+alias restart='docker-compose down && docker-compose up -d'
+alias backend-logs='docker logs -f backend-app'
+alias db-logs='docker logs -f backend-db'
+
+# Thông báo
 echo "[OK] Môi trường docker_env đã được kích hoạt!"
-echo "[INFO] Các container đang chạy:"
-docker ps
+echo "[INFO] Các lệnh có sẵn: dc, dps, dlog, dexec, restart, backend-logs, db-logs"
 EOF
+    chmod +x "$DOCKER_ENV_DIR/bin/activate"
     
     # Tạo các script tiện ích trong bin
     echo "[INFO] Tao cac script tien ich..."
@@ -751,7 +690,6 @@ EOF
     cat > "$DOCKER_ENV_DIR/bin/docker-restart" << 'EOF'
 #!/bin/bash
 # Script khởi động lại các container
-
 echo "[INFO] Đang khởi động lại các container..."
 cd $(dirname $(dirname $BASH_SOURCE))/..
 docker-compose down
@@ -762,21 +700,28 @@ EOF
     cat > "$DOCKER_ENV_DIR/bin/docker-logs" << 'EOF'
 #!/bin/bash
 # Script xem logs của container
-
 if [ -z "$1" ]; then
     echo "[ERROR] Thiếu tên container. Sử dụng: docker-logs <container_name>"
     echo "[INFO] Các container đang chạy:"
     docker ps --format "{{.Names}}"
     exit 1
 fi
-
 echo "[INFO] Hiển thị logs của container $1..."
 docker logs -f "$1"
+EOF
+
+    # Thêm script để kết nối tới PostgreSQL
+    cat > "$DOCKER_ENV_DIR/bin/db-connect" << 'EOF'
+#!/bin/bash
+# Script kết nối tới PostgreSQL trong container
+echo "[INFO] Kết nối tới PostgreSQL database..."
+docker exec -it backend-db psql -U postgres
 EOF
     
     # Cấp quyền thực thi cho các script
     chmod +x "$DOCKER_ENV_DIR/bin/docker-restart"
     chmod +x "$DOCKER_ENV_DIR/bin/docker-logs"
+    chmod +x "$DOCKER_ENV_DIR/bin/db-connect"
     
     # Thiết lập quyền sở hữu
     if [ -n "${SUDO_USER:-}" ]; then
@@ -792,66 +737,53 @@ EOF
         fi
         
         # Tạo script bash tạm thời để kích hoạt môi trường
-        TEMP_SCRIPT="/tmp/docker_activate_$$.sh"
+        TEMP_SCRIPT="/tmp/docker_env_starter_$$.sh"
         cat > $TEMP_SCRIPT << EOF
-#!/bin/bash
+# Docker Environment Starter
 cd $BACKEND_DIR
-if [ -f "$BACKEND_DIR/docker_env/bin/activate" ]; then
+export PS1="(docker_env) [\u@\h \W]\\$ "
+if [ -f "$DOCKER_ENV_DIR/bin/activate" ]; then
     source docker_env/bin/activate
-    # Đảm bảo PS1 được thiết lập đúng
-    PS1="(docker_env) [\u@\h \W]\\$ "
-    echo "[OK] Moi truong docker_env da duoc kich hoat!"
-    echo "[INFO] Thu muc hien tai: $BACKEND_DIR"
-    echo "[INFO] Cac container dang chay:"
-    docker ps || echo "[WARN] Khong the hien thi container, ban co the can dang xuat va dang nhap lai."
-else
-    echo "[ERROR] Khong tim thay file activate. Dang tao shell thong thuong..."
-    PS1="(docker_env) [\u@\h \W]\\$ "
 fi
+echo "[INFO] Thu muc hien tai: \$(pwd)"
+echo "[INFO] Cac container dang chay:"
+docker ps || echo "[WARN] Khong the hien thi container, ban co the can dang xuat va dang nhap lai."
 EOF
         chmod +x $TEMP_SCRIPT
         chown $SUDO_USER:$SUDO_USER $TEMP_SCRIPT
         
         # Tự động kích hoạt môi trường ngay lập tức
         echo "[INFO] Dang kich hoat moi truong docker_env..."
+        echo "[INFO] Nhap 'exit' de thoat khoi moi truong docker_env."
         exec su - $SUDO_USER -c "cd $BACKEND_DIR && bash --init-file $TEMP_SCRIPT"
     else
         # Kích hoạt môi trường ngay lập tức
         echo "[INFO] Dang kich hoat moi truong docker_env..."
         cd $BACKEND_DIR
         
-        if [ -f "$BACKEND_DIR/docker_env/bin/activate" ]; then
-            source docker_env/bin/activate
-            # Đảm bảo PS1 được thiết lập đúng
-            export PS1="(docker_env) [\u@\h \W]\\$ "
-            echo "[OK] Moi truong docker_env da duoc kich hoat!"
-            echo "[INFO] Thu muc hien tai: $BACKEND_DIR"
-        else
-            echo "[ERROR] Khong tim thay file activate. Dang tao shell thong thuong..."
-            export PS1="(docker_env) [\u@\h \W]\\$ "
-        fi
+        # Tạo script bash tạm thời để kích hoạt môi trường
+        TEMP_SCRIPT="/tmp/docker_env_starter_$$.sh"
+        cat > $TEMP_SCRIPT << EOF
+# Docker Environment Starter
+cd $BACKEND_DIR
+export PS1="(docker_env) [\u@\h \W]\\$ "
+if [ -f "$DOCKER_ENV_DIR/bin/activate" ]; then
+    source docker_env/bin/activate
+fi
+echo "[INFO] Thu muc hien tai: \$(pwd)"
+echo "[INFO] Cac container dang chay:"
+docker ps || echo "[WARN] Khong the hien thi container."
+EOF
+        chmod +x $TEMP_SCRIPT
         
-        echo "[INFO] Cac container dang chay:"
-        docker ps || echo "[WARN] Khong the hien thi container."
-        
-        # Khởi động shell mới với thiết lập PS1
-        BASH_ENV=<(echo 'PS1="(docker_env) [\u@\h \W]\\$ "') exec bash
+        echo "[INFO] Nhap 'exit' de thoat khoi moi truong docker_env."
+        exec bash --init-file $TEMP_SCRIPT
     fi
 }
 
 # Hiển thị hướng dẫn sử dụng nếu được yêu cầu
 if [ "${1:-}" = "--help" ] || [ "${1:-}" = "-h" ]; then
     echo "Cach su dung: sudo bash $0"
-    echo ""
-    echo "Script nay se cai dat Docker, Docker Compose va backend cho he thong."
-    echo "YEU CAU: Can chay voi quyen root (sudo)"
-    echo ""
-    echo "Cac buoc thuc hien:"
-    echo "1. Cai dat Docker"
-    echo "2. Cai dat Docker Compose"
-    echo "3. Tai va cau hinh backend"
-    echo "4. Khoi dong cac container Docker"
-    echo "5. Kiem tra trang thai he thong"
     exit 0
 fi
 
