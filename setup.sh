@@ -650,9 +650,17 @@ main() {
     echo "[OK] CAI DAT HOAN TAT"
     echo "=========================================================="
     
-    # Chuyển đến thư mục backend cho người dùng
-    echo "[INFO] Chuyen den thu muc backend..."
-    exec su - $SUDO_USER -c "cd $BACKEND_DIR && exec bash"
+    # Kiểm tra Docker service có chạy không trước khi chuyển thư mục
+    if systemctl is-active --quiet docker; then
+        # Docker service đang chạy, chuyển đến thư mục backend
+        echo "[INFO] Chuyen den thu muc backend..."
+        exec su - $SUDO_USER -c "cd $BACKEND_DIR && exec bash"
+    else
+        # Docker service không chạy
+        echo "[ERROR] Docker service khong chay!"
+        echo "[INFO] Kiem tra loi: systemctl status docker.service"
+        echo "[INFO] Ban can khoi dong lai Docker service truoc khi su dung."
+    fi
 }
 
 # Chạy chương trình chính
