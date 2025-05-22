@@ -246,11 +246,58 @@ install_docker() {
     echo "[INFO] Cai dat docker-ce (goi trong) bang phuong phap giai nen..."
     unpack_large_package "docker-ce"
     
-    # Khởi động lại service
-    echo "[INFO] Khoi dong lai service docker..."
-    systemctl daemon-reload
-    systemctl restart docker.socket || echo "[WARN] Khong the khoi dong docker.socket"
-    systemctl restart docker.service || echo "[WARN] Khong the khoi dong docker.service"
+    # Kiểm tra kernel hỗ trợ overlay2 trước khi khởi động lại Docker
+    if ! modprobe overlay 2>/dev/null; then
+        echo "[WARN] Kernel không hỗ trợ overlay2. Sẽ chuyển sang storage-driver vfs."
+        DOCKER_DAEMON_JSON="/etc/docker/daemon.json"
+        if [ -f "$DOCKER_DAEMON_JSON" ]; then
+            # Nếu có jq thì dùng jq để sửa file JSON
+            if command -v jq &> /dev/null; then
+                jq 'del(."storage-driver")' "$DOCKER_DAEMON_JSON" > /tmp/daemon.json.tmp || cp "$DOCKER_DAEMON_JSON" /tmp/daemon.json.tmp
+                mv /tmp/daemon.json.tmp "$DOCKER_DAEMON_JSON"
+                jq '. + {"storage-driver":"vfs"}' "$DOCKER_DAEMON_JSON" > /tmp/daemon.json.tmp || echo '{"storage-driver":"vfs"}' > /tmp/daemon.json.tmp
+                mv /tmp/daemon.json.tmp "$DOCKER_DAEMON_JSON"
+            else
+                # Nếu không có jq, dùng sed để xóa dòng storage-driver cũ (nếu có)
+                sed -i '/"storage-driver"/d' "$DOCKER_DAEMON_JSON"
+                # Thêm dòng storage-driver vfs vào trước dấu đóng }
+                sed -i '$s/}/,\n  "storage-driver": "vfs"\n}/' "$DOCKER_DAEMON_JSON" || echo '{"storage-driver":"vfs"}' > "$DOCKER_DAEMON_JSON"
+            fi
+        else
+            echo '{"storage-driver":"vfs"}' > "$DOCKER_DAEMON_JSON"
+        fi
+        echo "[INFO] Đã chuyển storage-driver sang vfs trong $DOCKER_DAEMON_JSON"
+        echo "[WARN] vfs rất chậm, chỉ nên dùng để test hoặc trên VPS không hỗ trợ overlay2."
+    fi
+    # Khởi động lại Docker để áp dụng cấu hình
+    echo "[INFO] Khoi dong lai Docker daemon de ap dung cau hinh moi..."
+    if command -v systemctl &> /dev/null; then
+        # Đảm bảo các service phụ thuộc đã chạy
+        systemctl start containerd || true
+        systemctl start docker.socket || true
+        sleep 3
+        # Thử start docker, chỉ retry tối đa 3 lần
+        MAX_RETRY=3
+        RETRY=0
+        while [ $RETRY -lt $MAX_RETRY ]; do
+            systemctl start docker
+            sleep 2
+            if systemctl is-active --quiet docker; then
+                echo "[OK] Docker service đã khởi động thành công."
+                break
+            else
+                echo "[WARN] Docker chưa khởi động được, thử lại lần $((RETRY+1))/$MAX_RETRY..."
+                RETRY=$((RETRY+1))
+                sleep 2
+            fi
+        done
+        if ! systemctl is-active --quiet docker; then
+            echo "[ERROR] Docker vẫn không thể khởi động sau $MAX_RETRY lần thử."
+            journalctl -u docker.service --no-pager | tail -40
+        fi
+    elif command -v service &> /dev/null; then
+        service docker restart
+    fi
     
     # Kiểm tra kết quả cài đặt
     if command -v docker &> /dev/null; then
