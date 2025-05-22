@@ -731,32 +731,61 @@ EOF
             usermod -aG docker $SUDO_USER
             chmod 666 /var/run/docker.sock || true
         fi
-        DOCKER_RC="$BACKEND_DIR/.bashrc_docker"
-        cat > "$DOCKER_RC" << 'EOF'
+        
+        # Tạo script docker_shell để người dùng có thể trực tiếp truy cập môi trường
+        DOCKER_SHELL="$BACKEND_DIR/docker_shell"
+        cat > "$DOCKER_SHELL" << EOF
 #!/bin/bash
-export PS1="(docker_env) \[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
-if [[ ":$PATH:" != *":$(pwd)/docker_env/bin:"* ]]; then
-    export PATH="$(pwd)/docker_env/bin:$PATH"
+# Script tự động vào môi trường docker_env
+cd $BACKEND_DIR
+if [ -f "$DOCKER_ENV_DIR/bin/activate" ]; then
+    source "$DOCKER_ENV_DIR/bin/activate"
 fi
-docker ps >/dev/null 2>&1
+export PS1="(docker_env) [\u@\h \W]\\$ "
+if [[ ":\$PATH:" != *":$BACKEND_DIR/docker_env/bin:"* ]]; then
+    export PATH="$BACKEND_DIR/docker_env/bin:\$PATH"
+fi
+exec bash --norc
 EOF
-        chmod +x "$DOCKER_RC"
-        chown $SUDO_USER:$SUDO_USER "$DOCKER_RC"
-        exec su - $SUDO_USER -c "cd $BACKEND_DIR && bash --rcfile $DOCKER_RC"
+        chmod +x "$DOCKER_SHELL"
+        chown $SUDO_USER:$SUDO_USER "$DOCKER_SHELL"
+        
+        # Tạo symlink ở thư mục root để dễ truy cập
+        if [ ! -f "/usr/local/bin/docker_shell" ]; then
+            ln -sf "$DOCKER_SHELL" /usr/local/bin/docker_shell
+        fi
+        
+        # Tự động khởi động shell mới
+        echo ""
+        echo "Đang kích hoạt môi trường docker_env..."
+        su - $SUDO_USER -c "docker_shell"
     else
-        DOCKER_RC="$BACKEND_DIR/.bashrc_docker"
-        cat > "$DOCKER_RC" << 'EOF'
+        # Tạo script docker_shell để trực tiếp truy cập môi trường
+        DOCKER_SHELL="$BACKEND_DIR/docker_shell"
+        cat > "$DOCKER_SHELL" << EOF
 #!/bin/bash
-export PS1="(docker_env) \[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
-if [[ ":$PATH:" != *":$(pwd)/docker_env/bin:"* ]]; then
-    export PATH="$(pwd)/docker_env/bin:$PATH"
+# Script tự động vào môi trường docker_env
+cd $BACKEND_DIR
+if [ -f "$DOCKER_ENV_DIR/bin/activate" ]; then
+    source "$DOCKER_ENV_DIR/bin/activate"
 fi
-docker ps >/dev/null 2>&1
+export PS1="(docker_env) [\u@\h \W]\\$ "
+if [[ ":\$PATH:" != *":$BACKEND_DIR/docker_env/bin:"* ]]; then
+    export PATH="$BACKEND_DIR/docker_env/bin:\$PATH"
+fi
+exec bash --norc
 EOF
-        chmod +x "$DOCKER_RC"
-        cd $BACKEND_DIR
-        source docker_env/bin/activate
-        exec bash --rcfile $DOCKER_RC
+        chmod +x "$DOCKER_SHELL"
+        
+        # Tạo symlink ở thư mục root để dễ truy cập
+        if [ ! -f "/usr/local/bin/docker_shell" ]; then
+            ln -sf "$DOCKER_SHELL" /usr/local/bin/docker_shell
+        fi
+        
+        # Tự động khởi động shell mới
+        echo ""
+        echo "Đang kích hoạt môi trường docker_env..."
+        docker_shell
     fi
 }
 
