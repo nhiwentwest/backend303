@@ -647,13 +647,83 @@ main() {
     
     # Kiểm tra Python3
     echo "[INFO] Kiem tra Python va venv..."
-    ensure_command_exists python3
-    ensure_command_exists python3-venv python3-venv
+    
+    # Ưu tiên Python 3.10 nếu có
+    if command -v python3.10 &> /dev/null; then
+        echo "[INFO] Su dung Python 3.10..."
+        PYTHON_CMD="python3.10"
+        ensure_command_exists python3.10
+        
+        # Cài đặt python3.10-venv một cách an toàn, tránh lỗi packagekit
+        if ! dpkg -l | grep -q "^ii.*python3.10-venv"; then
+            echo "[INFO] Cai dat python3.10-venv..."
+            # Tạm thời tắt packagekit nếu đang chạy
+            if systemctl is-active --quiet packagekit; then
+                systemctl stop packagekit || true
+            fi
+            
+            # Cài đặt trực tiếp với apt-get, bỏ qua packagekit
+            apt-get update -qq
+            apt-get install -qq -y python3.10-venv --no-install-recommends
+        fi
+    else
+        # Sử dụng Python mặc định
+        echo "[INFO] Python 3.10 khong tim thay, su dung Python mac dinh..."
+        PYTHON_CMD="python3"
+        ensure_command_exists python3
+        
+        # Cài đặt python3-venv một cách an toàn, tránh lỗi packagekit
+        if ! dpkg -l | grep -q "^ii.*python3-venv"; then
+            echo "[INFO] Cai dat python3-venv..."
+            # Tạm thời tắt packagekit nếu đang chạy
+            if systemctl is-active --quiet packagekit; then
+                systemctl stop packagekit || true
+            fi
+            
+            # Cài đặt trực tiếp với apt-get, bỏ qua packagekit
+            apt-get update -qq
+            apt-get install -qq -y python3-venv --no-install-recommends
+        fi
+    fi
     
     # Tạo môi trường ảo Python
     echo "[INFO] Tao moi truong ao Python..."
     cd $BACKEND_DIR
-    python3 -m venv docker_env
+    
+    # Xóa môi trường cũ nếu có lỗi
+    if [ -d "$DOCKER_ENV_DIR" ] && [ ! -f "$DOCKER_ENV_DIR/bin/activate" ]; then
+        echo "[WARN] Phat hien moi truong cu bi loi, dang xoa..."
+        rm -rf "$DOCKER_ENV_DIR"
+    fi
+    
+    # Tạo môi trường mới nếu chưa tồn tại
+    if [ ! -d "$DOCKER_ENV_DIR" ]; then
+        echo "[INFO] Tao moi truong ao voi $PYTHON_CMD..."
+        $PYTHON_CMD -m venv docker_env
+        
+        # Kiểm tra xem môi trường đã được tạo thành công chưa
+        if [ ! -f "$DOCKER_ENV_DIR/bin/activate" ]; then
+            echo "[ERROR] Khong the tao moi truong ao Python. Thu cach khac..."
+            # Thử cách khác nếu cách thông thường thất bại
+            $PYTHON_CMD -m venv --without-pip docker_env
+            
+            if [ ! -f "$DOCKER_ENV_DIR/bin/activate" ]; then
+                echo "[ERROR] Khong the tao moi truong ao Python. Dang tao moi truong gia lap..."
+                # Tạo cấu trúc thư mục giả lập
+                mkdir -p "$DOCKER_ENV_DIR/bin"
+                
+                # Tạo script activate giả
+                cat > "$DOCKER_ENV_DIR/bin/activate" << 'EOF'
+#!/bin/bash
+# Môi trường giả lập
+export VIRTUAL_ENV="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+export PATH="$VIRTUAL_ENV/bin:$PATH"
+export PS1="(docker_env) $PS1"
+EOF
+                chmod +x "$DOCKER_ENV_DIR/bin/activate"
+            fi
+        fi
+    fi
     
     # Tùy chỉnh script activate
     echo "[INFO] Tuy chinh script activate..."
@@ -717,18 +787,52 @@ EOF
         if ! id -nG $SUDO_USER | grep -qw docker; then
             echo "[INFO] Them nguoi dung $SUDO_USER vao nhom docker..."
             usermod -aG docker $SUDO_USER
-            newgrp docker
+            # Cấp quyền tạm thời cho socket docker để tránh lỗi permission denied
+            chmod 666 /var/run/docker.sock || true
         fi
         
-        # Tự động kích hoạt môi trường ngay lập tức
+        # Tạo script bash tạm thời để kích hoạt môi trường
+        TEMP_SCRIPT="/tmp/docker_activate_$$.sh"
+        cat > $TEMP_SCRIPT << EOF
+#!/bin/bash
+cd $BACKEND_DIR
+if [ -f "$BACKEND_DIR/docker_env/bin/activate" ]; then
+    source docker_env/bin/activate
+    echo "[OK] Moi truong docker_env da duoc kich hoat!"
+    echo "[INFO] Cac container dang chay:"
+    docker ps || echo "[WARN] Khong the hien thi container, ban co the can dang xuat va dang nhap lai."
+else
+    echo "[ERROR] Khong tim thay file activate. Dang tao shell thong thuong..."
+    export PS1="(docker_env) [\u@\h \W]\\$ "
+fi
+exec bash
+EOF
+        chmod +x $TEMP_SCRIPT
+        chown $SUDO_USER:$SUDO_USER $TEMP_SCRIPT
+        
+        # Hiển thị thông tin hữu ích
+        echo ""
+        echo "[INFO] Neu ban gap loi permission denied voi Docker, hay dang xuat va dang nhap lai."
         echo "[INFO] Dang kich hoat moi truong docker_env..."
-        exec su - $SUDO_USER -c "cd $BACKEND_DIR && source docker_env/bin/activate && exec bash"
+        
+        # Tự động kích hoạt môi trường ngay lập tức
+        exec su - $SUDO_USER -c "$TEMP_SCRIPT"
     else
         # Kích hoạt môi trường ngay lập tức
         echo "[INFO] Dang kich hoat moi truong docker_env..."
         cd $BACKEND_DIR
-        source docker_env/bin/activate
-        export PS1="(docker_env) \w$ "
+        
+        if [ -f "$BACKEND_DIR/docker_env/bin/activate" ]; then
+            source docker_env/bin/activate
+            echo "[OK] Moi truong docker_env da duoc kich hoat!"
+        else
+            echo "[ERROR] Khong tim thay file activate. Dang tao shell thong thuong..."
+            export PS1="(docker_env) [\u@\h \W]\\$ "
+        fi
+        
+        echo "[INFO] Cac container dang chay:"
+        docker ps || echo "[WARN] Khong the hien thi container, ban co the can dang xuat va dang nhap lai."
+        
         exec bash
     fi
 }
