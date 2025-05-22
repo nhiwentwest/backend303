@@ -613,91 +613,6 @@ check_system_status() {
 }
 
 ########################################################
-# DOCKER ENV - THIẾT LẬP MÔI TRƯỜNG DOCKER
-########################################################
-setup_docker_env() {
-    local DOCKER_ENV_DIR="$BACKEND_DIR/docker_env"
-    
-    # Xóa môi trường cũ nếu tồn tại
-    if [ -d "$DOCKER_ENV_DIR" ]; then
-        echo "[INFO] Xoa moi truong cu..."
-        rm -rf "$DOCKER_ENV_DIR"
-    fi
-    
-    # Tạo thư mục bin
-    mkdir -p "$DOCKER_ENV_DIR/bin"
-    
-    # Tạo script activate đơn giản
-    cat > "$DOCKER_ENV_DIR/bin/activate" << 'EOF'
-#!/bin/bash
-# Script kích hoạt môi trường docker_env
-export PS1="(docker_env) \u@\h:\w\$ "
-export PATH="$(dirname $(dirname $BASH_SOURCE))/bin:$PATH"
-alias dc='docker-compose'
-alias dps='docker ps'
-alias dlog='docker logs'
-alias dexec='docker exec -it'
-alias restart='docker-compose down && docker-compose up -d'
-alias backend-logs='docker logs -f backend-app'
-alias db-logs='docker logs -f backend-db'
-EOF
-    
-    # Cấp quyền thực thi
-    chmod +x "$DOCKER_ENV_DIR/bin/activate"
-    
-    # Tạo script tiện ích
-    create_utility_scripts "$DOCKER_ENV_DIR/bin"
-    
-    # Thiết lập quyền sở hữu
-    if [ -n "${SUDO_USER:-}" ]; then
-        chown -R $SUDO_USER:$SUDO_USER $BACKEND_DIR
-    fi
-    
-    echo "[OK] Moi truong docker_env da duoc tao tai $DOCKER_ENV_DIR"
-    echo "[INFO] De kich hoat, chay: source $DOCKER_ENV_DIR/bin/activate"
-}
-
-# Tạo các script tiện ích
-create_utility_scripts() {
-    local BIN_DIR="$1"
-    
-    # Script khởi động lại containers
-    cat > "$BIN_DIR/docker-restart" << 'EOF'
-#!/bin/bash
-echo "[INFO] Dang khoi dong lai cac container..."
-cd $(dirname $(dirname $BASH_SOURCE))/..
-docker-compose down
-docker-compose up -d
-echo "[OK] Cac container da duoc khoi dong lai!"
-EOF
-    
-    # Script xem logs
-    cat > "$BIN_DIR/docker-logs" << 'EOF'
-#!/bin/bash
-if [ -z "$1" ]; then
-    echo "[ERROR] Thieu ten container. Su dung: docker-logs <container_name>"
-    echo "[INFO] Cac container dang chay:"
-    docker ps --format "{{.Names}}"
-    exit 1
-fi
-echo "[INFO] Hien thi logs cua container $1..."
-docker logs -f "$1"
-EOF
-
-    # Script kết nối PostgreSQL
-    cat > "$BIN_DIR/db-connect" << 'EOF'
-#!/bin/bash
-echo "[INFO] Ket noi toi PostgreSQL database..."
-docker exec -it backend-db psql -U postgres
-EOF
-    
-    # Cấp quyền thực thi
-    chmod +x "$BIN_DIR/docker-restart"
-    chmod +x "$BIN_DIR/docker-logs"
-    chmod +x "$BIN_DIR/db-connect"
-}
-
-########################################################
 # 7. MAIN: THỰC HIỆN CÁC BƯỚC THEO THỨ TỰ
 ########################################################
 main() {
@@ -721,20 +636,24 @@ main() {
     start_docker_containers
     check_system_status
     
-    # Thiết lập môi trường docker_env
-    setup_docker_env
+    # Thêm người dùng vào nhóm docker
+    if [ -n "${SUDO_USER:-}" ]; then
+        echo "[INFO] Dam bao $SUDO_USER thuoc nhom docker..."
+        if ! id -nG $SUDO_USER | grep -qw docker; then
+            usermod -aG docker $SUDO_USER
+        fi
+        chown -R $SUDO_USER:$SUDO_USER $BACKEND_DIR
+    fi
     
     echo ""
     echo "=========================================================="
     echo "[OK] CAI DAT HOAN TAT"
     echo "=========================================================="
+    
+    # Chuyển đến thư mục backend cho người dùng
+    echo "[INFO] Chuyen den thu muc backend..."
+    exec su - $SUDO_USER -c "cd $BACKEND_DIR && exec bash"
 }
-
-# Hiển thị hướng dẫn sử dụng nếu được yêu cầu
-if [ "${1:-}" = "--help" ] || [ "${1:-}" = "-h" ]; then
-    echo "Cach su dung: sudo bash $0"
-    exit 0
-fi
 
 # Chạy chương trình chính
 main
