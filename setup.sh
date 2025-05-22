@@ -187,7 +187,7 @@ install_docker() {
         
         # Đảm bảo docker daemon đang chạy
         if ! docker info &>/dev/null; then
-            echo "[INFO] Bat dau Docker daemon..."
+            echo "[INFO] Khoi dong Docker daemon..."
             if command -v systemctl &> /dev/null; then
                 systemctl start docker || echo "[WARN] Khong the khoi dong Docker daemon."
             elif command -v service &> /dev/null; then
@@ -308,7 +308,8 @@ install_docker() {
         # Cấu hình Docker để tối ưu tài nguyên (KHÔNG ghi đè storage-driver nữa)
         echo "[INFO] Cau hinh Docker toi uu cho may yeu..."
         mkdir -p /etc/docker
-        cat << EOF > /etc/docker/daemon.json
+        if [ ! -f /etc/docker/daemon.json ]; then
+            cat << EOF > /etc/docker/daemon.json
 {
   "log-driver": "json-file",
   "log-opts": {
@@ -319,6 +320,21 @@ install_docker() {
   "max-concurrent-uploads": 1
 }
 EOF
+        else
+            # Nếu có jq, merge các option tối ưu vào file cũ
+            if command -v jq &> /dev/null; then
+                tmpfile=$(mktemp)
+                jq '. + {
+                  "log-driver": "json-file",
+                  "log-opts": {
+                    "max-size": "10m",
+                    "max-file": "3"
+                  },
+                  "max-concurrent-downloads": 1,
+                  "max-concurrent-uploads": 1
+                }' /etc/docker/daemon.json > "$tmpfile" && mv "$tmpfile" /etc/docker/daemon.json
+            fi
+        fi
         # Không restart docker nữa ở đây!
         return 0
     fi
