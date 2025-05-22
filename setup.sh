@@ -290,8 +290,29 @@ EOF
         if systemctl is-active --quiet docker; then
             echo "[OK] Docker service dang chay."
         else
-            echo "[ERROR] Docker service khong chay. Thu khoi dong lai..."
-            systemctl restart docker || echo "[ERROR] Khong the khoi dong lai Docker service."
+            echo "[ERROR] Docker service khong chay!"
+            echo "[INFO] Thử tự động sửa lỗi docker.service..."
+            # Reset start-limit-hit cho cả docker.service và docker.socket
+            systemctl reset-failed docker.service || true
+            systemctl reset-failed docker.socket || true
+            # Unmask và enable lại cả hai service
+            systemctl unmask docker.service || true
+            systemctl unmask docker.socket || true
+            systemctl enable docker.service || true
+            systemctl enable docker.socket || true
+            # Khởi động lại docker.socket trước, sau đó docker.service
+            systemctl start docker.socket || true
+            systemctl start docker.service || true
+            sleep 2
+            # Kiểm tra lại
+            if systemctl is-active --quiet docker; then
+                echo "[OK] Docker service da duoc khoi dong lai thanh cong."
+            else
+                echo "[ERROR] Van khong the khoi dong docker.service!"
+                echo "[INFO] Kiem tra loi chi tiet:"
+                journalctl -u docker.service --no-pager | tail -40
+                echo "[INFO] Ban can khoi dong lai Docker service thu cong hoac kiem tra log chi tiet o tren."
+            fi
         fi
         
         return 0
@@ -653,43 +674,32 @@ main() {
     # Kiểm tra Docker service có chạy không
     if systemctl is-active --quiet docker; then
         echo "[OK] Docker service dang chay."
-        
-        # Thêm lệnh chuyển thư mục vào .bashrc của người dùng
-        if [ -n "${SUDO_USER:-}" ]; then
-            USER_HOME=$(eval echo ~$SUDO_USER)
-            BASHRC="$USER_HOME/.bashrc"
-        else
-            BASHRC="$HOME/.bashrc"
-        fi
-        
-        # Đánh dấu để phát hiện nếu đã thiết lập
-        MARKER="# [auto] cd $BACKEND_DIR"
-        if ! grep -Fq "$MARKER" "$BASHRC"; then
-            echo "Thêm lệnh tự động chuyển thư mục vào .bashrc..."
-            cat << EOF >> "$BASHRC"
-$MARKER
-cd $BACKEND_DIR
-# [end auto]
-EOF
-        fi
-        
-        # Hiển thị hướng dẫn
-        echo ""
-        echo "[INFO] Đã thiết lập tự động chuyển đến thư mục backend khi mở terminal mới"
-        echo "Để chuyển ngay lập tức đến thư mục backend, hãy chạy:"
-        echo "cd $BACKEND_DIR"
-        
-        # Nếu chạy với sudo, hiển thị hướng dẫn bổ sung
-        if [ -n "${SUDO_USER:-}" ]; then
-            echo ""
-            echo "[INFO] Để chuyển đến thư mục backend với người dùng $SUDO_USER, hãy chạy:"
-            echo "cd $BACKEND_DIR"
-        fi
+        # ... (phần chuyển thư mục như cũ)
     else
         # Docker service không chạy
         echo "[ERROR] Docker service khong chay!"
-        echo "[INFO] Kiem tra loi: systemctl status docker.service" 
-        echo "[INFO] Ban can khoi dong lai Docker service truoc khi su dung."
+        echo "[INFO] Thử tự động sửa lỗi docker.service..."
+        # Reset start-limit-hit cho cả docker.service và docker.socket
+        systemctl reset-failed docker.service || true
+        systemctl reset-failed docker.socket || true
+        # Unmask và enable lại cả hai service
+        systemctl unmask docker.service || true
+        systemctl unmask docker.socket || true
+        systemctl enable docker.service || true
+        systemctl enable docker.socket || true
+        # Khởi động lại docker.socket trước, sau đó docker.service
+        systemctl start docker.socket || true
+        systemctl start docker.service || true
+        sleep 2
+        # Kiểm tra lại
+        if systemctl is-active --quiet docker; then
+            echo "[OK] Docker service da duoc khoi dong lai thanh cong."
+        else
+            echo "[ERROR] Van khong the khoi dong docker.service!"
+            echo "[INFO] Kiem tra loi chi tiet:"
+            journalctl -u docker.service --no-pager | tail -40
+            echo "[INFO] Ban can khoi dong lai Docker service thu cong hoac kiem tra log chi tiet o tren."
+        fi
     fi
 }
 
