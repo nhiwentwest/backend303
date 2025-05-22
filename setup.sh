@@ -187,11 +187,11 @@ install_docker() {
         
         # Đảm bảo docker daemon đang chạy
         if ! docker info &>/dev/null; then
-            echo "[INFO] OKAY Docker daemon..."
+            echo "[INFO] Khoi dong Docker daemon..."
             if command -v systemctl &> /dev/null; then
-                systemctl start docker || echo "[WARN] Khong the okay Docker daemon."
+                systemctl start docker || echo "[WARN] Khong the khoi dong Docker daemon."
             elif command -v service &> /dev/null; then
-                service docker start || echo "[WARN] Khong the okay Docker daemon."
+                service docker start || echo "[WARN] Khong the khoi dong Docker daemon."
             fi
         fi
         
