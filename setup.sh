@@ -736,48 +736,44 @@ EOF
             chmod 666 /var/run/docker.sock || true
         fi
         
-        # Tạo script bash tạm thời để kích hoạt môi trường
-        TEMP_SCRIPT="/tmp/docker_env_starter_$$.sh"
-        cat > $TEMP_SCRIPT << EOF
-# Docker Environment Starter
-cd $BACKEND_DIR
-export PS1="(docker_env) [\u@\h \W]\\$ "
-if [ -f "$DOCKER_ENV_DIR/bin/activate" ]; then
-    source docker_env/bin/activate
-fi
-echo "[INFO] Thu muc hien tai: \$(pwd)"
-echo "[INFO] Cac container dang chay:"
-docker ps || echo "[WARN] Khong the hien thi container, ban co the can dang xuat va dang nhap lai."
-EOF
-        chmod +x $TEMP_SCRIPT
-        chown $SUDO_USER:$SUDO_USER $TEMP_SCRIPT
+        # Thêm vào bashrc của người dùng
+        USER_HOME=$(eval echo ~$SUDO_USER)
+        BASHRC_FILE="$USER_HOME/.bashrc"
+        MARKER="# AUTO-DOCKER-ENV-ACTIVATION"
         
-        # Tự động kích hoạt môi trường ngay lập tức
+        echo "[INFO] Cai dat tu dong kich hoat moi truong docker_env..."
+        if ! grep -Fq "$MARKER" "$BASHRC_FILE"; then
+            cat << EOF >> "$BASHRC_FILE"
+$MARKER
+# Tự động kích hoạt môi trường docker_env
+cd $BACKEND_DIR
+source $DOCKER_ENV_DIR/bin/activate
+EOF
+        fi
+        
+        # Thực hiện kích hoạt ngay lập tức
         echo "[INFO] Dang kich hoat moi truong docker_env..."
-        echo "[INFO] Nhap 'exit' de thoat khoi moi truong docker_env."
-        exec su - $SUDO_USER -c "cd $BACKEND_DIR && bash --init-file $TEMP_SCRIPT"
+        exec su - $SUDO_USER -c "cd $BACKEND_DIR && source $DOCKER_ENV_DIR/bin/activate && exec bash"
+        
     else
-        # Kích hoạt môi trường ngay lập tức
+        # Thêm vào bashrc
+        MARKER="# AUTO-DOCKER-ENV-ACTIVATION"
+        
+        echo "[INFO] Cai dat tu dong kich hoat moi truong docker_env..."
+        if ! grep -Fq "$MARKER" "$HOME/.bashrc"; then
+            cat << EOF >> "$HOME/.bashrc"
+$MARKER
+# Tự động kích hoạt môi trường docker_env
+cd $BACKEND_DIR
+source $DOCKER_ENV_DIR/bin/activate
+EOF
+        fi
+        
+        # Thực hiện kích hoạt ngay lập tức
         echo "[INFO] Dang kich hoat moi truong docker_env..."
         cd $BACKEND_DIR
-        
-        # Tạo script bash tạm thời để kích hoạt môi trường
-        TEMP_SCRIPT="/tmp/docker_env_starter_$$.sh"
-        cat > $TEMP_SCRIPT << EOF
-# Docker Environment Starter
-cd $BACKEND_DIR
-export PS1="(docker_env) [\u@\h \W]\\$ "
-if [ -f "$DOCKER_ENV_DIR/bin/activate" ]; then
-    source docker_env/bin/activate
-fi
-echo "[INFO] Thu muc hien tai: \$(pwd)"
-echo "[INFO] Cac container dang chay:"
-docker ps || echo "[WARN] Khong the hien thi container."
-EOF
-        chmod +x $TEMP_SCRIPT
-        
-        echo "[INFO] Nhap 'exit' de thoat khoi moi truong docker_env."
-        exec bash --init-file $TEMP_SCRIPT
+        source $DOCKER_ENV_DIR/bin/activate
+        exec bash
     fi
 }
 
