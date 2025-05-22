@@ -281,38 +281,31 @@ EOF
         # Khởi động lại Docker để áp dụng cấu hình
         echo "[INFO] Khoi dong lai Docker daemon de ap dung cau hinh moi..."
         if command -v systemctl &> /dev/null; then
-            systemctl restart docker
+            # Đảm bảo các service phụ thuộc đã chạy
+            systemctl start containerd || true
+            systemctl start docker.socket || true
+            sleep 3
+            # Thử start docker, chỉ retry tối đa 3 lần
+            MAX_RETRY=3
+            RETRY=0
+            while [ $RETRY -lt $MAX_RETRY ]; do
+                systemctl start docker
+                sleep 2
+                if systemctl is-active --quiet docker; then
+                    echo "[OK] Docker service đã khởi động thành công."
+                    break
+                else
+                    echo "[WARN] Docker chưa khởi động được, thử lại lần $((RETRY+1))/$MAX_RETRY..."
+                    RETRY=$((RETRY+1))
+                    sleep 2
+                fi
+            done
+            if ! systemctl is-active --quiet docker; then
+                echo "[ERROR] Docker vẫn không thể khởi động sau $MAX_RETRY lần thử."
+                journalctl -u docker.service --no-pager | tail -40
+            fi
         elif command -v service &> /dev/null; then
             service docker restart
-        fi
-        
-        # Kiểm tra service có chạy không
-        if systemctl is-active --quiet docker; then
-            echo "[OK] Docker service dang chay."
-        else
-            echo "[ERROR] Docker service khong chay!"
-            echo "[INFO] Thử tự động sửa lỗi docker.service..."
-            # Reset start-limit-hit cho cả docker.service và docker.socket
-            systemctl reset-failed docker.service || true
-            systemctl reset-failed docker.socket || true
-            # Unmask và enable lại cả hai service
-            systemctl unmask docker.service || true
-            systemctl unmask docker.socket || true
-            systemctl enable docker.service || true
-            systemctl enable docker.socket || true
-            # Khởi động lại docker.socket trước, sau đó docker.service
-            systemctl start docker.socket || true
-            systemctl start docker.service || true
-            sleep 2
-            # Kiểm tra lại
-            if systemctl is-active --quiet docker; then
-                echo "[OK] Docker service da duoc khoi dong lai thanh cong."
-            else
-                echo "[ERROR] Van khong the khoi dong docker.service!"
-                echo "[INFO] Kiem tra loi chi tiet:"
-                journalctl -u docker.service --no-pager | tail -40
-                echo "[INFO] Ban can khoi dong lai Docker service thu cong hoac kiem tra log chi tiet o tren."
-            fi
         fi
         
         return 0
