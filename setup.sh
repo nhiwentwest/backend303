@@ -650,30 +650,45 @@ main() {
     echo "[OK] CAI DAT HOAN TAT"
     echo "=========================================================="
     
-    # Kiểm tra Docker service có chạy không trước khi chuyển thư mục
+    # Kiểm tra Docker service có chạy không
     if systemctl is-active --quiet docker; then
-        # Docker service đang chạy, chuyển đến thư mục backend
-        echo "[INFO] Chuyen den thu muc backend..."
+        echo "[OK] Docker service dang chay."
         
-        # Sửa cách chuyển thư mục để đảm bảo hoạt động trong mọi shell
-        # Thay vì dùng exec su, sử dụng cd và bash -c
+        # Thêm lệnh chuyển thư mục vào .bashrc của người dùng
         if [ -n "${SUDO_USER:-}" ]; then
-            # Nếu chạy với sudo, chuyển về người dùng thực
-            bash -c "cd $BACKEND_DIR && exec bash" || {
-                echo "[ERROR] Không thể chuyển thư mục tự động."
-                echo "[INFO] Vui lòng tự chuyển thư mục bằng lệnh: cd $BACKEND_DIR"
-            }
+            USER_HOME=$(eval echo ~$SUDO_USER)
+            BASHRC="$USER_HOME/.bashrc"
         else
-            # Nếu đang chạy với root trực tiếp
-            cd $BACKEND_DIR && exec bash || {
-                echo "[ERROR] Không thể chuyển thư mục tự động."
-                echo "[INFO] Vui lòng tự chuyển thư mục bằng lệnh: cd $BACKEND_DIR"
-            }
+            BASHRC="$HOME/.bashrc"
+        fi
+        
+        # Đánh dấu để phát hiện nếu đã thiết lập
+        MARKER="# [auto] cd $BACKEND_DIR"
+        if ! grep -Fq "$MARKER" "$BASHRC"; then
+            echo "Thêm lệnh tự động chuyển thư mục vào .bashrc..."
+            cat << EOF >> "$BASHRC"
+$MARKER
+cd $BACKEND_DIR
+# [end auto]
+EOF
+        fi
+        
+        # Hiển thị hướng dẫn
+        echo ""
+        echo "[INFO] Đã thiết lập tự động chuyển đến thư mục backend khi mở terminal mới"
+        echo "Để chuyển ngay lập tức đến thư mục backend, hãy chạy:"
+        echo "cd $BACKEND_DIR"
+        
+        # Nếu chạy với sudo, hiển thị hướng dẫn bổ sung
+        if [ -n "${SUDO_USER:-}" ]; then
+            echo ""
+            echo "[INFO] Để chuyển đến thư mục backend với người dùng $SUDO_USER, hãy chạy:"
+            echo "cd $BACKEND_DIR"
         fi
     else
         # Docker service không chạy
         echo "[ERROR] Docker service khong chay!"
-        echo "[INFO] Kiem tra loi: systemctl status docker.service"
+        echo "[INFO] Kiem tra loi: systemctl status docker.service" 
         echo "[INFO] Ban can khoi dong lai Docker service truoc khi su dung."
     fi
 }
