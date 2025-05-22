@@ -654,7 +654,22 @@ main() {
     if systemctl is-active --quiet docker; then
         # Docker service đang chạy, chuyển đến thư mục backend
         echo "[INFO] Chuyen den thu muc backend..."
-        exec su - $SUDO_USER -c "cd $BACKEND_DIR && exec bash"
+        
+        # Sửa cách chuyển thư mục để đảm bảo hoạt động trong mọi shell
+        # Thay vì dùng exec su, sử dụng cd và bash -c
+        if [ -n "${SUDO_USER:-}" ]; then
+            # Nếu chạy với sudo, chuyển về người dùng thực
+            bash -c "cd $BACKEND_DIR && exec bash" || {
+                echo "[ERROR] Không thể chuyển thư mục tự động."
+                echo "[INFO] Vui lòng tự chuyển thư mục bằng lệnh: cd $BACKEND_DIR"
+            }
+        else
+            # Nếu đang chạy với root trực tiếp
+            cd $BACKEND_DIR && exec bash || {
+                echo "[ERROR] Không thể chuyển thư mục tự động."
+                echo "[INFO] Vui lòng tự chuyển thư mục bằng lệnh: cd $BACKEND_DIR"
+            }
+        fi
     else
         # Docker service không chạy
         echo "[ERROR] Docker service khong chay!"
