@@ -20,31 +20,50 @@ SLEEP_APP_STARTUP=15
 # Yêu cầu không gian đĩa tối thiểu (MB)
 MIN_DISK_SPACE=500
 
+# Danh sách các dependencies cần thiết
+ESSENTIAL_DEPS=("curl" "apt-transport-https" "ca-certificates" "gnupg" "lsb-release")
+DOCKER_DEPS=("containerd.io" "docker-ce-cli" "docker-ce" "docker-compose-plugin")
+
 ########################################################
-# 1. KHỞI TẠO MÔI TRƯỜNG VÀ BIẾN MÔI TRƯỜNG
+# 0. KHỞI TẠO MÔI TRƯỜNG VÀ QUẢN LÝ DEPENDENCIES
 ########################################################
-# Kiểm tra quyền root
+# Hàm thêm repository chính thức của Docker
+add_docker_repository() {
+    echo "[INFO] Thêm repository chính thức của Docker..."
+    install -m 0755 -d /etc/apt/keyrings
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+    chmod a+r /etc/apt/keyrings/docker.gpg
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
+}
+
+initialize_environment() {
+    echo "[INFO] Khởi tạo môi trường..."
+    
+    # Kiểm tra quyền root
 if [ "$(id -u)" -ne 0 ]; then
-  echo "=========================================================="
-  echo "LỖI: Script này yêu cầu quyền root để cài đặt Docker"
-  echo "Vui lòng chạy lại với lệnh: sudo bash $0"
-  echo "=========================================================="
+        echo "=========================================================="
+        echo "LỖI: Script này yêu cầu quyền root để cài đặt Docker"
+        echo "Vui lòng chạy lại với lệnh: sudo bash $0"
+        echo "=========================================================="
   exit 1
 fi
 
-export DEBIAN_FRONTEND=noninteractive
-export NEEDRESTART_MODE=a
-export NEEDRESTART_SUSPEND=1
-export APT_LISTCHANGES_FRONTEND=none
-export PYTHONUNBUFFERED=1
-
-set -euo pipefail
-
-# Thiết lập cấu hình apt toàn cục để tránh prompt
-mkdir -p /etc/apt/apt.conf.d/
-cat > /etc/apt/apt.conf.d/99no-prompt << 'EOF'
+    # Thiết lập biến môi trường
+    export DEBIAN_FRONTEND=noninteractive
+    export NEEDRESTART_MODE=a
+    export NEEDRESTART_SUSPEND=1
+    export APT_LISTCHANGES_FRONTEND=none
+    export PYTHONUNBUFFERED=1
+    
+    set -euo pipefail
+    
+    # Thiết lập cấu hình apt toàn cục để tránh prompt
+    mkdir -p /etc/apt/apt.conf.d/
+    cat > /etc/apt/apt.conf.d/99no-prompt << 'EOF'
 APT::Get::Assume-Yes "true";
-APT::Get::force-yes "true";
+APT::Get::allow-downgrades "true";
+APT::Get::allow-remove-essential "true";
+APT::Get::allow-change-held-packages "true";
 Dpkg::Options {
    "--force-confdef";
    "--force-confold";
@@ -60,11 +79,95 @@ DPkg::Options {
    "--force-confmiss";
 }
 EOF
+    
+    # Tắt các dịch vụ tương tác
+    if command -v systemctl &> /dev/null; then
+        systemctl mask packagekit.service >/dev/null 2>&1 || true
+    fi
+    
+    echo "[OK] Môi trường đã được khởi tạo thành công"
+}
 
-# Tắt các dịch vụ tương tác
-if command -v systemctl &> /dev/null; then
-    systemctl mask packagekit.service >/dev/null 2>&1 || true
-fi
+# Hàm kiểm tra và cài đặt các dependencies cần thiết
+install_dependencies() {
+    echo "[INFO] Kiểm tra và cài đặt các dependencies cần thiết..."
+    
+    # Cập nhật danh sách các gói phần mềm
+    echo "[INFO] Cập nhật danh sách các gói phần mềm..."
+    apt-get update -qq
+    
+    # Cài đặt các gói cần thiết
+    echo "[INFO] Cài đặt các gói cần thiết..."
+    for dep in "${ESSENTIAL_DEPS[@]}"; do
+        ensure_command_exists "$dep"
+    done
+    
+    echo "[OK] Tất cả dependencies đã được cài đặt thành công"
+}
+
+########################################################
+# 1. KHÔI PHỤC DOCKER SERVICE NẾU BỊ LỖI
+########################################################
+# Hàm cấu hình daemon.json cho Docker
+setup_docker_daemon_config() {
+    local CONFIG_FILE="/etc/docker/daemon.json"
+    mkdir -p /etc/docker
+    local STORAGE_DRIVER="overlay2"
+    if ! modprobe overlay 2>/dev/null; then
+        STORAGE_DRIVER="vfs"
+        echo "[WARN] Kernel không hỗ trợ overlay2. Sử dụng storage-driver vfs (chậm hơn)."
+    fi
+    cat > "$CONFIG_FILE" << EOF
+{
+  "storage-driver": "$STORAGE_DRIVER",
+  "log-driver": "json-file",
+  "log-opts": {
+    "max-size": "10m",
+    "max-file": "3"
+  },
+  "max-concurrent-downloads": 1,
+  "max-concurrent-uploads": 1
+}
+EOF
+    echo "[INFO] Đã tạo cấu hình Docker daemon tại $CONFIG_FILE"
+}
+
+fix_docker_service() {
+    echo "[INFO] Kiểm tra và khôi phục Docker service nếu cần..."
+    if ! command -v docker &> /dev/null; then
+        echo "[INFO] Docker chưa được cài đặt, sẽ tiến hành cài đặt..."
+        return 0
+    fi
+    echo "[INFO] Docker đã được cài đặt, kiểm tra service..."
+    if systemctl is-active --quiet docker; then
+        echo "[OK] Docker service đang chạy bình thường."
+        return 0
+    fi
+    echo "[WARN] Docker service không chạy, tiến hành khôi phục..."
+    rm -f /var/run/docker.sock /var/run/docker.pid /var/lib/docker/network/files/local-kv.db
+    systemctl stop docker.service docker.socket containerd
+    systemctl reset-failed docker.service docker.socket containerd
+    systemctl unmask docker.service docker.socket containerd
+    if [ -f /etc/docker/daemon.json ]; then
+        echo "[INFO] Kiểm tra file cấu hình daemon.json..."
+        cp /etc/docker/daemon.json /etc/docker/daemon.json.bak
+    fi
+    setup_docker_daemon_config
+    systemctl daemon-reload
+    manage_docker_service start
+    sleep 3
+    if systemctl is-active --quiet docker; then
+        echo "[OK] Docker service đã được khôi phục thành công."
+        return 0
+    fi
+    echo "[ERROR] Không thể khôi phục Docker service."
+    echo "[INFO] Chi tiết lỗi:"
+    journalctl -u docker.service --no-pager | tail -40
+    echo "[INFO] Thử phương án cuối cùng: gỡ và cài đặt lại Docker..."
+    uninstall_docker
+    # Docker sẽ được cài đặt lại trong phần cài đặt Docker
+    return 1
+}
 
 ########################################################
 # 2. TIỆN ÍCH CHUNG
@@ -101,7 +204,7 @@ ensure_command_exists() {
     
     echo "Dang cai dat $PACKAGE..."
     apt-get update -qq -y
-    apt-get install -qq -y -o DPkg::options::="--force-confdef" -o DPkg::options::="--force-confold" -o DPkg::options::="--force-confnew" --no-install-recommends $PACKAGE
+    apt-get install -qq -y --allow-downgrades --allow-remove-essential --allow-change-held-packages -o DPkg::options::="--force-confdef" -o DPkg::options::="--force-confold" -o DPkg::options::="--force-confnew" --no-install-recommends $PACKAGE
     return 0
 }
 
@@ -133,7 +236,7 @@ unpack_large_package() {
     
     dpkg --unpack "$TEMP_DIR"/*.deb 2>&1 | grep -v "warning" || true
     sleep $SLEEP_AFTER_UNPACK
-    DEBIAN_FRONTEND=noninteractive apt-get -f install -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" || true
+    DEBIAN_FRONTEND=noninteractive apt-get -f install -y --allow-downgrades --allow-remove-essential --allow-change-held-packages -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" || true
     sleep $SLEEP_AFTER_CONFIG
     rm -rf "$TEMP_DIR"
     
@@ -159,7 +262,7 @@ install_package() {
     fi
 
     # Thử cài đặt trực tiếp với apt-get
-    if DEBIAN_FRONTEND=noninteractive apt-get install -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" $PACKAGE; then
+    if DEBIAN_FRONTEND=noninteractive apt-get install -y --allow-downgrades --allow-remove-essential --allow-change-held-packages -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" $PACKAGE; then
         echo "$PACKAGE da duoc cai dat thanh cong!"
         return 0
     fi
@@ -184,96 +287,59 @@ install_package() {
 install_docker() {
     if command -v docker &> /dev/null; then
         echo "[OK] Docker da duoc cai dat, bo qua."
-        
-        # Đảm bảo docker daemon đang chạy
-        if ! docker info &>/dev/null; then
-            echo "[INFO] Khoi dong Docker daemon..."
-            if command -v systemctl &> /dev/null; then
-                systemctl start docker || echo "[WARN] Khong the khoi dong Docker daemon."
-            elif command -v service &> /dev/null; then
-                service docker start || echo "[WARN] Khong the khoi dong Docker daemon."
-            fi
+        if docker info &>/dev/null; then
+            echo "[OK] Docker daemon đang chạy bình thường."
+            return 0
         fi
-        
-        return 0
+        echo "[WARN] Docker daemon không chạy hoặc không thể kết nối."
+        echo "[INFO] Kiểm tra và khởi động lại Docker service..."
+        if command -v systemctl &> /dev/null; then
+            systemctl restart docker.socket || true
+            sleep 2
+            systemctl restart docker || true
+            sleep 3
+            if docker info &>/dev/null; then
+                echo "[OK] Đã khởi động lại Docker service thành công."
+                return 0
+            fi
+            echo "[WARN] Vẫn không thể kết nối đến Docker daemon."
+            echo "[INFO] Kiểm tra chi tiết lỗi Docker service:"
+            journalctl -u docker --no-pager | tail -20
+            echo "[INFO] Tiến hành gỡ cài đặt và cài lại Docker..."
+            apt-get remove -y --allow-downgrades --allow-remove-essential --allow-change-held-packages docker-ce docker-ce-cli containerd.io docker-compose-plugin
+            apt-get autoremove -y --allow-downgrades --allow-remove-essential --allow-change-held-packages
+            rm -rf /var/lib/docker
+            rm -rf /etc/docker
+            echo "[INFO] Đã gỡ cài đặt Docker, tiếp tục cài đặt lại..."
+        elif command -v service &> /dev/null; then
+            service docker restart
+            return 0
+        fi
     fi
-    
     echo "[INFO] Cai dat Docker..."
-    
-    # Tạo group docker nếu chưa tồn tại
     if ! getent group docker >/dev/null; then
         echo "[INFO] Tao group docker..."
         groupadd docker
     fi
-    
-    # Cài đặt các gói cần thiết
-    ensure_command_exists curl
-    ensure_command_exists apt-transport-https
-    ensure_command_exists ca-certificates
-    ensure_command_exists gnupg
-    ensure_command_exists lsb-release
-    
-    echo "[INFO] Them repository chinh thuc cua Docker..."
-    
-    # Tạo thư mục cho gpg key
-    install -m 0755 -d /etc/apt/keyrings
-    
-    # Tải và cài đặt GPG key của Docker
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-    chmod a+r /etc/apt/keyrings/docker.gpg
-    
-    # Thêm repository của Docker
-    echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
-    
-    # Cập nhật danh sách gói
-    DEBIAN_FRONTEND=noninteractive apt-get update -y
-    
-    # Cài đặt Docker Engine và các thành phần riêng lẻ
+    add_docker_repository
+    DEBIAN_FRONTEND=noninteractive apt-get update -y --allow-downgrades --allow-remove-essential --allow-change-held-packages
     echo "[INFO] Bat dau cai dat cac goi Docker rieng le..."
-    
-    # Cài đặt các gói Docker theo thứ tự
-    install_package containerd.io critical
-    install_package docker-ce-cli normal
-    
-    # Cài đặt docker-compose-plugin nếu có
-    if apt-cache search docker-compose-plugin | grep -q "^docker-compose-plugin "; then
-        install_package docker-compose-plugin normal
-    else
-        echo "[INFO] Goi docker-compose-plugin khong co san, se cai dat Docker Compose o buoc sau"
-    fi
-    
-    # Cài đặt docker-ce (Engine chính)
-    echo "[INFO] Cai dat docker-ce (goi trong) bang phuong phap giai nen..."
-    unpack_large_package "docker-ce"
-    
-    # Kiểm tra kernel hỗ trợ overlay2 trước khi khởi động lại Docker (chỉ làm 1 lần duy nhất ở đây)
-    if ! modprobe overlay 2>/dev/null; then
-        echo "[WARN] Kernel không hỗ trợ overlay2. Sẽ chuyển sang storage-driver vfs."
-        DOCKER_DAEMON_JSON="/etc/docker/daemon.json"
-        if [ -f "$DOCKER_DAEMON_JSON" ]; then
-            if command -v jq &> /dev/null; then
-                jq 'del(."storage-driver")' "$DOCKER_DAEMON_JSON" > /tmp/daemon.json.tmp || cp "$DOCKER_DAEMON_JSON" /tmp/daemon.json.tmp
-                mv /tmp/daemon.json.tmp "$DOCKER_DAEMON_JSON"
-                jq '. + {"storage-driver":"vfs"}' "$DOCKER_DAEMON_JSON" > /tmp/daemon.json.tmp || echo '{"storage-driver":"vfs"}' > /tmp/daemon.json.tmp
-                mv /tmp/daemon.json.tmp "$DOCKER_DAEMON_JSON"
-            else
-                sed -i '/"storage-driver"/d' "$DOCKER_DAEMON_JSON"
-                sed -i '$s/}/,\n  "storage-driver": "vfs"\n}/' "$DOCKER_DAEMON_JSON" || echo '{"storage-driver":"vfs"}' > "$DOCKER_DAEMON_JSON"
-            fi
+    for dep in "${DOCKER_DEPS[@]}"; do
+        if [ "$dep" = "docker-ce" ]; then
+            echo "[INFO] Cai dat docker-ce (goi trong) bang phuong phap giai nen..."
+            unpack_large_package "docker-ce"
         else
-            echo '{"storage-driver":"vfs"}' > "$DOCKER_DAEMON_JSON"
+            install_package "$dep" critical
         fi
-        echo "[INFO] Đã chuyển storage-driver sang vfs trong $DOCKER_DAEMON_JSON"
-        echo "[WARN] vfs rất chậm, chỉ nên dùng để test hoặc trên VPS không hỗ trợ overlay2."
-    fi
-    # Khởi động lại Docker để áp dụng cấu hình
+    done
+    mkdir -p /etc/docker
+    echo "[INFO] Kiem tra kernel ho tro overlay2..."
+    setup_docker_daemon_config
     echo "[INFO] Khoi dong lai Docker daemon de ap dung cau hinh moi..."
     if command -v systemctl &> /dev/null; then
-        # Đảm bảo các service phụ thuộc đã chạy
         systemctl start containerd || true
         systemctl start docker.socket || true
         sleep 3
-        # Thử start docker, chỉ retry tối đa 3 lần
         MAX_RETRY=3
         RETRY=0
         while [ $RETRY -lt $MAX_RETRY ]; do
@@ -290,70 +356,39 @@ install_docker() {
         done
         if ! systemctl is-active --quiet docker; then
             echo "[ERROR] Docker vẫn không thể khởi động sau $MAX_RETRY lần thử."
-            journalctl -u docker.service --no-pager | tail -40
+            echo "[INFO] Thử phương án thay thế: sử dụng script cài đặt chính thức..."
+            apt-get remove -y --allow-downgrades --allow-remove-essential --allow-change-held-packages docker-ce docker-ce-cli containerd.io docker-compose-plugin
+            apt-get autoremove -y --allow-downgrades --allow-remove-essential --allow-change-held-packages
+            rm -rf /var/lib/docker
+            rm -rf /etc/docker
+            curl -fsSL https://get.docker.com -o get-docker.sh
+            if [ -f "get-docker.sh" ]; then
+                sh get-docker.sh
+                rm -f get-docker.sh
+            fi
+            if command -v docker &> /dev/null && systemctl is-active --quiet docker; then
+                echo "[OK] Docker đã được cài đặt thành công bằng script chính thức."
+                mkdir -p /etc/docker
+                setup_docker_daemon_config
+                systemctl restart docker
+            else
+                echo "[ERROR] Không thể cài đặt Docker bằng script chính thức."
+                journalctl -u docker.service --no-pager | tail -40
+            fi
         fi
     elif command -v service &> /dev/null; then
         service docker restart
+        return 0
     fi
-    
-    # Kiểm tra kết quả cài đặt
     if command -v docker &> /dev/null; then
         echo "[OK] Docker da duoc cai dat thanh cong."
-        # Thêm người dùng hiện tại vào nhóm docker nếu không phải root
         if [ -n "${SUDO_USER:-}" ]; then
             echo "[INFO] Them nguoi dung $SUDO_USER vao nhom docker..."
             usermod -aG docker $SUDO_USER
             echo "[INFO] Da them $SUDO_USER vao nhom docker. Can dang xuat va dang nhap lai de ap dung."
         fi
-        # Cấu hình Docker để tối ưu tài nguyên (KHÔNG ghi đè storage-driver nữa)
-        echo "[INFO] Cau hinh Docker toi uu cho may yeu..."
-        mkdir -p /etc/docker
-        if [ ! -f /etc/docker/daemon.json ]; then
-            cat << EOF > /etc/docker/daemon.json
-{
-  "log-driver": "json-file",
-  "log-opts": {
-    "max-size": "10m",
-    "max-file": "3"
-  },
-  "max-concurrent-downloads": 1,
-  "max-concurrent-uploads": 1
-}
-EOF
-        else
-            # Nếu có jq, merge các option tối ưu vào file cũ
-            if command -v jq &> /dev/null; then
-                tmpfile=$(mktemp)
-                jq '. + {
-                  "log-driver": "json-file",
-                  "log-opts": {
-                    "max-size": "10m",
-                    "max-file": "3"
-                  },
-                  "max-concurrent-downloads": 1,
-                  "max-concurrent-uploads": 1
-                }' /etc/docker/daemon.json > "$tmpfile" && mv "$tmpfile" /etc/docker/daemon.json
-            fi
-        fi
-        # Không restart docker nữa ở đây!
         return 0
     fi
-    
-    echo "[ERROR] Loi: Khong the cai dat Docker. Thu su dung script chinh thuc..."
-    
-    # Thử sử dụng script cài đặt chính thức nếu cách trên thất bại
-    curl -fsSL https://get.docker.com -o get-docker.sh
-    if [ -f "get-docker.sh" ]; then
-        sh get-docker.sh
-        rm -f get-docker.sh
-    fi
-    
-    # Kiểm tra lại sau khi thử phương án thay thế
-    if command -v docker &> /dev/null; then
-        echo "[OK] Docker da duoc cai dat thanh cong (phương án thay thế)."
-        return 0
-    fi
-    
     echo "[ERROR] Loi: Khong the cai dat Docker."
     return 1
 }
@@ -373,11 +408,11 @@ install_docker_compose() {
     # 1. Thử cài đặt gói docker-compose
     if apt-cache search docker-compose | grep -q "^docker-compose "; then
         echo "Tim thay goi docker-compose, dang cai dat..."
-        apt-get install -y docker-compose
+        apt-get install -y --allow-downgrades --allow-remove-essential --allow-change-held-packages docker-compose
     # 2. Thử cài đặt gói docker-compose-plugin
     elif apt-cache search docker-compose-plugin | grep -q "^docker-compose-plugin "; then
         echo "Tim thay goi docker-compose-plugin, dang cai dat..."
-        apt-get install -y docker-compose-plugin
+        apt-get install -y --allow-downgrades --allow-remove-essential --allow-change-held-packages docker-compose-plugin
     # 3. Thử cài đặt từ binary chính thức
     else
         echo "Khong tim thay goi docker-compose trong kho apt, tai tu Docker Hub..."
@@ -535,11 +570,103 @@ start_docker_containers() {
     TARGET_DIR="$BACKEND_DIR"
     cd $TARGET_DIR
     
+    # Kiểm tra xem Docker service có đang chạy không
+    if ! systemctl is-active --quiet docker; then
+        echo "[ERROR] Docker service không chạy, không thể khởi động containers."
+        echo "[INFO] Thử khởi động lại Docker service..."
+        
+        # Thử khởi động lại Docker service
+        systemctl restart docker.socket || true
+        sleep 2
+        systemctl restart docker || true
+        sleep 3
+        
+        # Kiểm tra lại
+        if ! systemctl is-active --quiet docker; then
+            echo "[ERROR] Không thể khởi động Docker service. Không thể tiếp tục."
+            echo "[INFO] Kiểm tra chi tiết lỗi Docker service:"
+            journalctl -u docker --no-pager | tail -40
+            return 1
+        fi
+    fi
+    
     # Kiểm tra file docker-compose.yml
     if [ ! -f "docker-compose.yml" ]; then
         echo "[ERROR] Khong tim thay file docker-compose.yml!"
         echo "[ERROR] Vui long dam bao repository chua file docker-compose.yml hoac tao thu cong."
         return 1
+    fi
+    
+    # Kiểm tra và xác thực Dockerfile
+    if [ -f "Dockerfile" ]; then
+        echo "[INFO] Kiem tra Dockerfile..."
+        # Kiểm tra xem Dockerfile có bắt đầu bằng FROM không
+        if ! grep -q "^FROM" "Dockerfile"; then
+            echo "[WARN] Dockerfile không hợp lệ, không tìm thấy lệnh FROM ở đầu file."
+            echo "[INFO] Sửa chữa Dockerfile..."
+            
+            # Tạo bản sao của Dockerfile gốc
+            cp Dockerfile Dockerfile.bak
+            
+            # Tạo Dockerfile mới chỉ với các lệnh hợp lệ
+            {
+                echo "FROM python:3.9-slim"
+                echo ""
+                echo "WORKDIR /app"
+                echo ""
+                echo "# Cài đặt các dependencies cần thiết"
+                echo "RUN apt-get update && apt-get install -y --no-install-recommends \\"
+                echo "    libpq-dev \\"
+                echo "    gcc \\"
+                echo "    && rm -rf /var/lib/apt/lists/*"
+                echo ""
+                echo "# Copy requirements và cài đặt dependencies"
+                echo "COPY requirements.txt ."
+                echo "RUN pip install --no-cache-dir -r requirements.txt"
+                echo ""
+                echo "# Copy mã nguồn"
+                echo "COPY . ."
+                echo ""
+                echo "# Expose port"
+                echo "EXPOSE 8000"
+                echo ""
+                echo "# Chạy ứng dụng"
+                echo 'CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]'
+            } > Dockerfile
+            
+            echo "[INFO] Đã tạo lại Dockerfile với cấu trúc chuẩn."
+        fi
+    else
+        echo "[WARN] Khong tim thay Dockerfile trong thu muc $TARGET_DIR"
+        echo "[INFO] Tao Dockerfile mac dinh..."
+        
+        # Tạo Dockerfile mặc định
+        {
+            echo "FROM python:3.9-slim"
+            echo ""
+            echo "WORKDIR /app"
+            echo ""
+            echo "# Cài đặt các dependencies cần thiết"
+            echo "RUN apt-get update && apt-get install -y --no-install-recommends \\"
+            echo "    libpq-dev \\"
+            echo "    gcc \\"
+            echo "    && rm -rf /var/lib/apt/lists/*"
+            echo ""
+            echo "# Copy requirements và cài đặt dependencies"
+            echo "COPY requirements.txt ."
+            echo "RUN pip install --no-cache-dir -r requirements.txt"
+            echo ""
+            echo "# Copy mã nguồn"
+            echo "COPY . ."
+            echo ""
+            echo "# Expose port"
+            echo "EXPOSE 8000"
+            echo ""
+            echo "# Chạy ứng dụng"
+            echo 'CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]'
+        } > Dockerfile
+        
+        echo "[INFO] Da tao Dockerfile mac dinh."
     fi
     
     # Kiểm tra và xử lý port đang được sử dụng
@@ -555,6 +682,12 @@ start_docker_containers() {
     # Dừng các container đang chạy nếu có
     echo "[INFO] Dung cac container dang chay (neu co)..."
     docker-compose down 2>/dev/null || docker compose down 2>/dev/null || true
+    
+    # Kiểm tra kết nối đến Docker daemon
+    if ! docker info &>/dev/null; then
+        echo "[ERROR] Không thể kết nối đến Docker daemon. Không thể khởi động containers."
+        return 1
+    fi
     
     # Đảm bảo biến môi trường được export
     echo "[INFO] Chuan bi bien moi truong cho docker-compose..."
@@ -665,6 +798,15 @@ main() {
     
     echo "[INFO] BAT DAU CAI DAT HE THONG"
     
+    # Khởi tạo môi trường (thay thế phần khởi tạo môi trường ở đầu script)
+    initialize_environment
+    
+    # Cài đặt các dependencies cần thiết
+    install_dependencies
+    
+    # Kiểm tra và khôi phục Docker service nếu cần
+    fix_docker_service
+    
     # Kiểm tra lần cuối xem docker group đã tồn tại
     if ! getent group docker >/dev/null; then
         echo "[INFO] Tao group docker..."
@@ -673,6 +815,7 @@ main() {
     
     # Thực hiện các bước cài đặt
     install_docker
+    ensure_user_in_docker_group
     install_docker_compose
     setup_backend
     start_docker_containers
@@ -686,33 +829,24 @@ main() {
         fi
         chown -R $SUDO_USER:$SUDO_USER $BACKEND_DIR
     fi
-    
+
     echo ""
     echo "=========================================================="
     echo "[OK] CAI DAT HOAN TAT"
     echo "=========================================================="
     
     # Kiểm tra Docker service có chạy không
-    if systemctl is-active --quiet docker; then
-        echo "[OK] Docker service dang chay."
-        # ... (phần chuyển thư mục như cũ)
-    else
-        # Docker service không chạy
+    if ! systemctl is-active --quiet docker; then
         echo "[ERROR] Docker service khong chay!"
         echo "[INFO] Thử tự động sửa lỗi docker.service..."
-        # Reset start-limit-hit cho cả docker.service và docker.socket
         systemctl reset-failed docker.service || true
         systemctl reset-failed docker.socket || true
-        # Unmask và enable lại cả hai service
         systemctl unmask docker.service || true
         systemctl unmask docker.socket || true
         systemctl enable docker.service || true
         systemctl enable docker.socket || true
-        # Khởi động lại docker.socket trước, sau đó docker.service
-        systemctl start docker.socket || true
-        systemctl start docker.service || true
+        manage_docker_service start
         sleep 2
-        # Kiểm tra lại
         if systemctl is-active --quiet docker; then
             echo "[OK] Docker service da duoc khoi dong lai thanh cong."
         else
@@ -721,6 +855,25 @@ main() {
             journalctl -u docker.service --no-pager | tail -40
             echo "[INFO] Ban can khoi dong lai Docker service thu cong hoac kiem tra log chi tiet o tren."
         fi
+    else
+        echo "[OK] Docker service dang chay."
+    fi
+}
+
+# Đảm bảo user hiện tại có quyền docker, chỉ thêm vào group và cảnh báo nếu cần
+ensure_user_in_docker_group() {
+    local TARGET_USER="${SUDO_USER:-$USER}"
+    if [ -z "$TARGET_USER" ]; then
+        echo "[WARN] Không xác định được user để thêm vào group docker."
+        return 1
+    fi
+    if id -nG "$TARGET_USER" | grep -qw docker; then
+        echo "[OK] User $TARGET_USER đã thuộc group docker."
+    else
+        echo "[INFO] Thêm user $TARGET_USER vào group docker..."
+        usermod -aG docker "$TARGET_USER"
+        echo "[OK] Đã thêm $TARGET_USER vào group docker."
+        echo "[WARN] Bạn cần đăng xuất và đăng nhập lại (hoặc mở terminal mới) để sử dụng docker mà không cần sudo."
     fi
 }
 
