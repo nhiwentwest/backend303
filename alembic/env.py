@@ -28,6 +28,11 @@ target_metadata = Base.metadata
 # Thêm đoạn này để load DATABASE_URL từ .env
 from dotenv import load_dotenv
 load_dotenv()
+import re
+
+def force_port_5432(url):
+    # Thay port bất kỳ thành 5432 trong chuỗi kết nối postgresql://user:pass@host:port/db
+    return re.sub(r'(postgresql://[^:]+:[^@]+@[^:/]+:)(\d+)', r'\g<1>5432', url)
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
@@ -51,6 +56,7 @@ def run_migrations_offline() -> None:
     url = os.getenv("DATABASE_URL")
     if not url:
         raise RuntimeError("DATABASE_URL must be set in .env file or environment variables")
+    url = force_port_5432(url)
     context.configure(
         url=url,
         target_metadata=target_metadata,
@@ -73,6 +79,7 @@ def run_migrations_online() -> None:
     url = os.getenv("DATABASE_URL")
     if not url:
         raise RuntimeError("DATABASE_URL must be set in .env file or environment variables")
+    url = force_port_5432(url)
     from sqlalchemy import create_engine
     connectable = create_engine(url, poolclass=pool.NullPool)
 
