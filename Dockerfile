@@ -17,6 +17,3 @@ COPY . .
 
 # Expose port
 EXPOSE 8000
-
-# Chạy ứng dụng
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"] 
