@@ -25,6 +25,10 @@ from models import Base
 
 target_metadata = Base.metadata
 
+# Thêm đoạn này để load DATABASE_URL từ .env
+from dotenv import load_dotenv
+load_dotenv()
+
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
 # my_important_option = config.get_main_option("my_important_option")
@@ -43,7 +47,10 @@ def run_migrations_offline() -> None:
     script output.
 
     """
-    url = config.get_main_option("sqlalchemy.url")
+    # Lấy DATABASE_URL từ biến môi trường
+    url = os.getenv("DATABASE_URL")
+    if not url:
+        raise RuntimeError("DATABASE_URL must be set in .env file or environment variables")
     context.configure(
         url=url,
         target_metadata=target_metadata,
@@ -62,11 +69,12 @@ def run_migrations_online() -> None:
     and associate a connection with the context.
 
     """
-    connectable = engine_from_config(
-        config.get_section(config.config_ini_section, {}),
-        prefix="sqlalchemy.",
-        poolclass=pool.NullPool,
-    )
+    # Lấy DATABASE_URL từ biến môi trường
+    url = os.getenv("DATABASE_URL")
+    if not url:
+        raise RuntimeError("DATABASE_URL must be set in .env file or environment variables")
+    from sqlalchemy import create_engine
+    connectable = create_engine(url, poolclass=pool.NullPool)
 
     with connectable.connect() as connection:
         context.configure(
