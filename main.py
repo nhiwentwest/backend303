@@ -48,6 +48,14 @@ init_db()
 
 app = FastAPI()
 
+@app.get("/health", status_code=status.HTTP_200_OK)
+async def health_check():
+    """
+    Simple health check endpoint.
+    Returns HTTP 200 if the application is up and running.
+    """
+    return {"status": "healthy"}
+
 # Cấu hình CORS
 app.add_middleware(
     CORSMiddleware,
